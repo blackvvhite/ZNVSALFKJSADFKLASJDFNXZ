@@ -8,72 +8,169 @@
 
 #import "XMLayout.h"
 
-#import "HexColors.h"
+#import <UIKit/NSLayoutConstraint.h>
 
-#import "ONOXMLDocument.h"
+@interface XMLayout ()
+
+@property (nonatomic, readwrite, weak) UIView *relationshipView;
+
+@property (nonatomic, weak) NSLayoutConstraint *topConstraint;
+@property (nonatomic, weak) NSLayoutConstraint *bottomConstraint;
+@property (nonatomic, weak) NSLayoutConstraint *leftConstraint;
+@property (nonatomic, weak) NSLayoutConstraint *rightConstraint;
+@property (nonatomic, weak) NSLayoutConstraint *widthConstraint;
+@property (nonatomic, weak) NSLayoutConstraint *heightConstraint;
+
+@end
 
 @implementation XMLayout
 
-+ (id)viewFromXML:(NSString *)xml {
+#pragma mark- Init
+
+- (instancetype)initWithRelationshipView:(UIView *)relationshipView {
+    self = [super init];
+    if (self) {
+        self.relationshipView = relationshipView;
+    }
+    return self;
+}
+
+#pragma mark - Public
+
+- (NSLayoutConstraint *)constraintWithAttribute:(NSLayoutAttribute)attribute
+                                       constant:(CGFloat)constant {
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"xml" ofType:@"xml"];
+    return [NSLayoutConstraint constraintWithItem:self.relationshipView
+                                        attribute:attribute
+                                        relatedBy:NSLayoutRelationEqual
+                                           toItem:self.relationshipView.superview
+                                        attribute:attribute
+                                       multiplier:1
+                                         constant:constant];
+}
+
+- (NSLayoutConstraint *)constraintWithAttribute:(NSLayoutAttribute)attribute
+                                     attribute2:(NSLayoutAttribute)attribute2
+                                       constant:(CGFloat)constant {
     
-    NSData *data = [NSData dataWithContentsOfFile:path];
+    return [NSLayoutConstraint constraintWithItem:self.relationshipView
+                                        attribute:attribute
+                                        relatedBy:NSLayoutRelationEqual
+                                           toItem:nil
+                                        attribute:attribute2
+                                       multiplier:1
+                                         constant:constant];
+}
+
+
+- (void)setMargin_top:(CGFloat)margin_top {
     
-    NSError *error;
+    NSAssert(self.relationshipView.superview, @"There is no parent view");
     
-    ONOXMLDocument *document = [ONOXMLDocument XMLDocumentWithData:data error:&error];
-    
-    if (error) {
-        NSLog(@"%@",error);
-        return nil;
+    if (!self.topConstraint) {
+        
+        NSLayoutConstraint *constraint = [self constraintWithAttribute:NSLayoutAttributeTop
+                                                              constant:margin_top];
+        [self.relationshipView.superview addConstraint:constraint];
+        [self setTopConstraint:constraint];
+    }else {
+        
+        self.topConstraint.constant = margin_top;
     }
     
-    NSArray *childrens = document.rootElement.children;
+    _margin_top = margin_top;
+}
+
+- (void)setMargin_bottom:(CGFloat)margin_bottom {
     
-    UIView *parentView = [[UIView alloc] init];
-    parentView.translatesAutoresizingMaskIntoConstraints = NO;
+    NSAssert(self.relationshipView.superview, @"There is no parent view");
     
-    for (ONOXMLElement *element in childrens) {
+    if (!self.bottomConstraint) {
         
-        NSLog(@"%@",element.tag);
+        NSLayoutConstraint *constraint = [self constraintWithAttribute:NSLayoutAttributeBottom
+                                                              constant:-margin_bottom];
+        [self.relationshipView.superview addConstraint:constraint];
+        [self setBottomConstraint:constraint];
+    }else {
         
-        id subView = [[NSClassFromString(element.tag) alloc] init];
-        
-        [subView setTranslatesAutoresizingMaskIntoConstraints:NO];
-        
-        [parentView addSubview:subView];
-        
-        [element.attributes enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-            
-            NSString *methodName = [NSString stringWithFormat:@"set%@%@:",[[key substringToIndex:1] uppercaseString],[key substringFromIndex:1]];
-            
-            
-            
-            NSMethodSignature *signature = [[subView class] instanceMethodSignatureForSelector:NSSelectorFromString(methodName)];
-            
-            NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
-            [invocation setSelector:NSSelectorFromString(methodName)];
-            
-            
-            const char *type = [signature getArgumentTypeAtIndex:2];
-            
-            
-            NSLog(@"\n%@\n%@\n%@\n%s\n%@",element.tag,key,methodName,type,obj);
-            
-            if (strcmp(type, "d") == 0) {
-                CGFloat argument = [obj floatValue];
-                [invocation setArgument:&argument atIndex:2];
-            }else {
-                
-                [invocation setArgument:&obj atIndex:2];
-            }
-            
-            [invocation setTarget:subView];
-            [invocation invoke];
-        }];
+        self.bottomConstraint.constant = -margin_bottom;
     }
-    return parentView;
+    
+    _margin_bottom = -margin_bottom;
+}
+
+- (void)setMargin_left:(CGFloat)margin_left {
+    
+    NSAssert(self.relationshipView.superview, @"There is no parent view");
+    
+    if (!self.leftConstraint) {
+        
+        NSLayoutConstraint *constraint = [self constraintWithAttribute:NSLayoutAttributeLeading
+                                                              constant:margin_left];
+        [self.relationshipView.superview addConstraint:constraint];
+        [self setLeftConstraint:constraint];
+    }else {
+        
+        self.leftConstraint.constant = margin_left;
+    }
+    
+    _margin_left = margin_left;
+}
+
+- (void)setMargin_right:(CGFloat)margin_right {
+    
+    NSAssert(self.relationshipView.superview, @"There is no parent view");
+    
+    if (!self.rightConstraint) {
+        
+        NSLayoutConstraint *constraint = [self constraintWithAttribute:NSLayoutAttributeTrailing
+                                                              constant:-margin_right];
+        [self.relationshipView.superview addConstraint:constraint];
+        [self setRightConstraint:constraint];
+    }else {
+        
+        self.rightConstraint.constant = -margin_right;
+    }
+    
+    _margin_right = -margin_right;
+}
+
+- (void)setWidth:(CGFloat)width {
+    
+    NSAssert(self.relationshipView.superview, @"There is no parent view");
+    
+    if (!self.widthConstraint) {
+        
+        NSLayoutConstraint *constraint = [self constraintWithAttribute:NSLayoutAttributeWidth
+                                                            attribute2:NSLayoutAttributeNotAnAttribute
+                                                              constant:width];
+        [self.relationshipView.superview addConstraint:constraint];
+        [self setWidthConstraint:constraint];
+    }else {
+        
+        self.widthConstraint.constant = width;
+    }
+    
+    _width = width;
+}
+
+- (void)setHeight:(CGFloat)height {
+    
+    NSAssert(self.relationshipView.superview, @"There is no parent view");
+    
+    if (!self.heightConstraint) {
+        
+        NSLayoutConstraint *constraint = [self constraintWithAttribute:NSLayoutAttributeHeight
+                                                            attribute2:NSLayoutAttributeNotAnAttribute
+                                                              constant:height];
+        [self.relationshipView.superview addConstraint:constraint];
+        [self setHeightConstraint:constraint];
+    }else {
+        
+        self.heightConstraint.constant = height;
+    }
+    
+    _height = height;
 }
 
 @end

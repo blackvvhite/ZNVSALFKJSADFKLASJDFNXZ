@@ -8,9 +8,12 @@
 
 #import "ViewController.h"
 
-#import "XMLayout.h"
+#import "UIView+XMLayout.h"
+#import "XMLView.h"
 
 @interface ViewController ()
+
+
 
 @end
 
@@ -21,12 +24,15 @@
     // Do any additional setup after loading the view, typically from a nib.
 
     
-    UIView *view = [XMLayout viewFromXML:@"xml"];
+    UIView *view = [XMLView viewFromXML:@"xml"];
     
     [self.view addSubview:view];
     
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[view]|" options:0 metrics:nil views:@{@"view":view}]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:nil views:@{@"view":view}]];
+    
+
+
 }
 
 - (void)didReceiveMemoryWarning {

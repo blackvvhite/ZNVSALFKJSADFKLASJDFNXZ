@@ -17,7 +17,10 @@
 		84B6530C1CCE42420093B1D0 /* xml.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84B6530B1CCE42420093B1D0 /* xml.xml */; };
 		84B653101CCE46350093B1D0 /* HexColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B6530F1CCE46350093B1D0 /* HexColors.m */; };
 		84B6532A1CCE56BE0093B1D0 /* ONOXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B653291CCE56BE0093B1D0 /* ONOXMLDocument.m */; };
-		84B6532E1CCE5EF60093B1D0 /* UIView+Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B6532D1CCE5EF60093B1D0 /* UIView+Config.m */; };
+		93B8036D1CCF6273005140A4 /* UIView+Relative.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B8036C1CCF6273005140A4 /* UIView+Relative.m */; };
+		93B803701CCF737B005140A4 /* XMLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B8036F1CCF737B005140A4 /* XMLView.m */; };
+		93B803741CCF7A9F005140A4 /* UIView+XMLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B803731CCF7A9F005140A4 /* UIView+XMLayout.m */; };
+		93B803771CCF80A8005140A4 /* XMLRelativeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B803761CCF80A8005140A4 /* XMLRelativeLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +41,15 @@
 		84B6530F1CCE46350093B1D0 /* HexColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColors.m; sourceTree = "<group>"; };
 		84B653281CCE56BE0093B1D0 /* ONOXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONOXMLDocument.h; sourceTree = "<group>"; };
 		84B653291CCE56BE0093B1D0 /* ONOXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONOXMLDocument.m; sourceTree = "<group>"; };
-		84B6532C1CCE5EF60093B1D0 /* UIView+Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Config.h"; sourceTree = "<group>"; };
-		84B6532D1CCE5EF60093B1D0 /* UIView+Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Config.m"; sourceTree = "<group>"; };
+		93B8036B1CCF6273005140A4 /* UIView+Relative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Relative.h"; sourceTree = "<group>"; };
+		93B8036C1CCF6273005140A4 /* UIView+Relative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Relative.m"; sourceTree = "<group>"; };
+		93B8036E1CCF737B005140A4 /* XMLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLView.h; sourceTree = "<group>"; };
+		93B8036F1CCF737B005140A4 /* XMLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLView.m; sourceTree = "<group>"; };
+		93B803711CCF73E6005140A4 /* XMLBaseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLBaseProtocol.h; sourceTree = "<group>"; };
+		93B803721CCF7A9F005140A4 /* UIView+XMLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XMLayout.h"; sourceTree = "<group>"; };
+		93B803731CCF7A9F005140A4 /* UIView+XMLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XMLayout.m"; sourceTree = "<group>"; };
+		93B803751CCF80A8005140A4 /* XMLRelativeLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRelativeLayout.h; sourceTree = "<group>"; };
+		93B803761CCF80A8005140A4 /* XMLRelativeLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRelativeLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +90,15 @@
 				84B652D61CCE3F850093B1D0 /* ViewController.m */,
 				84B653081CCE41560093B1D0 /* XMLayout.h */,
 				84B653091CCE41560093B1D0 /* XMLayout.m */,
-				84B6532C1CCE5EF60093B1D0 /* UIView+Config.h */,
-				84B6532D1CCE5EF60093B1D0 /* UIView+Config.m */,
+				93B803751CCF80A8005140A4 /* XMLRelativeLayout.h */,
+				93B803761CCF80A8005140A4 /* XMLRelativeLayout.m */,
+				93B8036E1CCF737B005140A4 /* XMLView.h */,
+				93B8036F1CCF737B005140A4 /* XMLView.m */,
+				93B803721CCF7A9F005140A4 /* UIView+XMLayout.h */,
+				93B803731CCF7A9F005140A4 /* UIView+XMLayout.m */,
+				93B803711CCF73E6005140A4 /* XMLBaseProtocol.h */,
+				93B8036B1CCF6273005140A4 /* UIView+Relative.h */,
+				93B8036C1CCF6273005140A4 /* UIView+Relative.m */,
 				84B6530B1CCE42420093B1D0 /* xml.xml */,
 				84B652D81CCE3F850093B1D0 /* Main.storyboard */,
 				84B652DB1CCE3F850093B1D0 /* Assets.xcassets */,
@@ -193,9 +210,12 @@
 				84B6532A1CCE56BE0093B1D0 /* ONOXMLDocument.m in Sources */,
 				84B6530A1CCE41560093B1D0 /* XMLayout.m in Sources */,
 				84B652D41CCE3F850093B1D0 /* AppDelegate.m in Sources */,
-				84B6532E1CCE5EF60093B1D0 /* UIView+Config.m in Sources */,
+				93B8036D1CCF6273005140A4 /* UIView+Relative.m in Sources */,
 				84B653101CCE46350093B1D0 /* HexColors.m in Sources */,
+				93B803701CCF737B005140A4 /* XMLView.m in Sources */,
+				93B803771CCF80A8005140A4 /* XMLRelativeLayout.m in Sources */,
 				84B652D11CCE3F850093B1D0 /* main.m in Sources */,
+				93B803741CCF7A9F005140A4 /* UIView+XMLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

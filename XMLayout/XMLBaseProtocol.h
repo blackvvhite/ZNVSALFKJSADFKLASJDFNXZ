@@ -1,18 +1,15 @@
 //
-//  XMLayout.h
+//  XMLBaseProtocol.h
 //  XMLayout
 //
-//  Created by admin on 16/4/25.
+//  Created by bateng on 16/4/26.
 //  Copyright © 2016年 B&W. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <CoreGraphics/CGBase.h>
+#import <UIKit/UIView.h>
 
-#import "XMLBaseProtocol.h"
-
-@interface XMLayout : NSObject<XMLBaseProtocol>
-
-- (instancetype)initWithRelationshipView:(UIView *)relationshipView;
+@protocol XMLBaseProtocol <NSObject>
 
 @property (nonatomic, readonly, weak) UIView *relationshipView;
 
