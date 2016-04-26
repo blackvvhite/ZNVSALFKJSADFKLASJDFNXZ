@@ -2,25 +2,16 @@
 //  XMLayout.h
 //  XMLayout
 //
-//  Created by admin on 16/4/25.
+//  Created by admin on 16/4/26.
 //  Copyright © 2016年 B&W. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#ifndef XMLayout_h
+#define XMLayout_h
 
-#import "XMLBaseProtocol.h"
+#import "XMLBaseLayout.h"
+#import "XMLRelativeLayout.h"
+#import "XMLViewSource.h"
+#import "UIView+XMLayout.h"
 
-@interface XMLayout : NSObject<XMLBaseProtocol>
-
-- (instancetype)initWithRelationshipView:(UIView *)relationshipView;
-
-@property (nonatomic, readonly, weak) UIView *relationshipView;
-
-@property (nonatomic, assign) CGFloat margin_top;
-@property (nonatomic, assign) CGFloat margin_bottom;
-@property (nonatomic, assign) CGFloat margin_left;
-@property (nonatomic, assign) CGFloat margin_right;
-@property (nonatomic, assign) CGFloat width;
-@property (nonatomic, assign) CGFloat height;
-
-@end
+#endif /* XMLayout_h */

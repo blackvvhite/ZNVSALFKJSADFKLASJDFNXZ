@@ -12,12 +12,14 @@
 
 @implementation UIView (XMLayout)
 
-- (void)setLayout:(XMLayout *)layout {
-    objc_setAssociatedObject(self, _cmd, layout, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setLayout:(XMLBaseLayout *)layout {
+    
+    objc_setAssociatedObject(self, @selector(layout), layout, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (XMLayout *)layout {
-    return objc_getAssociatedObject(self, @selector(setLayout:));
+- (XMLBaseLayout *)layout {
+    
+    return objc_getAssociatedObject(self, _cmd);
 }
 
 @end

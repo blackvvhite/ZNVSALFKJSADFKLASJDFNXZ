@@ -1,12 +1,17 @@
 <UIView>
-	<UIView margin_top="20" margin_left="20" margin_right="20" height="300" backgroundColor="ff8942" tag="13">
-       <UIView margin_top="10" margin_left="10" margin_right="10" height="50" backgroundColor="fc89e2">
-           <UIView margin_top="10" margin_left="10" margin_right="10" height="20" backgroundColor="fc59e2"></UIView>
-       </UIView>
-       <UIView margin_top="70" margin_left="10" margin_right="10" height="50" backgroundColor="fc89e2"></UIView>
-       <UIView margin_top="130" margin_left="10" margin_right="10" height="50" backgroundColor="fc89e2"></UIView>
+	<UIView layout_marginTop="20" layout_marginLeft="20" layout_marginRight="20" layout_marginBottom="300" backgroundColor="ff8942">
+        
     </UIView>
-	<UIView margin_top="350" margin_left="20" margin_right="50" margin_bottom="20" backgroundColor="ff8942">
-    	<UILabel margin_top="20" margin_left="20" margin_right="50" height="30" text="my name is label" backgroundColor="fe4536" textColor="fc8765"/>
+    
+    <UIView layout_marginLeft="20" layout_marginRight="20" layout_marginBottom="20" layout_height="250" backgroundColor="ff8942">
+        <UIView layout_id="top" layout_marginTop="10" layout_marginLeft="20" layout_marginRight="20" layout_height="50" backgroundColor="FFDAB9">
+            
+        </UIView>
+        <UIView layout_id="center" layout_below="top:5" layout_above="bottom:5" layout_marginLeft="20" layout_marginRight="20" layout_height="40" backgroundColor="FFA07A">
+            
+        </UIView>
+        <UIView layout_id="bottom" layout_toLeftOf="center" layout_toRightOf="top:10" layout_marginBottom="20" backgroundColor="FF3E96">
+            
+        </UIView>
     </UIView>
 </UIView>

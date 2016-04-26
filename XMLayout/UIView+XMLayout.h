@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-#import "XMLayout.h"
+#import "XMLBaseLayout.h"
 
 @interface UIView (XMLayout)
 
-@property (nonatomic, strong) XMLayout *layout;
+@property (nonatomic, strong) XMLBaseLayout *layout;
 
 @end

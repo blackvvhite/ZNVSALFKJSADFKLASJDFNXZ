@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface XMLView : NSObject
+@interface XMLViewSource : NSObject
 
 + (id)viewFromXML:(NSString *)xml;
 

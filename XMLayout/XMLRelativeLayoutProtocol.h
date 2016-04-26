@@ -1,16 +1,15 @@
 //
-//  XMLRelativeLayout.h
+//  XMLRelativeLayoutProtocol.h
 //  XMLayout
 //
 //  Created by admin on 16/4/26.
 //  Copyright © 2016年 B&W. All rights reserved.
 //
 
-#import "XMLBaseLayout.h"
+#import <Foundation/Foundation.h>
 
-#import "XMLRelativeLayoutProtocol.h"
+@protocol XMLRelativeLayoutProtocol <NSObject>
 
-@interface XMLRelativeLayout : XMLBaseLayout<XMLRelativeLayoutProtocol>
 
 #pragma mark - 相对于给定ID控件
 
@@ -20,10 +19,10 @@
 /// 将该控件的顶部置于给定ID的控件之下
 @property (nonatomic, copy) NSString *layout_below;
 
-/// 将该控件的右边缘与给定ID的控件左边缘对齐
+/// 将该控件的左边缘与给定ID的控件左边缘对齐
 @property (nonatomic, copy) NSString *layout_toLeftOf;
 
-/// 将该控件的左边缘与给定ID的控件右边缘对齐
+/// 将该控件的右边缘与给定ID的控件右边缘对齐
 @property (nonatomic, copy) NSString *layout_toRightOf;
 
 /// 将该控件的baseline与给定ID的baseline对齐
