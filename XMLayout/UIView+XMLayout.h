@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-#import "XMLBaseLayout.h"
+#import "XMLRelativeLayout.h"
 
+@class XMLViewService;
 @interface UIView (XMLayout)
 
-@property (nonatomic, strong) XMLBaseLayout *layout;
+@property (nonatomic, copy  ) NSString *layout_id;
+@property (nonatomic, strong) XMLRelativeLayout *layout;
+@property (nonatomic, weak  ) XMLViewService *viewService;
+
 
 @end

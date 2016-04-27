@@ -11,7 +11,8 @@
 
 #import "XMLBaseLayout.h"
 #import "XMLRelativeLayout.h"
-#import "XMLViewSource.h"
+#import "XMLViewService.h"
 #import "UIView+XMLayout.h"
+#import "UIViewController+XMLayout.h"
 
 #endif /* XMLayout_h */

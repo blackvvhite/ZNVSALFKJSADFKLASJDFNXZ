@@ -8,20 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-#import "XMLayoutProtocol.h"
-
-@interface XMLBaseLayout : NSObject<XMLayoutProtocol>
+@class UIView;
+@interface XMLBaseLayout : NSObject
 
 - (instancetype)initWithRelationshipView:(UIView *)relationshipView;
 
-@property (nonatomic, assign) CGFloat layout_marginTop;
-@property (nonatomic, assign) CGFloat layout_marginBottom;
-@property (nonatomic, assign) CGFloat layout_marginLeft;
-@property (nonatomic, assign) CGFloat layout_marginRight;
-@property (nonatomic, assign) CGFloat layout_width;
-@property (nonatomic, assign) CGFloat layout_height;
+@property (nonatomic, readonly, weak) UIView *relationshipView;
 
-- (void)activateConstraint:(NSLayoutConstraint *)constraint;
-- (void)deactivateConstraint:(NSLayoutConstraint *)constraint;
+@property (nonatomic, copy) NSString *layout_marginTop;
+@property (nonatomic, copy) NSString *layout_marginBottom;
+@property (nonatomic, copy) NSString *layout_marginLeft;
+@property (nonatomic, copy) NSString *layout_marginRight;
+@property (nonatomic, copy) NSString *layout_width;
+@property (nonatomic, copy) NSString *layout_height;
 
 @end

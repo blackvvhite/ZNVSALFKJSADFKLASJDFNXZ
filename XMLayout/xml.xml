@@ -1,17 +1,20 @@
 <UIView>
-	<UIView layout_marginTop="20" layout_marginLeft="20" layout_marginRight="20" layout_marginBottom="300" backgroundColor="ff8942">
-        
+	<UIView layout_id="top_view" layout_marginTop="20" layout_marginLeft="20" layout_marginRight="-20" layout_height="300" backgroundColor="ff8942">
+       
     </UIView>
     
-    <UIView layout_marginLeft="20" layout_marginRight="20" layout_marginBottom="20" layout_height="250" backgroundColor="ff8942">
-        <UIView layout_id="top" layout_marginTop="10" layout_marginLeft="20" layout_marginRight="20" layout_height="50" backgroundColor="FFDAB9">
-            
+    <UIView layout_id="contentView" layout_below="@id:top_view:10" layout_marginLeft="20" layout_marginRight="-20" layout_marginBottom="-20" backgroundColor="ff8942">
+        
+        <UIView layout_id="top_left" layout_marginTop="10" layout_marginLeft="20" layout_width="100" layout_height="50" backgroundColor="FFDAB9">
         </UIView>
-        <UIView layout_id="center" layout_below="top:5" layout_above="bottom:5" layout_marginLeft="20" layout_marginRight="20" layout_height="40" backgroundColor="FFA07A">
-            
+        
+        <UIView layout_id="top_right" layout_alignTop="@id:top_left" layout_marginLeft="150" layout_width="100" layout_height="50" backgroundColor="FFDAB9">
         </UIView>
-        <UIView layout_id="bottom" layout_toLeftOf="center" layout_toRightOf="top:10" layout_marginBottom="20" backgroundColor="FF3E96">
-            
+        
+        <UIView layout_id="center" layout_centerInParent="true" layout_width="100" layout_height="50" backgroundColor="FFDAB9">
+        </UIView>
+        
+        <UIView layout_id="bottom" layout_marginLeft="@id:top_view" layout_alignParentBottom="true" layout_width="@id:top_view" layout_height="50" backgroundColor="FFDAB9">
         </UIView>
     </UIView>
 </UIView>

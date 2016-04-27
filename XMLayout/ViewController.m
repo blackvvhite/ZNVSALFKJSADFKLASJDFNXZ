@@ -12,7 +12,9 @@
 
 @interface ViewController ()
 
-
+@property (nonatomic, strong) NSDictionary *dict;
+@property (nonatomic, weak) NSString *string;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *c;
 
 @end
 
@@ -22,13 +24,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
+    [self loadViewFromXML:@"xml"];
     
-    UIView *view = [XMLViewSource viewFromXML:@"xml"];
-    
-    [self.view addSubview:view];
-    
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[view]|" options:0 metrics:nil views:@{@"view":view}]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:nil views:@{@"view":view}]];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.viewService.viewWithLayoutId(@"top_left").layout setLayout_marginTop:@"50"];
+        [self.viewService.viewWithLayoutId(@"top_left").layout setLayout_marginLeft:@"0"];
+        
+        [UIView animateWithDuration:0.25 animations:^{
+            [self.view layoutIfNeeded];
+        }];
+
+    });
 }
 
 - (void)didReceiveMemoryWarning {

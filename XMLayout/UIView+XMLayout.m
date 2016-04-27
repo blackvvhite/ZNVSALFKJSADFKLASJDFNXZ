@@ -12,12 +12,34 @@
 
 @implementation UIView (XMLayout)
 
-- (void)setLayout:(XMLBaseLayout *)layout {
+#pragma mark - Public Getter / Setter
+
+- (void)setLayout_id:(NSString *)layout_id {
+    
+    objc_setAssociatedObject(self, @selector(layout_id), layout_id, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (NSString *)layout_id {
+    
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setLayout:(id)layout {
     
     objc_setAssociatedObject(self, @selector(layout), layout, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (XMLBaseLayout *)layout {
+- (id)layout {
+    
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setViewService:(XMLViewService *)viewService {
+    
+    objc_setAssociatedObject(self, @selector(viewService), viewService, OBJC_ASSOCIATION_ASSIGN);
+}
+
+- (XMLViewService *)viewService {
     
     return objc_getAssociatedObject(self, _cmd);
 }
