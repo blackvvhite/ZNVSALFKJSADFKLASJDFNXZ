@@ -1,0 +1,22 @@
+<UIView>
+	<UIView layout_id="top_view" a="[af" b="[adf:asdf]" c="[a,c]" d="af}" e="{af,af}" e="{af:af}" layout_marginTop="20" layout_marginLeft="20" layout_marginRight="-20" layout_height="300" backgroundColor="@color:ff8942">
+       
+    </UIView>
+    
+    <UIView layout_id="contentView" layout_below="@id:top_view:100.5" layout_marginLeft="20" layout_marginRight="-20" layout_marginBottom="-20" backgroundColor="@color:ff8942">
+        
+        <UIView layout_id="top_left" layout_marginTop="10" layout_marginLeft="20" layout_width="100" layout_height="50" backgroundColor="@color:FFDAB9">
+        </UIView>
+        
+        <UIView layout_id="top_right" layout_alignTop="@id:top_left" layout_marginLeft="150" layout_width="100" layout_height="50" backgroundColor="@color:FFDAB9">
+        </UIView>
+        
+        <UIView layout_id="center" layout_centerInParent="true" layout_width="100" layout_height="50" backgroundColor="@color:FFDAB9">
+        </UIView>
+        
+        <UIView layout_id="bottom" layout_marginLeft="@id:top_view" layout_alignParentBottom="true" layout_width="@id:top_view" layout_height="50" backgroundColor="@color:FFDAB9">
+        </UIView>
+        
+        <UIButton type="dsf" layout_below="@id:center:20" layout_alignLeft="@id:center" layout_width="@id:center" layout_height="@id:center" normalTitle="my name is button" normalImage="@img:img" onClick="onClick" normalTitleColor="@color:00CD00" backgroundColor="@color:EE0000" />
+    </UIView>
+</UIView>
