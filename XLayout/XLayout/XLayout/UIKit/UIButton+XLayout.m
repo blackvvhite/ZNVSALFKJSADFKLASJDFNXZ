@@ -127,16 +127,12 @@
 #pragma mark - Event
 
 - (void)setOnClick:(NSString *)onClick{
-    
     NSAssert(self.viewService.eventHandler, @"You set up an onclick method But the event handler is nil");
-    
     [self addTarget:self.viewService.eventHandler action:NSSelectorFromString(onClick) forControlEvents:UIControlEventTouchUpInside];
-    
     objc_setAssociatedObject(self, @selector(onClick), onClick, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 - (NSString *)onClick {
-    
     return objc_getAssociatedObject(self, _cmd);
 }
 

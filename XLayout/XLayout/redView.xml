@@ -1,0 +1,5 @@
+<UIView>
+	<UIView layout_top="20" layout_left="20" layout_right="-20" layout_height="60" backgroundColor="@color:FF0000">
+       
+    </UIView>
+</UIView>

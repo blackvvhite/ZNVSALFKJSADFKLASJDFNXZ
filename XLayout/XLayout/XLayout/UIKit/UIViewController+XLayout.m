@@ -16,17 +16,14 @@
 @implementation UIViewController (XLayout)
 
 - (void)setViewService:(XLayoutViewService *)viewService {
-    
     objc_setAssociatedObject(self, @selector(viewService), viewService, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (XLayoutViewService *)viewService {
-    
     return objc_getAssociatedObject(self, _cmd);
 }
 
 - (void)loadViewFromXML:(id/* NSURL or XML file name */)XML {
-    
     XLayoutViewService *service = [XLayoutViewService serviceFromXML:XML eventHandler:self];
     
     [self.view addSubview:service.contentView];

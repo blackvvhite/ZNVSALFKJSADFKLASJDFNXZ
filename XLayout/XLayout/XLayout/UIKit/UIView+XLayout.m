@@ -13,39 +13,33 @@
 @implementation UIView (XLayout)
 
 + (instancetype)xLayoutInit {
-
     return [[[self class] alloc] init];
 }
 
 #pragma mark - Public Getter / Setter
 
 - (void)setLayout_id:(NSString *)layout_id {
-    
     objc_setAssociatedObject(self, @selector(layout_id), layout_id, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (NSString *)layout_id {
-    
     return objc_getAssociatedObject(self, _cmd);
 }
 
 - (void)setLayout:(id)layout {
-    
     objc_setAssociatedObject(self, @selector(layout), layout, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (id)layout {
-    
     return objc_getAssociatedObject(self, _cmd);
 }
 
 - (void)setViewService:(XLayoutViewService *)viewService {
-    
     objc_setAssociatedObject(self, @selector(viewService), viewService, OBJC_ASSOCIATION_ASSIGN);
 }
 
 - (XLayoutViewService *)viewService {
-    
+
     return objc_getAssociatedObject(self, _cmd);
 }
 

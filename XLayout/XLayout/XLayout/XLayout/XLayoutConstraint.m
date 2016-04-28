@@ -16,86 +16,73 @@
 @interface XLayoutConstraint ()
 
 @property (nonatomic, copy) NSString *attributes;
-@property (nonatomic, weak) NSLayoutConstraint *constraint;
+@property (nonatomic, strong) NSMutableArray *constraint;
 
 @end
 
 @implementation XLayoutConstraint
 
-+ (instancetype)constraintWithView:(UIView *)view
-                  layoutAttributes:(NSString *)attributes
-{
+- (NSMutableArray *)constraint {
+    if (!_constraint) {
+        _constraint = [[NSMutableArray alloc] init];
+    }
+    return _constraint;
+}
+
++ (instancetype)constraintWithView:(UIView *)view layoutAttributes:(NSString *)attributes {
     XLayoutConstraint *constraint = [[XLayoutConstraint alloc] init];
     constraint.firstView = view;
-    
-    [constraint updateConstraintWithLayoutAttributes:attributes immediately:NO];
-    
+    constraint.attributes = attributes;
     return constraint;
 }
 
 - (void)activate {
-    
+    [self updateConstraintWithLayoutAttributes:self.attributes];
+    [self updateOrNew];
+}
+
+- (void)updateOrNew {
     if (self.secondView && self.secondAttribute == NSLayoutAttributeNotAnAttribute) {
-        
         self.secondAttribute = self.firstAttribute;
-        
     }else if (self.secondAttribute != NSLayoutAttributeNotAnAttribute && !self.secondView) {
-        
         self.secondView = self.firstView.superview;
     }
     
-    if (self.constraint) {
-        
-        if (self.relation != self.constraint.relation           ||
-            self.multiplier != self.constraint.multiplier       ||
-            ![self.secondView isEqual:self.constraint.secondItem])
-        {
-            
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"firstItem == %@ and firstAttribute == %d and relation == %d and secondItem == %@ and secondAttribute == %d and multiplier == %f",self.firstView,self.firstAttribute,self.relation,self.secondView,self.secondAttribute,self.multiplier];
+    
+    NSLayoutConstraint *constraint = [[self.constraint filteredArrayUsingPredicate:pre] firstObject];
+    
+    if (constraint) {
+        if (self.relation != constraint.relation || self.multiplier != constraint.multiplier || ![self.secondView isEqual:constraint.secondItem]) {
             [self createNewConstraint];
-            
         }else {
-            
-            if (self.priority != self.constraint.priority) {
-                
-                 self.constraint.priority = self.priority;
+            if (self.priority != constraint.priority) {
+                constraint.priority = self.priority;
             }
-            
-            if (self.constant != self.constraint.constant) {
-                
-                self.constraint.constant = self.constant;
+            if (self.constant != constraint.constant) {
+                constraint.constant = self.constant;
             }
         }
     }else {
-        
         [self createNewConstraint];
     }
-     
 }
 
 - (void)createNewConstraint {
-    
-    [self deactivate];
-    
-    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self.firstView
-                                                                  attribute:self.firstAttribute
-                                                                  relatedBy:self.relation
-                                                                     toItem:self.secondView
-                                                                  attribute:self.secondAttribute
-                                                                 multiplier:self.multiplier
-                                                                   constant:self.constant];
-    
+    if (self.deleteEexistingWhenUpdating) {
+        [self deactivate];
+    }
+    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self.firstView attribute:self.firstAttribute relatedBy:self.relation toItem:self.secondView attribute:self.secondAttribute multiplier:self.multiplier constant:self.constant];
     [constraint setPriority:self.priority];
     [self.firstView.viewService.contentView addConstraint:constraint];
-    [self setConstraint:constraint];
+    [self.constraint addObject:constraint];
 }
 
 - (void)deactivate {
-
-    [self.firstView.viewService.contentView removeConstraint:self.constraint];
+    [self.firstView.viewService.contentView removeConstraints:self.constraint];
 }
 
 - (void)updateConstraintWithLayoutAttributes:(NSString *)attributes immediately:(BOOL)immediately {
-    
     NSString *layoutId = nil;
     
     UIView *secondView = nil;
@@ -107,56 +94,38 @@
     NSRange layoutIdRange = [attributes rangeOfString:@":\\w+[:*@]*" options:NSRegularExpressionSearch];
     NSRange relationRange = [attributes rangeOfString:@"[><]=" options:NSRegularExpressionSearch];
     NSRange constantRange = [attributes rangeOfString:@"[:=]*-*\\d+.*\\d+[*@]*" options:NSRegularExpressionSearch];
-    NSRange multiplierRange = [attributes rangeOfString:@"\\*-*\\d+.*\\d+@*" options:NSRegularExpressionSearch];
+    NSRange multiplierRange = [attributes rangeOfString:@"\\*-*\\d+.*\\d*@*" options:NSRegularExpressionSearch];
     NSRange priorityRange = [attributes rangeOfString:@"\\@-*\\d+.*\\d+" options:NSRegularExpressionSearch];
     
     if (layoutIdRange.location != NSNotFound  && layoutIdRange.length != 0) {
-        
         layoutId = [attributes substringWithRange:layoutIdRange];
-        layoutId = [layoutId stringByReplacingOccurrencesOfString:@"[:*@]"
-                                            withString:@""
-                                               options:NSRegularExpressionSearch
-                                                 range:NSMakeRange(0, layoutId.length)];
+        layoutId = [layoutId stringByReplacingOccurrencesOfString:@"[:*@]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, layoutId.length)];
     }
     
     if (relationRange.location != NSNotFound && relationRange.length != 0) {
-        
         NSString *relationString = [attributes substringWithRange:relationRange];
-        
         if ([relationString isEqualToString:@">="]) {
-            
             relation = NSLayoutRelationGreaterThanOrEqual;
-            
         }else if ([relationString isEqualToString:@"<="]) {
-            
             relation = NSLayoutRelationLessThanOrEqual;
         }
     }
     
     if (constantRange.location != NSNotFound && constantRange.length != 0) {
-        
         NSString *constantString = [attributes substringWithRange:constantRange];
-        constantString = [constantString stringByReplacingOccurrencesOfString:@"[:=*@]"
-                                                                   withString:@""
-                                                                      options:NSRegularExpressionSearch
-                                                                        range:NSMakeRange(0, constantString.length)];
+        constantString = [constantString stringByReplacingOccurrencesOfString:@"[:=*@]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, constantString.length)];
         
         constant = [constantString doubleValue];
     }
     
     if (multiplierRange.location != NSNotFound && multiplierRange.length != 0) {
-        
         NSString *multiplierString = [attributes substringWithRange:multiplierRange];
-        multiplierString = [multiplierString stringByReplacingOccurrencesOfString:@"[*@]"
-                                                                       withString:@""
-                                                                          options:NSRegularExpressionSearch
-                                                                            range:NSMakeRange(0, multiplierString.length)];
+        multiplierString = [multiplierString stringByReplacingOccurrencesOfString:@"[*@]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, multiplierString.length)];
         
         multiplier = [multiplierString doubleValue];
     }
     
     if (priorityRange.location != NSNotFound  && priorityRange.length != 0) {
-        
         NSString *priorityString = [attributes substringWithRange:priorityRange];
         priorityString = [priorityString stringByReplacingOccurrencesOfString:@"@" withString:@""];
         
@@ -164,7 +133,6 @@
     }
     
     if (layoutId) {
-        
         secondView = self.firstView.viewService.viewWithLayoutId(layoutId);
         NSAssert(secondView, @"Failed to get associated view");
     }
@@ -178,14 +146,12 @@
     self.priority   = priority;
     
     if (immediately) {
-        [self activate];
+        [self updateOrNew];
     }
 }
 
 - (void)updateConstraintWithLayoutAttributes:(NSString *)attributes {
-    
     [self updateConstraintWithLayoutAttributes:attributes immediately:YES];
 }
-
 
 @end

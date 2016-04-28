@@ -10,7 +10,6 @@
 #define XLayout_h
 
 #import "XLayoutBase.h"
-#import "XLayoutRelative.h"
 #import "XLayoutViewService.h"
 #import "UIView+XLayout.h"
 #import "UIViewController+XLayout.h"

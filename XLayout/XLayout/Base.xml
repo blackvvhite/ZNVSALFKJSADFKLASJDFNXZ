@@ -1,0 +1,24 @@
+<UIView>
+	<UIView layout_id="top_view"  layout_top="20" layout_left="20" layout_right="-20" layout_height="300" backgroundColor="@color:ff8942">
+       
+    </UIView>
+    
+    <import name="redView" layout_id="red_view" layout_below="@id:top_view:5" layout_right="@id:top_view:5" layout_left="@id:top_view:5" layout_above="@id:contentView:5" />
+    
+    <UIView layout_id="contentView" layout_below="@id:top_view:100" layout_left="20" layout_right="-20" layout_bottom="-20" backgroundColor="@color:ff8942">
+        
+        <UIView layout_id="top_left" layout_top="10" layout_left="20" layout_width="100" layout_height="50" backgroundColor="@color:FFDAB9">
+        </UIView>
+        
+        <UIView layout_id="top_right" layout_top="@id:top_left" layout_left="150" layout_width="100" layout_height="50" backgroundColor="@color:FFDAB9">
+        </UIView>
+        
+        <UIView layout_id="center" layout_center="@id:contentView" layout_width="100" layout_height="50" backgroundColor="@color:FFDAB9">
+        </UIView>
+        
+        <UIView layout_id="bottom" layout_left="@id:top_view" layout_bottom="0" layout_width="@id:top_view" layout_height="50" backgroundColor="@color:FFDAB9">
+        </UIView>
+        
+        <UIButton type="dsf" layout_below="@id:center:20" layout_left="@id:center" layout_width="@id:center" layout_height="@id:center" normalTitle="my name is button" normalImage="@img:img" onClick="onClick" normalTitleColor="@color:00CD00" backgroundColor="@color:EE0000" />
+    </UIView>
+</UIView>
