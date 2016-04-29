@@ -261,6 +261,21 @@ NSString *const XLayout_CONTENT_VIEW_ID    = @"XLayout_CONTENT_VIEW_ID";
         *output = arguments;
         return;
     }
+    
+    type = [arguments rangeOfString:@"^@quote:" options:NSRegularExpressionSearch];
+    
+    if (type.location != NSNotFound && type.length != 0) {
+        SEL sel = NSSelectorFromString(getValue(type));
+        if ([self respondsToSelector:sel]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+            id arguments = [self performSelector:sel];
+            *output = arguments;
+            return;
+#pragma clang diagnostic pop
+        }
+    }
+
     *output = arguments;
 }
 

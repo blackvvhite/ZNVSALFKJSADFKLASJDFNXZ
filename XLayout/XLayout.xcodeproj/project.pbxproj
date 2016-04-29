@@ -24,6 +24,7 @@
 		931BA73F1CD1F947006290B1 /* XLayoutBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 931BA7341CD1F947006290B1 /* XLayoutBase.m */; };
 		931BA7411CD1F947006290B1 /* XLayoutViewService.m in Sources */ = {isa = PBXBuildFile; fileRef = 931BA7381CD1F947006290B1 /* XLayoutViewService.m */; };
 		9345250A1CD22CDA007433FF /* UIColor+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 934525091CD22CDA007433FF /* UIColor+XLayout.m */; };
+		93E766481CD32A0200385A4A /* XLayoutViewService+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E766471CD32A0200385A4A /* XLayoutViewService+XLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,8 @@
 		931BA7391CD1F947006290B1 /* XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = XLayout.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		934525081CD22CDA007433FF /* UIColor+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XLayout.h"; sourceTree = "<group>"; };
 		934525091CD22CDA007433FF /* UIColor+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XLayout.m"; sourceTree = "<group>"; };
+		93E766461CD32A0200385A4A /* XLayoutViewService+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XLayoutViewService+XLayout.h"; sourceTree = "<group>"; };
+		93E766471CD32A0200385A4A /* XLayoutViewService+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XLayoutViewService+XLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,8 @@
 				934525091CD22CDA007433FF /* UIColor+XLayout.m */,
 				84BBA5E81CD26ADF00EE48C4 /* NSLayoutConstraint+XLayout.h */,
 				84BBA5E91CD26ADF00EE48C4 /* NSLayoutConstraint+XLayout.m */,
+				93E766461CD32A0200385A4A /* XLayoutViewService+XLayout.h */,
+				93E766471CD32A0200385A4A /* XLayoutViewService+XLayout.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 				930287481CD206EE005B1CE2 /* UIButton+XLayout.m in Sources */,
 				931BA7151CD1F920006290B1 /* ViewController.m in Sources */,
 				931BA7121CD1F920006290B1 /* AppDelegate.m in Sources */,
+				93E766481CD32A0200385A4A /* XLayoutViewService+XLayout.m in Sources */,
 				931BA73B1CD1F947006290B1 /* ONOXMLDocument.m in Sources */,
 				931BA7411CD1F947006290B1 /* XLayoutViewService.m in Sources */,
 				931BA73F1CD1F947006290B1 /* XLayoutBase.m in Sources */,

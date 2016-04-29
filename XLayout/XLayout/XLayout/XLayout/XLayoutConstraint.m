@@ -91,11 +91,11 @@
     NSLayoutRelation relation = NSLayoutRelationEqual;
     UILayoutPriority priority = UILayoutPriorityRequired;
     
-    NSRange layoutIdRange = [attributes rangeOfString:@":\\w+[:*@]*" options:NSRegularExpressionSearch];
+    NSRange layoutIdRange = [attributes rangeOfString:@":\\w+[:*@]?" options:NSRegularExpressionSearch];
     NSRange relationRange = [attributes rangeOfString:@"[><]=" options:NSRegularExpressionSearch];
-    NSRange constantRange = [attributes rangeOfString:@"[:=]*-*\\d+.*\\d+[*@]*" options:NSRegularExpressionSearch];
-    NSRange multiplierRange = [attributes rangeOfString:@"\\*-*\\d+.*\\d*@*" options:NSRegularExpressionSearch];
-    NSRange priorityRange = [attributes rangeOfString:@"\\@-*\\d+.*\\d+" options:NSRegularExpressionSearch];
+    NSRange constantRange = [attributes rangeOfString:@"[:=]*-*\\d+.*\\d*[*@]*" options:NSRegularExpressionSearch];
+    NSRange multiplierRange = [attributes rangeOfString:@"\\*-?\\d+.?\\d*@?" options:NSRegularExpressionSearch];
+    NSRange priorityRange = [attributes rangeOfString:@"\\@-?\\d+.?\\d+" options:NSRegularExpressionSearch];
     
     if (layoutIdRange.location != NSNotFound  && layoutIdRange.length != 0) {
         layoutId = [attributes substringWithRange:layoutIdRange];
