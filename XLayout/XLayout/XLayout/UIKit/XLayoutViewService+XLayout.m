@@ -7,7 +7,6 @@
 //
 
 #import "XLayoutViewService+XLayout.h"
-
 #import <UIKit/UIColor.h>
 
 @implementation XLayoutViewService (XLayout)

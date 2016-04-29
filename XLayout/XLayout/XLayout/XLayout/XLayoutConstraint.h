@@ -25,7 +25,6 @@
 @property (nonatomic, assign) BOOL deleteEexistingWhenUpdating;
 
 + (instancetype)constraintWithView:(UIView *)view layoutAttributes:(NSString *)attributes;
-
 - (void)updateConstraintWithLayoutAttributes:(NSString *)attributes;
 
 - (void)activate;

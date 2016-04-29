@@ -7,12 +7,10 @@
 //
 
 #import "XLayoutConstraint.h"
-
-#import <UIKit/UIView.h>
-
 #import "UIView+XLayout.h"
 #import "XLayoutViewService.h"
 #import "NSLayoutConstraint+XLayout.h"
+#import <UIKit/UIView.h>
 
 @interface XLayoutConstraint ()
 
@@ -23,12 +21,7 @@
 
 @implementation XLayoutConstraint
 
-- (NSMutableArray *)constraint {
-    if (!_constraint) {
-        _constraint = [[NSMutableArray alloc] init];
-    }
-    return _constraint;
-}
+#pragma mark - Init
 
 + (instancetype)constraintWithView:(UIView *)view layoutAttributes:(NSString *)attributes {
     XLayoutConstraint *constraint = [[XLayoutConstraint alloc] init];
@@ -37,10 +30,7 @@
     return constraint;
 }
 
-- (void)activate {
-    [self updateConstraintWithLayoutAttributes:self.layoutAttribute];
-    [self updateOrNew];
-}
+#pragma mark - Private
 
 - (void)updateOrNew {
     if (self.secondView && self.secondAttribute == NSLayoutAttributeNotAnAttribute) {
@@ -86,11 +76,9 @@
     [self.constraint addObject:constraint];
 }
 
-- (void)deactivate {
-    [self.firstView.viewService.contentView removeConstraints:self.constraint];
-}
-
 - (void)updateConstraintWithLayoutAttributes:(NSString *)attributes immediately:(BOOL)immediately {
+    NSAssert(attributes, @"The attributes cannot be empty");
+    
     NSString *layoutId = nil;
     
     UIView *secondView = nil;
@@ -165,8 +153,28 @@
     }
 }
 
+#pragma mark - Public
+
 - (void)updateConstraintWithLayoutAttributes:(NSString *)attributes {
     [self updateConstraintWithLayoutAttributes:attributes immediately:YES];
+}
+
+- (void)activate {
+    [self updateConstraintWithLayoutAttributes:self.layoutAttribute];
+    [self updateOrNew];
+}
+
+- (void)deactivate {
+    [self.firstView.viewService.contentView removeConstraints:self.constraint];
+}
+
+#pragma mark - Getter / Setter
+
+- (NSMutableArray *)constraint {
+    if (!_constraint) {
+        _constraint = [[NSMutableArray alloc] init];
+    }
+    return _constraint;
 }
 
 @end

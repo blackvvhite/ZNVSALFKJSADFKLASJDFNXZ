@@ -7,12 +7,9 @@
 //
 
 #import "UIView+XLayout.h"
-
 #import <objc/runtime.h>
 
 @implementation UIView (XLayout)
-
-#pragma mark - Public Getter / Setter
 
 - (void)setLayout_id:(NSString *)layout_id {
     objc_setAssociatedObject(self, @selector(layout_id), layout_id, OBJC_ASSOCIATION_RETAIN_NONATOMIC);

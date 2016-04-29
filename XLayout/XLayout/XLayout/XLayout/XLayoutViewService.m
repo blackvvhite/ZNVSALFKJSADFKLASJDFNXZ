@@ -7,11 +7,8 @@
 //
 
 #import "XLayoutViewService.h"
-
-#import <objc/runtime.h>
-
 #import "ONOXMLDocument.h"
-
+#import "XLayoutBase.h"
 #import "UIView+XLayout.h"
 #import "UIColor+XLayout.h"
 
@@ -20,14 +17,16 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
 
 @interface XLayoutViewService ()
 
-@property (nonatomic, copy) NSURL *viewDataURL;
-@property (nonatomic, readwrite, strong) id eventHandler;
+@property (nonatomic, strong) NSURL *viewDataURL;
 @property (nonatomic, readwrite, strong) UIView *contentView;
 @property (nonatomic, strong) NSMutableDictionary *viewMap;
+@property (nonatomic, readwrite, strong) id eventHandler;
 
 @end
 
 @implementation XLayoutViewService
+
+#pragma mark - Init
 
 /* NSURL or XML file name */
 + (instancetype)serviceFromXML:(id)XML eventHandler:(id)eventHandler {
@@ -46,36 +45,7 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
     return service;
 }
 
-- (UIView *)contentView {
-    if (!_contentView) {
-        _contentView = [[UIView alloc] init];
-        _contentView.translatesAutoresizingMaskIntoConstraints = NO;
-        _contentView.layout = [[XLayoutBase alloc] initWithView:_contentView];
-        _contentView.layout_id = XLAYOUT_CONTENT_VIEW_ID;
-        _contentView.viewService = self;
-        
-        [self createView];
-    }
-    return _contentView;
-}
-
-- (void)setRootView:(UIView *)rootView {
-    _rootView = rootView;
-    [self.viewMap setObject:rootView forKey:XLAYOUT_ROOT_VIEW_ID];
-}
-
-- (NSMutableDictionary *)viewMap {
-    if (!_viewMap) {
-        _viewMap = [[NSMutableDictionary alloc] init];
-    }
-    return _viewMap;
-}
-
-- (UIView *(^)(NSString *layoutId))viewWithLayoutId {
-    return ^(NSString *layoutId){
-        return [self.viewMap objectForKey:layoutId];
-    };
-}
+#pragma mark - Private
 
 - (void)createView {
     NSError *error;
@@ -141,7 +111,7 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
             NSString *methodName = [NSString stringWithFormat:@"set%@%@:",initial,remanent];
             
             id target = nil;
-
+            
             if ([currentView respondsToSelector:NSSelectorFromString(methodName)]) {
                 target = currentView;
             }else if ([layout respondsToSelector:NSSelectorFromString(methodName)]) {
@@ -155,7 +125,7 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
                     target = currentView;
                 }
             }
-
+            
             if (target) {
                 [self invocationWithTarget:target methodName:methodName argumentsObject:obj];
             }
@@ -281,7 +251,7 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
         NSRange r = [arguments rangeOfString:@"\\w+:\\d+$" options:NSRegularExpressionSearch];
         NSString *fontAttribute = [arguments substringWithRange:r];
         r = [fontAttribute rangeOfString:@":"];
-            
+        
         NSString *fontName = [fontAttribute substringToIndex:r.location];
         CGFloat fontSize = [[fontAttribute substringFromIndex:(r.location + r.length)] floatValue];
         
@@ -297,7 +267,7 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
         *output = font;
         return;
     }
-
+    
     *output = arguments;
 }
 
@@ -307,36 +277,40 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
     }];
 }
 
-- (NSArray *)relativeLayoutProperties {
-    static NSArray *propertie = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        u_int count;
-        objc_property_t *properties = class_copyPropertyList([XLayoutBase class], &count);
-        
-        if (count == 0) {
-            propertie = @[];
-        }
-        
-        NSMutableArray *tempPropertie = [[NSMutableArray alloc] initWithCapacity:count];
-        for (int i = 0; i < count; i++) {
-            [tempPropertie addObject:[NSString stringWithUTF8String:property_getName(properties[i])]];
-        }
-        free(properties);
-        
-        propertie = tempPropertie;
-    });
-    return propertie;
+#pragma mark - Public
+
+- (UIView *(^)(NSString *layoutId))viewWithLayoutId {
+    return ^(NSString *layoutId){
+        return [self.viewMap objectForKey:layoutId];
+    };
 }
 
+#pragma mark - Getter / Setter
 
+- (UIView *)contentView {
+    if (!_contentView) {
+        _contentView = [[UIView alloc] init];
+        _contentView.translatesAutoresizingMaskIntoConstraints = NO;
+        _contentView.layout = [[XLayoutBase alloc] initWithView:_contentView];
+        _contentView.layout_id = XLAYOUT_CONTENT_VIEW_ID;
+        _contentView.viewService = self;
+        
+        [self createView];
+    }
+    return _contentView;
+}
 
+- (void)setRootView:(UIView *)rootView {
+    _rootView = rootView;
+    [self.viewMap setObject:rootView forKey:XLAYOUT_ROOT_VIEW_ID];
+}
 
-
-
-
-
-
+- (NSMutableDictionary *)viewMap {
+    if (!_viewMap) {
+        _viewMap = [[NSMutableDictionary alloc] init];
+    }
+    return _viewMap;
+}
 
 
 @end

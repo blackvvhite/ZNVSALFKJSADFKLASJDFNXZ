@@ -13,14 +13,12 @@ extern NSString *const XLAYOUT_ROOT_VIEW_ID;
 @class UIView;
 @interface XLayoutViewService : NSObject
 
-/* NSURL or XML file name */
-+ (instancetype)serviceFromXML:(id)XML eventHandler:(id)eventHandler;
-
 @property (nonatomic, weak) UIView *rootView;
 @property (nonatomic, readonly, strong) UIView *contentView;
 @property (nonatomic, readonly, strong) id eventHandler;
 
-
+/* NSURL or XML file name */
++ (instancetype)serviceFromXML:(id)XML eventHandler:(id)eventHandler;
 - (UIView *(^)(NSString *layoutId))viewWithLayoutId;
 
 @end

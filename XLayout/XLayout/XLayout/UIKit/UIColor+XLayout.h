@@ -10,7 +10,7 @@
 
 @interface UIColor (XLayout)
 
-/// RGB or HEX
+/// HEX
 + (UIColor *)colorWithString:(NSString *)string;
 
 @end

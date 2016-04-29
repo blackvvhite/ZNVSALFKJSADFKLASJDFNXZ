@@ -7,13 +7,10 @@
 //
 
 #import "UIButton+XLayout.h"
-
-#import <objc/runtime.h>
-
 #import "UIView+XLayout.h"
-#import "UIColor+XLayout.h"
 #import "XLayoutViewService.h"
 #import "ONOXMLDocument.h"
+#import <objc/runtime.h>
 
 @implementation UIButton (XLayout)
 

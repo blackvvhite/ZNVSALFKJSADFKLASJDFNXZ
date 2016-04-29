@@ -8,7 +8,6 @@
 
 #import "XLayoutBase.h"
 #import "XLayoutConstraint.h"
-
 #import <UIKit/UIView.h>
 
 @interface XLayoutBase ()
@@ -45,6 +44,54 @@
         self.view = view;
     }
     return self;
+}
+
+#pragma mark - Private
+
+- (void)assert {
+    NSAssert(self.view.superview, @"There is no parent view");
+}
+
+#pragma mark - Public
+
+- (void)activate {
+    [self.layout_topConstraint activate];
+    [self.layout_bottomConstraint activate];
+    [self.layout_leftConstraint activate];
+    [self.layout_rightConstraint activate];
+    
+    [self.layout_widthConstraint activate];
+    [self.layout_heightConstraint activate];
+    
+    [self.layout_aboveConstraint activate];
+    [self.layout_belowConstraint activate];
+    [self.layout_inLeadingConstraint activate];
+    [self.layout_inTrailingConstraint activate];
+    
+    [self.layout_baselineConstraint activate];
+    
+    [self.layout_centerXConstraint activate];
+    [self.layout_centerYConstraint activate];
+}
+
+- (void)deactivate {
+    [self.layout_topConstraint deactivate];
+    [self.layout_bottomConstraint deactivate];
+    [self.layout_leftConstraint deactivate];
+    [self.layout_rightConstraint deactivate];
+    
+    [self.layout_widthConstraint deactivate];
+    [self.layout_heightConstraint deactivate];
+    
+    [self.layout_aboveConstraint deactivate];
+    [self.layout_belowConstraint deactivate];
+    [self.layout_inLeadingConstraint deactivate];
+    [self.layout_inTrailingConstraint deactivate];
+    
+    [self.layout_baselineConstraint deactivate];
+    
+    [self.layout_centerXConstraint deactivate];
+    [self.layout_centerYConstraint deactivate];
 }
 
 #pragma mark - Getter / Setter
@@ -162,7 +209,6 @@
 }
 
 - (void)setLayout_above:(NSString *)layout_above {
-    NSAssert(layout_above, @"The layout_above attribute cannot be empty");
     [self assert];
     
     if (!self.layout_aboveConstraint) {
@@ -178,7 +224,6 @@
 }
 
 - (void)setLayout_below:(NSString *)layout_below {
-    NSAssert(layout_below, @"The layout_below attribute cannot be empty");
     [self assert];
     
     if (!self.layout_belowConstraint) {
@@ -194,7 +239,6 @@
 }
 
 - (void)setLayout_in_leading:(NSString *)layout_in_leading {
-    NSAssert(layout_in_leading, @"The layout_in_leading attribute cannot be empty");
     [self assert];
     
     if (!self.layout_inLeadingConstraint) {
@@ -210,7 +254,6 @@
 }
 
 - (void)setLayout_in_trailing:(NSString *)layout_in_trailing {
-    NSAssert(layout_in_trailing, @"The layout_in_leading attribute cannot be empty");
     [self assert];
     
     if (!self.layout_inTrailingConstraint) {
@@ -226,7 +269,6 @@
 }
 
 - (void)setLayout_baseline:(NSString *)layout_baseline {
-    NSAssert(layout_baseline, @"The layout_baseline attribute cannot be empty");
     [self assert];
     
     if (!self.layout_baselineConstraint) {
@@ -283,52 +325,6 @@
     [self setLayout_left:layout_equal];
     [self setLayout_right:layout_equal];
     _layout_equal = layout_equal;
-}
-
-#pragma mark - Public
-
-- (void)assert {
-    NSAssert(self.view.superview, @"There is no parent view");
-}
-
-- (void)activate {
-    [self.layout_topConstraint activate];
-    [self.layout_bottomConstraint activate];
-    [self.layout_leftConstraint activate];
-    [self.layout_rightConstraint activate];
-    
-    [self.layout_widthConstraint activate];
-    [self.layout_heightConstraint activate];
-    
-    [self.layout_aboveConstraint activate];
-    [self.layout_belowConstraint activate];
-    [self.layout_inLeadingConstraint activate];
-    [self.layout_inTrailingConstraint activate];
-    
-    [self.layout_baselineConstraint activate];
-    
-    [self.layout_centerXConstraint activate];
-    [self.layout_centerYConstraint activate];
-}
-
-- (void)deactivate {
-    [self.layout_topConstraint deactivate];
-    [self.layout_bottomConstraint deactivate];
-    [self.layout_leftConstraint deactivate];
-    [self.layout_rightConstraint deactivate];
-    
-    [self.layout_widthConstraint deactivate];
-    [self.layout_heightConstraint deactivate];
-    
-    [self.layout_aboveConstraint deactivate];
-    [self.layout_belowConstraint deactivate];
-    [self.layout_inLeadingConstraint deactivate];
-    [self.layout_inTrailingConstraint deactivate];
-    
-    [self.layout_baselineConstraint deactivate];
-    
-    [self.layout_centerXConstraint deactivate];
-    [self.layout_centerYConstraint deactivate];
 }
 
 @end

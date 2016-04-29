@@ -38,6 +38,28 @@
     NSLog(@"onClick");
 }
 
+/*- (NSArray *)relativeLayoutProperties {
+    static NSArray *propertie = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        u_int count;
+        objc_property_t *properties = class_copyPropertyList([XLayoutBase class], &count);
+        
+        if (count == 0) {
+            propertie = @[];
+        }
+        
+        NSMutableArray *tempPropertie = [[NSMutableArray alloc] initWithCapacity:count];
+        for (int i = 0; i < count; i++) {
+            [tempPropertie addObject:[NSString stringWithUTF8String:property_getName(properties[i])]];
+        }
+        free(properties);
+        
+        propertie = tempPropertie;
+    });
+    return propertie;
+}*/
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -7,11 +7,10 @@
 //
 
 #import "UIViewController+XLayout.h"
-
-#import <objc/runtime.h>
-
-#import "XLayoutViewService.h"
 #import "UIView+XLayout.h"
+#import "XLayoutBase.h"
+#import "XLayoutViewService.h"
+#import <objc/runtime.h>
 
 @implementation UIViewController (XLayout)
 

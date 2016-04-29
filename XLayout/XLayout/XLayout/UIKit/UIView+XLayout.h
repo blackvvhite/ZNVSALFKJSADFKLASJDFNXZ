@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "XLayoutBase.h"
-
+@class XLayoutBase;
 @class XLayoutViewService;
 @interface UIView (XLayout)
 
