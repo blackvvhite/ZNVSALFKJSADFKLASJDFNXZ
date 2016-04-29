@@ -78,7 +78,11 @@
     [constraint setPriority:self.priority];
     [constraint setLayoutPosition:self.layoutPosition];
     [constraint setLayoutAttribute:self.layoutAttribute];
-    [self.firstView.viewService.contentView addConstraint:constraint];
+    if ([self.firstView isEqual:self.firstView.viewService.contentView]) {
+        [self.firstView.viewService.contentView.superview addConstraint:constraint];
+    }else {
+        [self.firstView.viewService.contentView addConstraint:constraint];
+    }
     [self.constraint addObject:constraint];
 }
 

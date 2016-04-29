@@ -50,11 +50,18 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
     if (!_contentView) {
         _contentView = [[UIView alloc] init];
         _contentView.translatesAutoresizingMaskIntoConstraints = NO;
+        _contentView.layout = [[XLayoutBase alloc] initWithView:_contentView];
         _contentView.layout_id = XLAYOUT_CONTENT_VIEW_ID;
+        _contentView.viewService = self;
         
         [self createView];
     }
     return _contentView;
+}
+
+- (void)setRootView:(UIView *)rootView {
+    _rootView = rootView;
+    [self.viewMap setObject:rootView forKey:XLAYOUT_ROOT_VIEW_ID];
 }
 
 - (NSMutableDictionary *)viewMap {

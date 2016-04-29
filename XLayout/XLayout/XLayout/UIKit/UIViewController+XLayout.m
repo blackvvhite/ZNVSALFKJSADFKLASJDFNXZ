@@ -25,19 +25,16 @@
 
 - (void)loadViewFromXML:(id/* NSURL or XML file name */)XML {
     XLayoutViewService *service = [XLayoutViewService serviceFromXML:XML eventHandler:self];
-    
     [self.view addSubview:service.contentView];
     [self.view setLayout_id:XLAYOUT_ROOT_VIEW_ID];
-    
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[view]|" options:0 metrics:nil views:@{@"view":service.contentView}]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:nil views:@{@"view":service.contentView}]];
-    
-//    [service.view.layout setLayout_marginTop:@"@id:XLayout_ROOT_VIEW"];
-//    [service.view.layout setLayout_marginBottom:@"@id:XLayout_ROOT_VIEW"];
-//    [service.view.layout setLayout_marginLeft:@"@id:XLayout_ROOT_VIEW"];
-//    [service.view.layout setLayout_marginRight:@"@id:XLayout_ROOT_VIEW"];
-    
+    [self.view setViewService:service];
     [self setViewService:service];
+    [service setRootView:self.view];
+    [service.contentView.layout setLayout_top:@"@id:XLAYOUT_ROOT_VIEW_ID"];
+    [service.contentView.layout setLayout_bottom:@"@id:XLAYOUT_ROOT_VIEW_ID"];
+    [service.contentView.layout setLayout_left:@"@id:XLAYOUT_ROOT_VIEW_ID"];
+    [service.contentView.layout setLayout_right:@"@id:XLAYOUT_ROOT_VIEW_ID"];
+    [service.contentView.layout activate];
 }
 
 @end
