@@ -100,7 +100,7 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
                 currentView = service.contentView;
             }
         }else {
-           currentView = [NSClassFromString(element.tag) xLayoutInit];
+            currentView = [NSClassFromString(element.tag) viewWithXMLElementObject:element];
         }
         
         id layoutId = [element valueForAttribute:@"layout_id"];

@@ -13,8 +13,26 @@
 #import "UIView+XLayout.h"
 #import "UIColor+XLayout.h"
 #import "XLayoutViewService.h"
+#import "ONOXMLDocument.h"
 
 @implementation UIButton (XLayout)
+
++ (instancetype)viewWithXMLElementObject:(ONOXMLElement *)element {
+    UIButtonType buttonType = UIButtonTypeCustom;
+    NSString *typeString = [element valueForAttribute:@"buttonType"];
+    if ([typeString isEqualToString:@"UIButtonTypeSystem"]) {
+        buttonType = UIButtonTypeSystem;
+    }else if ([typeString isEqualToString:@"UIButtonTypeDetailDisclosure"]) {
+        buttonType = UIButtonTypeDetailDisclosure;
+    }else if ([typeString isEqualToString:@"UIButtonTypeInfoLight"]) {
+        buttonType = UIButtonTypeInfoLight;
+    }else if ([typeString isEqualToString:@"UIButtonTypeInfoDark"]) {
+        buttonType = UIButtonTypeInfoDark;
+    }else if ([typeString isEqualToString:@"UIButtonTypeContactAdd"]) {
+        buttonType = UIButtonTypeContactAdd;
+    }
+    return [UIButton buttonWithType:buttonType];
+}
 
 + (instancetype)xLayoutInit {
     return [UIButton buttonWithType:UIButtonTypeCustom];

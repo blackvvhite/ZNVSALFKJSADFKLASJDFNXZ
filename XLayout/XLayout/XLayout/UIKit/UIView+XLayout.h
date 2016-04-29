@@ -13,11 +13,14 @@
 @class XLayoutViewService;
 @interface UIView (XLayout)
 
-+ (instancetype)xLayoutInit;
-
 @property (nonatomic, copy  ) NSString *layout_id;
 @property (nonatomic, strong) XLayoutBase *layout;
 @property (nonatomic, weak  ) XLayoutViewService *viewService;
 
+@end
+
+@interface UIView (XLayoutPrivate)
+
++ (instancetype)viewWithXMLElementObject:(id)element;
 
 @end

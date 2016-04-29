@@ -12,10 +12,6 @@
 
 @implementation UIView (XLayout)
 
-+ (instancetype)xLayoutInit {
-    return [[[self class] alloc] init];
-}
-
 #pragma mark - Public Getter / Setter
 
 - (void)setLayout_id:(NSString *)layout_id {
@@ -44,3 +40,15 @@
 }
 
 @end
+
+
+#pragma mark - Private
+
+@implementation UIView (XLayoutPrivate)
+
++ (instancetype)viewWithXMLElementObject:(id)element {
+    return [[self alloc] init];
+}
+
+@end
+
