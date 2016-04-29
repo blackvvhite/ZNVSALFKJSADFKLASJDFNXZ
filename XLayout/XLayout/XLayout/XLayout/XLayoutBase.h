@@ -26,6 +26,9 @@
 
 @property (nonatomic, copy) NSString *layout_above;
 @property (nonatomic, copy) NSString *layout_below;
+@property (nonatomic, copy) NSString *layout_in_leading;
+@property (nonatomic, copy) NSString *layout_in_trailing;
+
 @property (nonatomic, copy) NSString *layout_baseline;
 
 @property (nonatomic, copy) NSString *layout_center;

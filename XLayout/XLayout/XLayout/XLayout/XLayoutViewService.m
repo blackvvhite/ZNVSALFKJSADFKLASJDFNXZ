@@ -15,8 +15,8 @@
 #import "UIView+XLayout.h"
 #import "UIColor+XLayout.h"
 
-NSString *const XLayout_ROOT_VIEW_ID       = @"XLayout_ROOT_VIEW_ID";
-NSString *const XLayout_CONTENT_VIEW_ID    = @"XLayout_CONTENT_VIEW_ID";
+NSString *const XLAYOUT_ROOT_VIEW_ID       = @"XLAYOUT_ROOT_VIEW_ID";
+NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
 
 @interface XLayoutViewService ()
 
@@ -50,7 +50,7 @@ NSString *const XLayout_CONTENT_VIEW_ID    = @"XLayout_CONTENT_VIEW_ID";
     if (!_contentView) {
         _contentView = [[UIView alloc] init];
         _contentView.translatesAutoresizingMaskIntoConstraints = NO;
-        _contentView.layout_id = XLayout_CONTENT_VIEW_ID;
+        _contentView.layout_id = XLAYOUT_CONTENT_VIEW_ID;
         
         [self createView];
     }
@@ -95,12 +95,6 @@ NSString *const XLayout_CONTENT_VIEW_ID    = @"XLayout_CONTENT_VIEW_ID";
         
         if ([element.tag isEqualToString:@"import"]) {
             NSString *import = [element valueForAttribute:@"name"];
-            /*
-             XLayoutViewService *service = [XLayoutViewService serviceFromXML:XML eventHandler:self];
-             
-             [self.view addSubview:service.contentView];
-             [self.view setLayout_id:XLayout_ROOT_VIEW_ID];
-             */
             if (import) {
                 XLayoutViewService *service = [XLayoutViewService serviceFromXML:import eventHandler:self.eventHandler];
                 currentView = service.contentView;
@@ -255,7 +249,6 @@ NSString *const XLayout_CONTENT_VIEW_ID    = @"XLayout_CONTENT_VIEW_ID";
     }
     
     type = [arguments rangeOfString:@"^@img:" options:NSRegularExpressionSearch];
-    
     if (type.location != NSNotFound && type.length != 0) {
         UIImage *arguments = [UIImage imageNamed:getValue(type)];
         *output = arguments;
@@ -263,7 +256,6 @@ NSString *const XLayout_CONTENT_VIEW_ID    = @"XLayout_CONTENT_VIEW_ID";
     }
     
     type = [arguments rangeOfString:@"^@quote:" options:NSRegularExpressionSearch];
-    
     if (type.location != NSNotFound && type.length != 0) {
         SEL sel = NSSelectorFromString(getValue(type));
         if ([self respondsToSelector:sel]) {
@@ -274,6 +266,29 @@ NSString *const XLayout_CONTENT_VIEW_ID    = @"XLayout_CONTENT_VIEW_ID";
             return;
 #pragma clang diagnostic pop
         }
+    }
+    
+    type = [arguments rangeOfString:@"^(@font:)\\w+:\\d+$" options:NSRegularExpressionSearch];
+    if (type.location != NSNotFound && type.length != 0) {
+        
+        NSRange r = [arguments rangeOfString:@"\\w+:\\d+$" options:NSRegularExpressionSearch];
+        NSString *fontAttribute = [arguments substringWithRange:r];
+        r = [fontAttribute rangeOfString:@":"];
+            
+        NSString *fontName = [fontAttribute substringToIndex:r.location];
+        CGFloat fontSize = [[fontAttribute substringFromIndex:(r.location + r.length)] floatValue];
+        
+        UIFont *font = nil;
+        if ([fontName isEqualToString:@"default"]) {
+            font = [UIFont systemFontOfSize:fontSize];
+        }else if ([fontName isEqualToString:@"bold"]) {
+            font = [UIFont boldSystemFontOfSize:fontSize];
+        }else {
+            font = [UIFont fontWithName:fontName size:fontSize];
+        }
+        
+        *output = font;
+        return;
     }
 
     *output = arguments;

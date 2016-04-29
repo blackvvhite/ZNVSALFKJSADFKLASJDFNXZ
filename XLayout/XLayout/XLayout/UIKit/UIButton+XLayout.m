@@ -22,105 +22,105 @@
 
 #pragma mark - Title
 
-- (void)setNormalTitle:(NSString *)normalTitle {
-    [self setTitle:normalTitle forState:UIControlStateNormal];
+- (void)setN_title:(NSString *)n_title {
+    [self setTitle:n_title forState:UIControlStateNormal];
 }
 
-- (NSString *)normalTitle {
+- (NSString *)n_title {
     return [self titleForState:UIControlStateNormal];
 }
 
-- (void)setHighlightedTitle:(NSString *)highlightedTitle {
-    [self setTitle:highlightedTitle forState:UIControlStateHighlighted];
+- (void)setH_title:(NSString *)h_title {
+    [self setTitle:h_title forState:UIControlStateHighlighted];
 }
 
-- (NSString *)highlightedTitle {
+- (NSString *)h_title {
     return [self titleForState:UIControlStateHighlighted];
 }
 
-- (void)setSelectedTitle:(NSString *)selectedTitle{
-    [self setTitle:selectedTitle forState:UIControlStateSelected];
+- (void)setS_title:(NSString *)s_title {
+    [self setTitle:s_title forState:UIControlStateSelected];
 }
 
-- (NSString *)selectedTitle {
+- (NSString *)s_title {
     return [self titleForState:UIControlStateSelected];
 }
 
 #pragma mark - Color
 
-- (void)setNormalTitleColor:(UIColor *)normalTitleColor {
-    [self setTitleColor:normalTitleColor forState:UIControlStateNormal];
+- (void)setNt_color:(UIColor *)nt_color {
+    [self setTitleColor:nt_color forState:UIControlStateNormal];
 }
 
-- (UIColor *)normalTitleColor {
+- (UIColor *)nt_color {
     return [self titleColorForState:UIControlStateNormal];
 }
 
-- (void)setHighlightedTitleColor:(UIColor *)highlightedTitleColor {
-    [self setTitleColor:highlightedTitleColor forState:UIControlStateHighlighted];
+- (void)setHt_color:(UIColor *)ht_color {
+    [self setTitleColor:ht_color forState:UIControlStateHighlighted];
 }
 
-- (UIColor *)highlightedTitleColor {
+- (UIColor *)ht_color {
     return [self titleColorForState:UIControlStateHighlighted];
 }
 
-- (void)setSelectedTitleColor:(UIColor *)selectedTitleColor {
-    [self setTitleColor:selectedTitleColor forState:UIControlStateSelected];
+- (void)setSt_color:(UIColor *)st_color {
+    [self setTitleColor:st_color forState:UIControlStateSelected];
 }
 
-- (UIColor *)selectedTitleColor {
+- (UIColor *)st_color {
     return [self titleColorForState:UIControlStateSelected];
 }
 
 #pragma mark - Image
 
-- (void)setNormalImage:(UIImage *)normalImage {
-    [self setImage:normalImage forState:UIControlStateNormal];
+- (void)setN_image:(UIImage *)n_image {
+    [self setImage:n_image forState:UIControlStateNormal];
 }
 
-- (UIImage *)normalImage {
+- (UIImage *)n_image {
     return [self imageForState:UIControlStateNormal];
 }
 
-- (void)setHighlightedImage:(UIImage *)highlightedImage {
-    [self setImage:highlightedImage forState:UIControlStateHighlighted];
+- (void)setH_image:(UIImage *)h_image {
+    [self setImage:h_image forState:UIControlStateHighlighted];
 }
 
-- (UIImage *)highlightedImage {
+- (UIImage *)h_image {
     return [self imageForState:UIControlStateHighlighted];
 }
 
-- (void)setSelectedImage:(UIImage *)selectedImage {
-    [self setImage:selectedImage forState:UIControlStateSelected];
+- (void)setS_image:(UIImage *)s_image {
+    [self setImage:s_image forState:UIControlStateSelected];
 }
 
-- (UIImage *)selectedImage {
+- (UIImage *)s_image {
     return [self imageForState:UIControlStateSelected];
 }
 
 #pragma mark - Background Image
 
-- (void)setNormalBackgroundImage:(UIImage *)normalBackgroundImage {
-    [self setBackgroundImage:normalBackgroundImage forState:UIControlStateNormal];
+- (void)setNb_image:(UIImage *)nb_image {
+    [self setBackgroundImage:nb_image forState:UIControlStateNormal];
 }
 
-- (UIImage *)normalBackgroundImage {
+- (UIImage *)nb_image {
     return [self backgroundImageForState:UIControlStateNormal];
 }
 
-- (void)setHighlightedBackgroundImage:(UIImage *)highlightedBackgroundImage {
-    [self setBackgroundImage:highlightedBackgroundImage forState:UIControlStateHighlighted];
+- (void)setHb_image:(UIImage *)hb_image {
+    [self setBackgroundImage:hb_image forState:UIControlStateHighlighted];
 }
 
-- (UIImage *)highlightedBackgroundImage {
+- (UIImage *)hb_image {
     return [self backgroundImageForState:UIControlStateHighlighted];
 }
 
-- (void)setSelectedBackgroundImage:(UIImage *)selectedBackgroundImage {
-    [self setBackgroundImage:selectedBackgroundImage forState:UIControlStateSelected];
+- (void)setSb_image:(UIImage *)sb_image {
+    [self setBackgroundImage:sb_image forState:UIControlStateSelected];
 }
 
-- (UIImage *)selectedBackgroundImage {
+- (UIImage *)sb_image {
     return [self backgroundImageForState:UIControlStateSelected];
 }
 

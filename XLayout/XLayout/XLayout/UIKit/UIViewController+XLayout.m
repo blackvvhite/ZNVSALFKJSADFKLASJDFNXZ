@@ -27,7 +27,7 @@
     XLayoutViewService *service = [XLayoutViewService serviceFromXML:XML eventHandler:self];
     
     [self.view addSubview:service.contentView];
-    [self.view setLayout_id:XLayout_ROOT_VIEW_ID];
+    [self.view setLayout_id:XLAYOUT_ROOT_VIEW_ID];
     
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[view]|" options:0 metrics:nil views:@{@"view":service.contentView}]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:nil views:@{@"view":service.contentView}]];

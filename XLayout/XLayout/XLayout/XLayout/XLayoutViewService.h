@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString *const XLayout_ROOT_VIEW_ID;
-extern NSString *const XLayout_CONTENT_VIEW_ID;
+extern NSString *const XLAYOUT_ROOT_VIEW_ID;
+extern NSString *const XLAYOUT_CONTENT_VIEW_ID;
 
 @class UIView;
 @interface XLayoutViewService : NSObject

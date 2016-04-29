@@ -25,7 +25,11 @@
 
 @property (nonatomic, strong) XLayoutConstraint *layout_aboveConstraint;
 @property (nonatomic, strong) XLayoutConstraint *layout_belowConstraint;
+@property (nonatomic, strong) XLayoutConstraint *layout_inLeadingConstraint;
+@property (nonatomic, strong) XLayoutConstraint *layout_inTrailingConstraint;
+
 @property (nonatomic, strong) XLayoutConstraint *layout_baselineConstraint;
+
 @property (nonatomic, strong) XLayoutConstraint *layout_centerXConstraint;
 @property (nonatomic, strong) XLayoutConstraint *layout_centerYConstraint;
 
@@ -177,6 +181,36 @@
         [self.layout_belowConstraint updateConstraintWithLayoutAttributes:layout_below];
     }
     _layout_below = layout_below;
+}
+
+- (void)setLayout_in_leading:(NSString *)layout_in_leading {
+    NSAssert(layout_in_leading, @"The layout_in_leading attribute cannot be empty");
+    [self assert];
+    
+    if (!self.layout_inLeadingConstraint) {
+        XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_in_leading];
+        constraint.firstAttribute = NSLayoutAttributeTrailing;
+        constraint.secondAttribute = NSLayoutAttributeLeading;
+        self.layout_inLeadingConstraint = constraint;
+    }else {
+        [self.layout_inLeadingConstraint updateConstraintWithLayoutAttributes:layout_in_leading];
+    }
+    _layout_in_leading = layout_in_leading;
+}
+
+- (void)setLayout_in_trailing:(NSString *)layout_in_trailing {
+    NSAssert(layout_in_trailing, @"The layout_in_leading attribute cannot be empty");
+    [self assert];
+    
+    if (!self.layout_inTrailingConstraint) {
+        XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_in_trailing];
+        constraint.firstAttribute = NSLayoutAttributeLeading;
+        constraint.secondAttribute = NSLayoutAttributeTrailing;
+        self.layout_inTrailingConstraint = constraint;
+    }else {
+        [self.layout_inTrailingConstraint updateConstraintWithLayoutAttributes:layout_in_trailing];
+    }
+    _layout_in_trailing = layout_in_trailing;
 }
 
 - (void)setLayout_baseline:(NSString *)layout_baseline {
