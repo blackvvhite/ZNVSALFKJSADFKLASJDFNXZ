@@ -277,6 +277,14 @@
     _layout_center = layout_center;
 }
 
+- (void)setLayout_equal:(NSString *)layout_equal {
+    [self setLayout_top:layout_equal];
+    [self setLayout_bottom:layout_equal];
+    [self setLayout_left:layout_equal];
+    [self setLayout_right:layout_equal];
+    _layout_equal = layout_equal;
+}
+
 #pragma mark - Public
 
 - (void)assert {

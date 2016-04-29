@@ -30,10 +30,7 @@
     [self.view setViewService:service];
     [self setViewService:service];
     [service setRootView:self.view];
-    [service.contentView.layout setLayout_top:@"@id:XLAYOUT_ROOT_VIEW_ID"];
-    [service.contentView.layout setLayout_bottom:@"@id:XLAYOUT_ROOT_VIEW_ID"];
-    [service.contentView.layout setLayout_left:@"@id:XLAYOUT_ROOT_VIEW_ID"];
-    [service.contentView.layout setLayout_right:@"@id:XLAYOUT_ROOT_VIEW_ID"];
+    [service.contentView.layout setLayout_equal:@"@id:XLAYOUT_ROOT_VIEW_ID"];
     [service.contentView.layout activate];
 }
 

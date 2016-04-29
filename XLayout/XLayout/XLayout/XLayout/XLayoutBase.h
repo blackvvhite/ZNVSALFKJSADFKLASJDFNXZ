@@ -35,6 +35,8 @@
 @property (nonatomic, copy) NSString *layout_centerX;
 @property (nonatomic, copy) NSString *layout_centerY;
 
+@property (nonatomic, copy) NSString *layout_equal;
+
 - (void)assert;
 - (void)activate;
 - (void)deactivate;

@@ -12,7 +12,6 @@
 @interface UIViewController (XLayout)
 
 @property (nonatomic, strong) XLayoutViewService *viewService;
-
 - (void)loadViewFromXML:(id/* NSURL or XML file name */)XML;
 
 @end
