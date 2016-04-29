@@ -19,7 +19,7 @@
         <UIView layout_id="center" layout_center="@id:contentView" layout_width="100" layout_height="50" backgroundColor="@color:FFDAB9">
         </UIView>
         
-        <UIView layout_id="bottom" layout_left="@id:top_view" layout_bottom="0" layout_width="@id:top_view" layout_height="50" backgroundColor="@color:FFDAB9">
+        <UIView layout_id="bottom" layout_left="@id:top_view:*2" layout_bottom="0" layout_width="@id:top_view" layout_height="50" backgroundColor="@color:FFDAB9">
         </UIView>
         
         <UIButton layout_below="@id:center:20" layout_left="@id:center" layout_width="@id:center" layout_height="@id:center" n_title="my name is button" n_image="@img:img" onClick="onClick" nt_color="@color:00CD00" backgroundColor="@color:EE0000" />

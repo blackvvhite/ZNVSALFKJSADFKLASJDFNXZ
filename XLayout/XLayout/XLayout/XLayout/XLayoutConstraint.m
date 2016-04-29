@@ -91,13 +91,14 @@
     NSLayoutRelation relation = NSLayoutRelationEqual;
     UILayoutPriority priority = UILayoutPriorityRequired;
     
-    NSRange layoutIdRange = [attributes rangeOfString:@":\\w+[:*@]?" options:NSRegularExpressionSearch];
+    NSRange layoutIdRange = [attributes rangeOfString:@":\\w+[:*@\\w]" options:NSRegularExpressionSearch];
     NSRange relationRange = [attributes rangeOfString:@"[><]=" options:NSRegularExpressionSearch];
-    NSRange constantRange = [attributes rangeOfString:@"[:=]*-*\\d+.*\\d*[*@]*" options:NSRegularExpressionSearch];
-    NSRange multiplierRange = [attributes rangeOfString:@"\\*-?\\d+.?\\d*@?" options:NSRegularExpressionSearch];
-    NSRange priorityRange = [attributes rangeOfString:@"\\@-?\\d+.?\\d+" options:NSRegularExpressionSearch];
+    NSRange constantRange = [attributes rangeOfString:@".?-?\\d+\\.?\\d*[^\\D]?" options:NSRegularExpressionSearch];
+    NSRange multiplierRange = [attributes rangeOfString:@"\\*-?\\d+.?\\d*[^\\D]?" options:NSRegularExpressionSearch];
+    NSRange priorityRange = [attributes rangeOfString:@"\\@-?\\d+\\.?\\d*" options:NSRegularExpressionSearch];
     
     if (layoutIdRange.location != NSNotFound  && layoutIdRange.length != 0) {
+        
         layoutId = [attributes substringWithRange:layoutIdRange];
         layoutId = [layoutId stringByReplacingOccurrencesOfString:@"[:*@]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, layoutId.length)];
     }
@@ -113,21 +114,27 @@
     
     if (constantRange.location != NSNotFound && constantRange.length != 0) {
         NSString *constantString = [attributes substringWithRange:constantRange];
-        constantString = [constantString stringByReplacingOccurrencesOfString:@"[:=*@]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, constantString.length)];
-        
-        constant = [constantString doubleValue];
+        constantRange = [constantString rangeOfString:@"^[:=\\d-]" options:NSRegularExpressionSearch];
+        if (constantRange.location != NSNotFound && constantRange.length != 0) {
+            if ([constantString hasPrefix:@":"] || [constantString hasPrefix:@"="]) {
+                constantRange.location += constantRange.length;
+            }
+            constantString = [constantString substringFromIndex:constantRange.location];
+            
+            constant = [constantString doubleValue];
+        }
     }
     
     if (multiplierRange.location != NSNotFound && multiplierRange.length != 0) {
-        NSString *multiplierString = [attributes substringWithRange:multiplierRange];
-        multiplierString = [multiplierString stringByReplacingOccurrencesOfString:@"[*@]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, multiplierString.length)];
+        multiplierRange.location += 1;
+        NSString *multiplierString = [attributes substringFromIndex:multiplierRange.location];
         
         multiplier = [multiplierString doubleValue];
     }
     
     if (priorityRange.location != NSNotFound  && priorityRange.length != 0) {
-        NSString *priorityString = [attributes substringWithRange:priorityRange];
-        priorityString = [priorityString stringByReplacingOccurrencesOfString:@"@" withString:@""];
+        multiplierRange.location += 1;
+        NSString *priorityString = [attributes substringFromIndex:multiplierRange.location];
         
         priority = [priorityString doubleValue];
     }
