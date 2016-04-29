@@ -12,10 +12,11 @@
 
 #import "UIView+XLayout.h"
 #import "XLayoutViewService.h"
+#import "NSLayoutConstraint+XLayout.h"
 
 @interface XLayoutConstraint ()
 
-@property (nonatomic, copy) NSString *attributes;
+@property (nonatomic, copy) NSString *layoutAttribute;
 @property (nonatomic, strong) NSMutableArray *constraint;
 
 @end
@@ -32,12 +33,12 @@
 + (instancetype)constraintWithView:(UIView *)view layoutAttributes:(NSString *)attributes {
     XLayoutConstraint *constraint = [[XLayoutConstraint alloc] init];
     constraint.firstView = view;
-    constraint.attributes = attributes;
+    constraint.layoutAttribute = attributes;
     return constraint;
 }
 
 - (void)activate {
-    [self updateConstraintWithLayoutAttributes:self.attributes];
+    [self updateConstraintWithLayoutAttributes:self.layoutAttribute];
     [self updateOrNew];
 }
 
@@ -62,6 +63,7 @@
             if (self.constant != constraint.constant) {
                 constraint.constant = self.constant;
             }
+            [constraint setLayoutAttribute:self.layoutAttribute];
         }
     }else {
         [self createNewConstraint];
@@ -74,6 +76,8 @@
     }
     NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self.firstView attribute:self.firstAttribute relatedBy:self.relation toItem:self.secondView attribute:self.secondAttribute multiplier:self.multiplier constant:self.constant];
     [constraint setPriority:self.priority];
+    [constraint setLayoutPosition:self.layoutPosition];
+    [constraint setLayoutAttribute:self.layoutAttribute];
     [self.firstView.viewService.contentView addConstraint:constraint];
     [self.constraint addObject:constraint];
 }
@@ -144,7 +148,7 @@
         NSAssert(secondView, @"Failed to get associated view");
     }
     
-    self.attributes = attributes;
+    self.layoutAttribute = attributes;
     
     self.secondView = secondView;
     self.constant   = constant;

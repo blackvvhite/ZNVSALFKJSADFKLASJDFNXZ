@@ -10,4 +10,7 @@
 
 @interface NSLayoutConstraint (XLayout)
 
+@property (nonatomic, copy) NSString *layoutPosition;
+@property (nonatomic, copy) NSString *layoutAttribute;
+
 @end

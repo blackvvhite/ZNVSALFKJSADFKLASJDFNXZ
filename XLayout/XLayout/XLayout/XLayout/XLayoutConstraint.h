@@ -21,6 +21,7 @@
 @property (nonatomic, assign) CGFloat constant;
 @property (nonatomic, assign) UILayoutPriority priority;
 
+@property (nonatomic, strong) NSString *layoutPosition;
 @property (nonatomic, assign) BOOL deleteEexistingWhenUpdating;
 
 + (instancetype)constraintWithView:(UIView *)view layoutAttributes:(NSString *)attributes;
