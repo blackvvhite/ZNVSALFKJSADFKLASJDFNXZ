@@ -17,7 +17,7 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
 
 @interface XLayoutViewService ()
 
-@property (nonatomic, strong) NSURL *viewDataURL;
+@property (nonatomic, strong) NSURL *XMLURL;
 @property (nonatomic, readwrite, strong) UIView *contentView;
 @property (nonatomic, strong) NSMutableDictionary *viewMap;
 @property (nonatomic, readwrite, strong) id eventHandler;
@@ -28,20 +28,22 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
 
 #pragma mark - Init
 
-/* NSURL or XML file name */
-+ (instancetype)serviceFromXML:(id)XML eventHandler:(id)eventHandler {
-    NSAssert(XML, @"The XML cannot be empty");
-    
++ (instancetype)serviceFromXMLURL:(NSURL *)URL eventHandler:(id)eventHandler {
+    NSAssert(URL, @"The XML URL cannot be empty");
     XLayoutViewService *service = [[XLayoutViewService alloc] init];
     service.eventHandler = eventHandler;
-    
-    if ([XML isKindOfClass:[NSString class]]) {
-        NSURL *URL = [[NSBundle mainBundle] URLForResource:XML withExtension:@"xml"];
-        NSAssert(URL, @"The XML is invalid");
-        service.viewDataURL = URL;
-    }else if ([XML isKindOfClass:[NSURL class]]) {
-        service.viewDataURL = XML;
-    }
+    service.XMLURL = URL;
+    return service;
+}
+
++ (instancetype)serviceFromXMLName:(NSString *)name eventHandler:(id)eventHandler {
+    NSAssert(name, @"The XML name cannot be empty");
+    XLayoutViewService *service = [[XLayoutViewService alloc] init];
+    service.eventHandler = eventHandler;
+    NSString *extension = name.pathExtension.length > 0 ? name.pathExtension : @"xml";
+    NSURL *URL = [[NSBundle mainBundle] URLForResource:[name stringByDeletingPathExtension] withExtension:extension];
+    NSAssert1(URL, @"The XML name (%@) is invalid", name);
+    service.XMLURL = URL;
     return service;
 }
 
@@ -49,7 +51,7 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
 
 - (void)createView {
     NSError *error;
-    NSString *pretreatment = [NSString stringWithContentsOfURL:self.viewDataURL encoding:NSUTF8StringEncoding error:&error];
+    NSString *pretreatment = [NSString stringWithContentsOfURL:self.XMLURL encoding:NSUTF8StringEncoding error:&error];
     NSAssert(!error, error.description);
     
     pretreatment = [pretreatment stringByReplacingOccurrencesOfString:@">=" withString:@"&gt;="];
@@ -73,7 +75,7 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
         if ([element.tag isEqualToString:@"import"]) {
             NSString *import = [element valueForAttribute:@"name"];
             if (import) {
-                XLayoutViewService *service = [XLayoutViewService serviceFromXML:import eventHandler:self.eventHandler];
+                XLayoutViewService *service = [XLayoutViewService serviceFromXMLName:import eventHandler:self.eventHandler];
                 currentView = service.contentView;
             }
         }else {

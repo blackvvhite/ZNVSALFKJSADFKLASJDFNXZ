@@ -20,17 +20,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self loadViewFromXML:@"Base"];
+    [self loadViewFromXML:@"demo"];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        [self.viewService.viewWithLayoutId(@"top_left").layout setLayout_top:@"30"];
-        
-        [UIView animateWithDuration:0.25 animations:^{
-            [self.view layoutIfNeeded];
-        }];
-        
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        
+//        [self.viewService.viewWithLayoutId(@"top_left").layout setLayout_top:@"30"];
+//        
+//        [UIView animateWithDuration:0.25 animations:^{
+//            [self.view layoutIfNeeded];
+//        }];
+//        
+//    });
 }
 
 - (void)onClick {

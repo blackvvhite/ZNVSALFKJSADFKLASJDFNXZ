@@ -17,8 +17,9 @@ extern NSString *const XLAYOUT_ROOT_VIEW_ID;
 @property (nonatomic, readonly, strong) UIView *contentView;
 @property (nonatomic, readonly, strong) id eventHandler;
 
-/* NSURL or XML file name */
-+ (instancetype)serviceFromXML:(id)XML eventHandler:(id)eventHandler;
++ (instancetype)serviceFromXMLURL:(NSURL *)URL eventHandler:(id)eventHandler;
++ (instancetype)serviceFromXMLName:(NSString *)name eventHandler:(id)eventHandler;
+
 - (UIView *(^)(NSString *layoutId))viewWithLayoutId;
 
 @end

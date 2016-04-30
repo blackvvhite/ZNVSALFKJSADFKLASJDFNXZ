@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840ED8971CD47C6D0054FA29 /* demo.xml in Resources */ = {isa = PBXBuildFile; fileRef = 840ED8961CD47C6D0054FA29 /* demo.xml */; };
 		84BBA5E61CD24FA900EE48C4 /* Base.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84BBA5E41CD24FA900EE48C4 /* Base.xml */; };
 		84BBA5E71CD24FA900EE48C4 /* redView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84BBA5E51CD24FA900EE48C4 /* redView.xml */; };
 		84BBA5EA1CD26ADF00EE48C4 /* NSLayoutConstraint+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BBA5E91CD26ADF00EE48C4 /* NSLayoutConstraint+XLayout.m */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		840ED8961CD47C6D0054FA29 /* demo.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = demo.xml; sourceTree = "<group>"; };
 		84BBA5E41CD24FA900EE48C4 /* Base.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Base.xml; sourceTree = "<group>"; };
 		84BBA5E51CD24FA900EE48C4 /* redView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = redView.xml; sourceTree = "<group>"; };
 		84BBA5E81CD26ADF00EE48C4 /* NSLayoutConstraint+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+XLayout.h"; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				84BBA5E41CD24FA900EE48C4 /* Base.xml */,
 				84BBA5E51CD24FA900EE48C4 /* redView.xml */,
+				840ED8961CD47C6D0054FA29 /* demo.xml */,
 				931BA7241CD1F947006290B1 /* XLayout */,
 				931BA7101CD1F920006290B1 /* AppDelegate.h */,
 				931BA7111CD1F920006290B1 /* AppDelegate.m */,
@@ -236,6 +239,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840ED8971CD47C6D0054FA29 /* demo.xml in Resources */,
 				84BBA5E71CD24FA900EE48C4 /* redView.xml in Resources */,
 				931BA71D1CD1F920006290B1 /* LaunchScreen.storyboard in Resources */,
 				931BA71A1CD1F920006290B1 /* Assets.xcassets in Resources */,
