@@ -16,6 +16,11 @@
     return [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:[[UICollectionViewFlowLayout alloc] init]];
 }
 
+- (void)setEventHandler:(id)eventHandler {
+    self.dataSource = eventHandler;
+    self.delegate = eventHandler;
+}
+
 - (void)setMinimumLineSpacing:(NSString *)minimumLineSpacing {
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
     layout.minimumLineSpacing = [minimumLineSpacing floatValue];

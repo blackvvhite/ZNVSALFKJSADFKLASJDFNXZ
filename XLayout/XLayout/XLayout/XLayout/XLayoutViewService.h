@@ -10,6 +10,8 @@
 
 extern NSString *const XLAYOUT_CONTROLLER_VIEW_ID;
 extern NSString *const XLAYOUT_TABLE_VIEW_CELL_ID;
+extern NSString *const XLAYOUT_COLLECTION_VIEW_CELL_ID;
+extern NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID;
 
 @class UIView;
 @interface XLayoutViewService : NSObject
