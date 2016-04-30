@@ -21,11 +21,13 @@
 @property (nonatomic, copy) NSString *layout_bottom;
 @property (nonatomic, copy) NSString *layout_left;
 @property (nonatomic, copy) NSString *layout_right;
-@property (nonatomic, assign) CGPoint layout_origin;
+@property (nonatomic, copy) NSString *layout_origin;
+@property (nonatomic, copy) NSString *layout_destination;
 
 @property (nonatomic, copy) NSString *layout_width;
 @property (nonatomic, copy) NSString *layout_height;
-@property (nonatomic, assign) CGSize layout_size;
+@property (nonatomic, copy) NSString *layout_size;
+//@property (nonatomic, assign) BOOL layout_width_height_equal;
 
 @property (nonatomic, copy) NSString *layout_above;
 @property (nonatomic, copy) NSString *layout_below;
@@ -39,7 +41,7 @@
 @property (nonatomic, copy) NSString *layout_centerY;
 
 @property (nonatomic, copy) NSString *layout_equal;
-@property (nonatomic, assign) UIEdgeInsets layout_edge;
+@property (nonatomic, copy) NSString *layout_edge;
 
 - (void)activate;
 - (void)deactivate;

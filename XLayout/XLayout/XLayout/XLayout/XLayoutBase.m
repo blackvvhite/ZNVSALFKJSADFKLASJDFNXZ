@@ -53,6 +53,18 @@
     NSAssert1(self.view.superview, @"There (%@) is no parent view",self.view.layout_id);
 }
 
+- (NSArray *)parserParameterWithLayoutAttribute:(NSString *)layoutAttribute {
+    NSRange r = [layoutAttribute rangeOfString:@"(^\\{.+,.+\\}$)|(^\\{.+,.+,.+,.+\\}$)" options:NSRegularExpressionSearch];
+    NSArray *component = nil;
+    if (r.location != NSNotFound && r.length != 0) {
+        r.location += 1;
+        r.length -= 1;
+        component = [[layoutAttribute substringWithRange:r] componentsSeparatedByString:@","];
+    }
+    NSAssert(([component count] == 2 || [component count] == 4), @"Parameter format error. attribute:%@",layoutAttribute);
+    return component;
+}
+
 #pragma mark - Public
 
 - (void)activate {
@@ -173,10 +185,18 @@
     _layout_right = layout_right;
 }
 
-- (void)setLayout_origin:(CGPoint)layout_origin {
-    [self setLayout_top:[@(layout_origin.y) stringValue]];
-    [self setLayout_left:[@(layout_origin.x) stringValue]];
+- (void)setLayout_origin:(NSString *)layout_origin {
+    NSArray *attribute = [self parserParameterWithLayoutAttribute:layout_origin];
+    [self setLayout_top:[attribute firstObject]];
+    [self setLayout_left:[attribute lastObject]];
     _layout_origin = layout_origin;
+}
+
+- (void)setLayout_destination:(NSString *)layout_destination {
+    NSArray *attribute = [self parserParameterWithLayoutAttribute:layout_destination];
+    [self setLayout_bottom:[attribute firstObject]];
+    [self setLayout_right:[attribute lastObject]];
+    _layout_destination = layout_destination;
 }
 
 - (void)setLayout_width:(NSString *)layout_width {
@@ -205,10 +225,15 @@
     _layout_height = layout_height;
 }
 
-- (void)setLayout_size:(CGSize)layout_size {
-    [self setLayout_width:[@(layout_size.width) stringValue]];
-    [self setLayout_height:[@(layout_size.height) stringValue]];
+- (void)setLayout_size:(NSString *)layout_size {
+    NSArray *attribute = [self parserParameterWithLayoutAttribute:layout_size];
+    [self setLayout_width:[attribute firstObject]];
+    [self setLayout_height:[attribute lastObject]];
     _layout_size = layout_size;
+}
+
+- (void)setLayout_width_height_equal:(BOOL)layout_width_height_equal {
+    
 }
 
 - (void)setLayout_above:(NSString *)layout_above {
@@ -314,11 +339,12 @@
     _layout_equal = layout_equal;
 }
 
-- (void)setLayout_edge:(UIEdgeInsets)layout_edge {
-    [self setLayout_top:[@(layout_edge.top) stringValue]];
-    [self setLayout_bottom:[@(layout_edge.bottom) stringValue]];
-    [self setLayout_left:[@(layout_edge.left) stringValue]];
-    [self setLayout_right:[@(layout_edge.right) stringValue]];
+- (void)setLayout_edge:(NSString *)layout_edge {
+    NSArray *attribute = [self parserParameterWithLayoutAttribute:layout_edge];
+    [self setLayout_top:[attribute firstObject]];
+    [self setLayout_left:[attribute objectAtIndex:1]];
+    [self setLayout_bottom:[attribute objectAtIndex:2]];
+    [self setLayout_right:[attribute lastObject]];
     _layout_edge = layout_edge;
 }
 

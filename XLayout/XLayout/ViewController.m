@@ -23,14 +23,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    [self loadViewFromXMLName:@"Base"];
+    
 //    [self loadViewFromXMLName:@"table_view"];
 //    [self.viewService.viewById(@"tableView") registerClass:[DemoTableViewCell class] forCellReuseIdentifier:@"Cell"];
     
-    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
-    CGFloat itemSize = (screenWidth - 20) / 3;
-    [self loadViewFromXMLName:@"collection_view"];
-    [(UICollectionView *)self.viewService.viewById(@"collection_view") setItemSize:NSStringFromCGSize(CGSizeMake(itemSize, itemSize))];
-    [self.viewService.viewById(@"collection_view") registerClass:[DemoCollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
+//    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+//    CGFloat itemSize = (screenWidth - 20) / 3;
+//    [self loadViewFromXMLName:@"collection_view"];
+//    [(UICollectionView *)self.viewService.viewById(@"collection_view") setItemSize:NSStringFromCGSize(CGSizeMake(itemSize, itemSize))];
+//    [self.viewService.viewById(@"collection_view") registerClass:[DemoCollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
 }
 
 #pragma mark - UICollectionViewDataSource
