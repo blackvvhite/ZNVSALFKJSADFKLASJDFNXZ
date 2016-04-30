@@ -13,6 +13,7 @@
 #import "UIColor+XLayout.h"
 
 NSString *const XLAYOUT_CONTROLLER_VIEW_ID = @"XLAYOUT_CONTROLLER_VIEW_ID";
+NSString *const XLAYOUT_TABLE_VIEW_CELL_ID = @"XLAYOUT_TABLE_VIEW_CELL_ID";
 
 @interface XLayoutViewService ()
 
@@ -26,14 +27,6 @@ NSString *const XLAYOUT_CONTROLLER_VIEW_ID = @"XLAYOUT_CONTROLLER_VIEW_ID";
 @implementation XLayoutViewService
 
 #pragma mark - Init
-
-+ (instancetype)serviceFromXMLURL:(NSURL *)URL eventHandler:(id)eventHandler {
-    NSAssert(URL, @"The XML URL cannot be empty");
-    XLayoutViewService *service = [[XLayoutViewService alloc] init];
-    service.eventHandler = eventHandler;
-    service.XMLURL = URL;
-    return service;
-}
 
 + (instancetype)serviceFromXMLName:(NSString *)name eventHandler:(id)eventHandler {
     NSAssert(name, @"The XML name cannot be empty");
@@ -297,7 +290,7 @@ NSString *const XLAYOUT_CONTROLLER_VIEW_ID = @"XLAYOUT_CONTROLLER_VIEW_ID";
     return [NSDictionary dictionaryWithDictionary:self.privateViewMap];
 }
 
-- (id(^)(NSString *layoutId))viewWithLayoutId {
+- (id(^)(NSString *layoutId))viewById {
     return ^(NSString *layoutId){
         return [self.viewMap objectForKey:layoutId];
     };

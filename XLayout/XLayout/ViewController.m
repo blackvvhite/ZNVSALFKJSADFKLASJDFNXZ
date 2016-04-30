@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 #import "XLayout.h"
+#import "DemoTableViewCell.h"
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -20,15 +21,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self loadViewFromXML:@"Base"];
+    [self loadViewFromXMLName:@"table_view"];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        [self.viewService.viewWithLayoutId(@"quote_view") setBackgroundColor:[UIColor blueColor]];
-        
-    });
-    
-    [self.viewService.viewWithLayoutId(@"tableView") registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    [self.viewService.viewById(@"tableView") registerClass:[DemoTableViewCell class] forCellReuseIdentifier:@"Cell"];
 }
 
 #pragma mark - UITableViewDataSource
@@ -39,8 +34,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    cell.textLabel.text = [NSString stringWithFormat:@"%d",indexPath.row];
+    DemoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    cell.label.text = [NSString stringWithFormat:@"Row %ld",indexPath.row];
     
     return cell;
 }

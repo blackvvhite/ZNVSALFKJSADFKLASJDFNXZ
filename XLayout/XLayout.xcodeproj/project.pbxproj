@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		840ED8971CD47C6D0054FA29 /* demo.xml in Resources */ = {isa = PBXBuildFile; fileRef = 840ED8961CD47C6D0054FA29 /* demo.xml */; };
+		840ED8971CD47C6D0054FA29 /* table_view.xml in Resources */ = {isa = PBXBuildFile; fileRef = 840ED8961CD47C6D0054FA29 /* table_view.xml */; };
 		840ED89A1CD48D510054FA29 /* DemoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840ED8991CD48D510054FA29 /* DemoTableViewCell.m */; };
 		840ED89C1CD48F290054FA29 /* table_view_cell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 840ED89B1CD48F290054FA29 /* table_view_cell.xml */; };
+		840ED89F1CD4D11F0054FA29 /* UITableViewCell+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 840ED89E1CD4D11F0054FA29 /* UITableViewCell+XLayout.m */; };
 		84BBA5E61CD24FA900EE48C4 /* Base.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84BBA5E41CD24FA900EE48C4 /* Base.xml */; };
 		84BBA5E71CD24FA900EE48C4 /* redView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84BBA5E51CD24FA900EE48C4 /* redView.xml */; };
 		84BBA5EA1CD26ADF00EE48C4 /* NSLayoutConstraint+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BBA5E91CD26ADF00EE48C4 /* NSLayoutConstraint+XLayout.m */; };
@@ -33,10 +34,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		840ED8961CD47C6D0054FA29 /* demo.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = demo.xml; sourceTree = "<group>"; };
+		840ED8961CD47C6D0054FA29 /* table_view.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = table_view.xml; sourceTree = "<group>"; };
 		840ED8981CD48D510054FA29 /* DemoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTableViewCell.h; sourceTree = "<group>"; };
 		840ED8991CD48D510054FA29 /* DemoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoTableViewCell.m; sourceTree = "<group>"; };
 		840ED89B1CD48F290054FA29 /* table_view_cell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = table_view_cell.xml; sourceTree = "<group>"; };
+		840ED89D1CD4D11F0054FA29 /* UITableViewCell+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+XLayout.h"; sourceTree = "<group>"; };
+		840ED89E1CD4D11F0054FA29 /* UITableViewCell+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+XLayout.m"; sourceTree = "<group>"; };
 		84BBA5E41CD24FA900EE48C4 /* Base.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Base.xml; sourceTree = "<group>"; };
 		84BBA5E51CD24FA900EE48C4 /* redView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = redView.xml; sourceTree = "<group>"; };
 		84BBA5E81CD26ADF00EE48C4 /* NSLayoutConstraint+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+XLayout.h"; sourceTree = "<group>"; };
@@ -108,7 +111,7 @@
 			children = (
 				84BBA5E41CD24FA900EE48C4 /* Base.xml */,
 				84BBA5E51CD24FA900EE48C4 /* redView.xml */,
-				840ED8961CD47C6D0054FA29 /* demo.xml */,
+				840ED8961CD47C6D0054FA29 /* table_view.xml */,
 				840ED89B1CD48F290054FA29 /* table_view_cell.xml */,
 				931BA7241CD1F947006290B1 /* XLayout */,
 				931BA7101CD1F920006290B1 /* AppDelegate.h */,
@@ -165,6 +168,8 @@
 				930287471CD206EE005B1CE2 /* UIButton+XLayout.m */,
 				93E7664F1CD3567900385A4A /* UITableView+XLayout.h */,
 				93E766501CD3567900385A4A /* UITableView+XLayout.m */,
+				840ED89D1CD4D11F0054FA29 /* UITableViewCell+XLayout.h */,
+				840ED89E1CD4D11F0054FA29 /* UITableViewCell+XLayout.m */,
 				93E766521CD3572600385A4A /* UICollectionView+XLayout.h */,
 				93E766531CD3572600385A4A /* UICollectionView+XLayout.m */,
 				931BA72E1CD1F947006290B1 /* UIViewController+XLayout.h */,
@@ -247,7 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				840ED8971CD47C6D0054FA29 /* demo.xml in Resources */,
+				840ED8971CD47C6D0054FA29 /* table_view.xml in Resources */,
 				84BBA5E71CD24FA900EE48C4 /* redView.xml in Resources */,
 				931BA71D1CD1F920006290B1 /* LaunchScreen.storyboard in Resources */,
 				931BA71A1CD1F920006290B1 /* Assets.xcassets in Resources */,
@@ -275,6 +280,7 @@
 				9345250A1CD22CDA007433FF /* UIColor+XLayout.m in Sources */,
 				931BA73D1CD1F947006290B1 /* UIViewController+XLayout.m in Sources */,
 				931BA70F1CD1F920006290B1 /* main.m in Sources */,
+				840ED89F1CD4D11F0054FA29 /* UITableViewCell+XLayout.m in Sources */,
 				93E766511CD3567900385A4A /* UITableView+XLayout.m in Sources */,
 				931BA73C1CD1F947006290B1 /* UIView+XLayout.m in Sources */,
 				84BBA5EA1CD26ADF00EE48C4 /* NSLayoutConstraint+XLayout.m in Sources */,

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 extern NSString *const XLAYOUT_CONTROLLER_VIEW_ID;
+extern NSString *const XLAYOUT_TABLE_VIEW_CELL_ID;
 
 @class UIView;
 @interface XLayoutViewService : NSObject
@@ -16,11 +17,10 @@ extern NSString *const XLAYOUT_CONTROLLER_VIEW_ID;
 @property (nonatomic, readonly, strong) UIView *contentView;
 @property (nonatomic, readonly, strong) id eventHandler;
 
-+ (instancetype)serviceFromXMLURL:(NSURL *)URL eventHandler:(id)eventHandler;
 + (instancetype)serviceFromXMLName:(NSString *)name eventHandler:(id)eventHandler;
 
 - (void)activateLayout;
 - (NSDictionary *)viewMap;
-- (id(^)(NSString *layoutId))viewWithLayoutId;
+- (id(^)(NSString *layoutId))viewById;
 
 @end
