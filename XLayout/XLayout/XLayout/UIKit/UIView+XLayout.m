@@ -46,5 +46,13 @@
     return [[self alloc] init];
 }
 
+- (void)setEventHandler:(id)eventHandler {
+    objc_setAssociatedObject(self, @selector(eventHandler), eventHandler, OBJC_ASSOCIATION_ASSIGN);
+}
+
+- (XLayoutViewService *)eventHandler {
+    return objc_getAssociatedObject(self, _cmd);
+}
+
 @end
 

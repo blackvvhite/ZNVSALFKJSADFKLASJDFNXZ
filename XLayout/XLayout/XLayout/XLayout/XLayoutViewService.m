@@ -102,6 +102,10 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
             layout = [[XLayoutBase alloc] initWithView:currentView];
         }
         
+        if (self.eventHandler) {
+            [currentView setEventHandler:self.eventHandler];
+        }
+        
         [parentView addSubview:currentView];
         [currentView setLayout:layout];
         [currentView setViewService:self];

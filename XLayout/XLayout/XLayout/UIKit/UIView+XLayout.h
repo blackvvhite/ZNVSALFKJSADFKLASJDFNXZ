@@ -21,5 +21,6 @@
 @interface UIView (XLayoutPrivate)
 
 + (instancetype)viewWithXMLElementObject:(id)element;
+@property (nonatomic, weak) id eventHandler;
 
 @end
