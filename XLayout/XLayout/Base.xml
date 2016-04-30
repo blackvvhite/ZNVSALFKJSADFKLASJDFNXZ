@@ -1,33 +1,35 @@
 <UIView layout_edge="{5,5,-5,-5}" backgroundColor="@color:FFD39B">
-    <UIView layout_id="top_view"  layout_origin="{10,10}" layout_size="{200,200}" backgroundColor="@quote:commonColor">
-        <UIView layout_edge="{30,30,-30,-30}" backgroundColor="@color:C1FFC1">
-            <UIView layout_origin="{10,10}" layout_destination="{-10,-10}" backgroundColor="@color:EF2222">
-                <UIView layout_left_right="{10,-10}" layout_top_bottom="{10,-10}" backgroundColor="@color:B23AEE">
-                    
+    <UIView layout_edge="{5,5,0,0}" layout_size="{500,800}">
+        <UIView layout_id="top_view"  layout_origin="{10,10}" layout_size="{1200,2100}" backgroundColor="@quote:commonColor">
+            <UIView layout_edge="{30,30,-30,-30}" backgroundColor="@color:C1FFC1">
+                <UIView layout_origin="{10,10}" layout_destination="{-10,-10}" backgroundColor="@color:EF2222">
+                    <UIView layout_left_right="{10,-10}" layout_top_bottom="{10,-10}" backgroundColor="@color:B23AEE">
+                        
+                    </UIView>
                 </UIView>
             </UIView>
         </UIView>
-    </UIView>
-    
-    <import name="redView" layout_id="red_view" layout_below="@id:top_view:5" layout_right="@id:top_view:-5" layout_left="@id:top_view:5" layout_above="@id:contentView:-5" />
-    
-    <UIView layout_id="contentView" layout_below="@id:top_view:100" layout_left="20" layout_right="-20" layout_bottom="-20" backgroundColor="@color:ff8942">
         
-        <UIView layout_id="top_left" layout_top="10" layout_left="20" layout_width="100" layout_height="50" backgroundColor="@color:FFDAB9">
+        <import name="redView" layout_id="red_view" layout_below="@id:top_view:5" layout_right="@id:top_view:-5" layout_left="@id:top_view:5" layout_above="@id:contentView:-5" />
+        
+        <UIView layout_id="contentView" layout_below="@id:top_view:100" layout_left="20" layout_right="-20" layout_bottom="-20" backgroundColor="@color:ff8942">
+            
+            <UIView layout_id="top_left" layout_top="10" layout_left="20" layout_width="100" layout_height="50" backgroundColor="@color:FFDAB9">
+            </UIView>
+            
+            <UIView layout_id="top_right" layout_top="@id:top_left" layout_left="150" layout_width="100" layout_height="50" backgroundColor="@color:FFDAB9">
+            </UIView>
+            
+            <UILabel layout_id="label" layout_top="@id:top_left" textColor="@quote:commonColor" text="我是标签" font="@font:bold:30" layout_in_trailing="@id:top_right:5" layout_right="-5" layout_height="50" backgroundColor="@color:FFDAB9">
+            </UILabel>
+            
+            <UIView layout_id="center" layout_center="@id:contentView" layout_width="100" layout_height="50" backgroundColor="@color:FFDAB9">
+            </UIView>
+            
+            <UIView layout_id="bottom" layout_left="@id:top_view:*2" layout_bottom="0" layout_width="@id:top_view" layout_height="50" backgroundColor="@color:FFDAB9">
+            </UIView>
+            
+            <UIButton layout_below="@id:center:20" layout_left="@id:center" layout_width="@id:center" layout_height="@id:center" n_title="my name is button" n_image="@img:img" onClick="onClick" nt_color="@color:00CD00" backgroundColor="@color:EE0000" />
         </UIView>
-        
-        <UIView layout_id="top_right" layout_top="@id:top_left" layout_left="150" layout_width="100" layout_height="50" backgroundColor="@color:FFDAB9">
-        </UIView>
-        
-        <UILabel layout_id="label" layout_top="@id:top_left" textColor="@quote:commonColor" text="我是标签" font="@font:bold:30" layout_in_trailing="@id:top_right:5" layout_right="-5" layout_height="50" backgroundColor="@color:FFDAB9">
-        </UILabel>
-        
-        <UIView layout_id="center" layout_center="@id:contentView" layout_width="100" layout_height="50" backgroundColor="@color:FFDAB9">
-        </UIView>
-        
-        <UIView layout_id="bottom" layout_left="@id:top_view:*2" layout_bottom="0" layout_width="@id:top_view" layout_height="50" backgroundColor="@color:FFDAB9">
-        </UIView>
-        
-        <UIButton layout_below="@id:center:20" layout_left="@id:center" layout_width="@id:center" layout_height="@id:center" n_title="my name is button" n_image="@img:img" onClick="onClick" nt_color="@color:00CD00" backgroundColor="@color:EE0000" />
     </UIView>
 </UIView>

@@ -23,7 +23,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self loadViewFromXMLName:@"Base"];
+    [self loadViewFromXMLName:@"scroll_view"];
+    
+//    [self.viewService.viewById(@"scroll_view") setContentSize:CGSizeMake(500, 1000)];
     
 //    [self loadViewFromXMLName:@"table_view"];
 //    [self.viewService.viewById(@"tableView") registerClass:[DemoTableViewCell class] forCellReuseIdentifier:@"Cell"];

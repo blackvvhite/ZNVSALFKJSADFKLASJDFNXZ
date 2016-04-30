@@ -15,6 +15,7 @@
 		840ED8A41CD4E30B0054FA29 /* DemoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840ED8A31CD4E30B0054FA29 /* DemoCollectionViewCell.m */; };
 		840ED8A61CD4E8C40054FA29 /* collection_view_cell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 840ED8A51CD4E8C40054FA29 /* collection_view_cell.xml */; };
 		840ED8A91CD4E9280054FA29 /* UICollectionReusableView+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 840ED8A81CD4E9280054FA29 /* UICollectionReusableView+XLayout.m */; };
+		840ED8AB1CD515E50054FA29 /* scroll_view.xml in Resources */ = {isa = PBXBuildFile; fileRef = 840ED8AA1CD515E50054FA29 /* scroll_view.xml */; };
 		84BBA5E61CD24FA900EE48C4 /* Base.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84BBA5E41CD24FA900EE48C4 /* Base.xml */; };
 		84BBA5E71CD24FA900EE48C4 /* redView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84BBA5E51CD24FA900EE48C4 /* redView.xml */; };
 		84BBA5EA1CD26ADF00EE48C4 /* NSLayoutConstraint+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BBA5E91CD26ADF00EE48C4 /* NSLayoutConstraint+XLayout.m */; };
@@ -50,6 +51,7 @@
 		840ED8A51CD4E8C40054FA29 /* collection_view_cell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = collection_view_cell.xml; sourceTree = "<group>"; };
 		840ED8A71CD4E9280054FA29 /* UICollectionReusableView+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionReusableView+XLayout.h"; sourceTree = "<group>"; };
 		840ED8A81CD4E9280054FA29 /* UICollectionReusableView+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionReusableView+XLayout.m"; sourceTree = "<group>"; };
+		840ED8AA1CD515E50054FA29 /* scroll_view.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = scroll_view.xml; sourceTree = "<group>"; };
 		84BBA5E41CD24FA900EE48C4 /* Base.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Base.xml; sourceTree = "<group>"; };
 		84BBA5E51CD24FA900EE48C4 /* redView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = redView.xml; sourceTree = "<group>"; };
 		84BBA5E81CD26ADF00EE48C4 /* NSLayoutConstraint+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+XLayout.h"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				840ED89B1CD48F290054FA29 /* table_view_cell.xml */,
 				840ED8A01CD4E1E30054FA29 /* collection_view.xml */,
 				840ED8A51CD4E8C40054FA29 /* collection_view_cell.xml */,
+				840ED8AA1CD515E50054FA29 /* scroll_view.xml */,
 				931BA7241CD1F947006290B1 /* XLayout */,
 				931BA7101CD1F920006290B1 /* AppDelegate.h */,
 				931BA7111CD1F920006290B1 /* AppDelegate.m */,
@@ -277,6 +280,7 @@
 				840ED8A61CD4E8C40054FA29 /* collection_view_cell.xml in Resources */,
 				84BBA5E61CD24FA900EE48C4 /* Base.xml in Resources */,
 				931BA7181CD1F920006290B1 /* Main.storyboard in Resources */,
+				840ED8AB1CD515E50054FA29 /* scroll_view.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
