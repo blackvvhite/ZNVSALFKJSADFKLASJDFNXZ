@@ -173,6 +173,12 @@
     _layout_right = layout_right;
 }
 
+- (void)setLayout_origin:(CGPoint)layout_origin {
+    [self setLayout_top:[@(layout_origin.y) stringValue]];
+    [self setLayout_left:[@(layout_origin.x) stringValue]];
+    _layout_origin = layout_origin;
+}
+
 - (void)setLayout_width:(NSString *)layout_width {
     if (!self.layout_widthConstraint) {
         XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_width];
@@ -197,6 +203,12 @@
         [self.layout_heightConstraint updateConstraintWithLayoutAttributes:layout_height];
     }
     _layout_height = layout_height;
+}
+
+- (void)setLayout_size:(CGSize)layout_size {
+    [self setLayout_width:[@(layout_size.width) stringValue]];
+    [self setLayout_height:[@(layout_size.height) stringValue]];
+    _layout_size = layout_size;
 }
 
 - (void)setLayout_above:(NSString *)layout_above {
@@ -297,11 +309,17 @@
 }
 
 - (void)setLayout_equal:(NSString *)layout_equal {
-    [self setLayout_top:layout_equal];
-    [self setLayout_bottom:layout_equal];
-    [self setLayout_left:layout_equal];
-    [self setLayout_right:layout_equal];
+    [self setLayout_width:layout_equal];
+    [self setLayout_height:layout_equal];
     _layout_equal = layout_equal;
+}
+
+- (void)setLayout_edge:(UIEdgeInsets)layout_edge {
+    [self setLayout_top:[@(layout_edge.top) stringValue]];
+    [self setLayout_bottom:[@(layout_edge.bottom) stringValue]];
+    [self setLayout_left:[@(layout_edge.left) stringValue]];
+    [self setLayout_right:[@(layout_edge.right) stringValue]];
+    _layout_edge = layout_edge;
 }
 
 @end

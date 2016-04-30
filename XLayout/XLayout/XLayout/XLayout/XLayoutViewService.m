@@ -132,7 +132,6 @@ NSString *const XLAYOUT_CONTROLLER_VIEW_ID = @"XLAYOUT_CONTROLLER_VIEW_ID";
                 target = currentView;
             }
         }
-        
         if (target) {
             [self invocationWithTarget:target methodName:methodName argumentsObject:obj];
         }
@@ -208,6 +207,15 @@ NSString *const XLAYOUT_CONTROLLER_VIEW_ID = @"XLAYOUT_CONTROLLER_VIEW_ID";
     }else if (strcmp(type, "@") == 0) {
         id arguments;
         [self transformationParameterTypeWithArguments:argumentsObject output:&arguments];
+        [invocation setArgument:&arguments atIndex:2];
+    }else if (strcmp(type, "{CGPoint=dd}") == 0) {
+        CGPoint arguments = CGPointFromString(argumentsObject);
+        [invocation setArgument:&arguments atIndex:2];
+    }else if (strcmp(type, "{CGSize=dd}") == 0) {
+        CGSize arguments = CGSizeFromString(argumentsObject);
+        [invocation setArgument:&arguments atIndex:2];
+    }else if (strcmp(type, "{UIEdgeInsets=dddd}") == 0) {
+        UIEdgeInsets arguments = UIEdgeInsetsFromString(argumentsObject);
         [invocation setArgument:&arguments atIndex:2];
     }
     

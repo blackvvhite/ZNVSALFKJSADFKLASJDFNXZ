@@ -1,6 +1,8 @@
-<UIView layout_equal="0">
-	<UIView layout_id="top_view"  layout_top="20" layout_left="20" layout_right="-20" layout_height="300" backgroundColor="@quote:commonColor">
-       
+<UIView layout_edge="{5,5,-5,-5}" backgroundColor="@color:FFD39B">
+    <UIView layout_id="top_view"  layout_origin="{10,10}" layout_size="{200,200}" backgroundColor="@quote:commonColor">
+        <UIView layout_edge="{30,30,-30,-30}" backgroundColor="@color:EE0000">
+            
+        </UIView>
     </UIView>
     
     <import name="redView" layout_id="red_view" layout_below="@id:top_view:5" layout_right="@id:top_view:-5" layout_left="@id:top_view:5" layout_above="@id:contentView:-5" />
