@@ -199,6 +199,20 @@
     _layout_destination = layout_destination;
 }
 
+- (void)setLayout_top_bottom:(NSString *)layout_top_bottom {
+    NSArray *attribute = [self parserParameterWithLayoutAttribute:layout_top_bottom];
+    [self setLayout_top:[attribute firstObject]];
+    [self setLayout_bottom:[attribute lastObject]];
+    _layout_top_bottom = layout_top_bottom;
+}
+
+- (void)setLayout_left_right:(NSString *)layout_left_right {
+    NSArray *attribute = [self parserParameterWithLayoutAttribute:layout_left_right];
+    [self setLayout_left:[attribute firstObject]];
+    [self setLayout_right:[attribute lastObject]];
+    _layout_left_right = layout_left_right;
+}
+
 - (void)setLayout_width:(NSString *)layout_width {
     if (!self.layout_widthConstraint) {
         XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_width];

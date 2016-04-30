@@ -23,6 +23,8 @@
 @property (nonatomic, copy) NSString *layout_right;
 @property (nonatomic, copy) NSString *layout_origin;
 @property (nonatomic, copy) NSString *layout_destination;
+@property (nonatomic, copy) NSString *layout_top_bottom;
+@property (nonatomic, copy) NSString *layout_left_right;
 
 @property (nonatomic, copy) NSString *layout_width;
 @property (nonatomic, copy) NSString *layout_height;
