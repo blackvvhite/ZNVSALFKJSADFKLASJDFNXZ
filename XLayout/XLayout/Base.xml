@@ -1,9 +1,9 @@
-<UIView>
+<UIView layout_equal="0">
 	<UIView layout_id="top_view"  layout_top="20" layout_left="20" layout_right="-20" layout_height="300" backgroundColor="@quote:commonColor">
        
     </UIView>
     
-    <import name="redView" layout_id="red_view" layout_below="@id:top_view:5" layout_right="@id:top_view:5" layout_left="@id:top_view:5" layout_above="@id:contentView:5" />
+    <import name="redView" layout_id="red_view" layout_below="@id:top_view:5" layout_right="@id:top_view:-5" layout_left="@id:top_view:5" layout_above="@id:contentView:-5" />
     
     <UIView layout_id="contentView" layout_below="@id:top_view:100" layout_left="20" layout_right="-20" layout_bottom="-20" backgroundColor="@color:ff8942">
         

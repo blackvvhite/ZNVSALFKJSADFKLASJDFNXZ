@@ -12,15 +12,18 @@
 @class XLayoutViewService;
 @interface UIView (XLayout)
 
-@property (nonatomic, copy  ) NSString *layout_id;
-@property (nonatomic, strong) XLayoutBase *layout;
-@property (nonatomic, weak  ) XLayoutViewService *viewService;
+@property (nonatomic, copy, readonly) NSString *layout_id;
+@property (nonatomic, strong, readonly) XLayoutBase *layout;
+@property (nonatomic, weak, readonly) XLayoutViewService *viewService;
 
 @end
 
 @interface UIView (XLayoutPrivate)
 
 + (instancetype)viewWithXMLElementObject:(id)element;
+- (void)layout_id:(NSString *)layout_id;
+- (void)layout:(id)layout;
+- (void)viewService:(XLayoutViewService *)viewService;
 @property (nonatomic, weak) id eventHandler;
 
 @end

@@ -10,7 +10,7 @@
 
 #import "XLayout.h"
 
-@interface ViewController ()
+@interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @end
 
@@ -20,23 +20,33 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self loadViewFromXML:@"demo"];
+    [self loadViewFromXML:@"Base"];
     
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        
-//        [self.viewService.viewWithLayoutId(@"top_left").layout setLayout_top:@"30"];
-//        
-//        [UIView animateWithDuration:0.25 animations:^{
-//            [self.view layoutIfNeeded];
-//        }];
-//        
-//    });
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self.viewService.viewWithLayoutId(@"quote_view") setBackgroundColor:[UIColor blueColor]];
+        
+    });
+    
+    [self.viewService.viewWithLayoutId(@"tableView") registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
 }
 
-- (void)onClick {
-    
-    NSLog(@"onClick");
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
 }
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    cell.textLabel.text = [NSString stringWithFormat:@"%d",indexPath.row];
+    
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
 
 /*- (NSArray *)relativeLayoutProperties {
     static NSArray *propertie = nil;
@@ -59,10 +69,5 @@
     });
     return propertie;
 }*/
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end

@@ -8,12 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString *const XLAYOUT_ROOT_VIEW_ID;
+extern NSString *const XLAYOUT_CONTROLLER_VIEW_ID;
 
 @class UIView;
 @interface XLayoutViewService : NSObject
 
-@property (nonatomic, weak) UIView *rootView;
 @property (nonatomic, readonly, strong) UIView *contentView;
 @property (nonatomic, readonly, strong) id eventHandler;
 
@@ -21,6 +20,7 @@ extern NSString *const XLAYOUT_ROOT_VIEW_ID;
 + (instancetype)serviceFromXMLName:(NSString *)name eventHandler:(id)eventHandler;
 
 - (void)activateLayout;
+- (NSDictionary *)viewMap;
 - (id(^)(NSString *layoutId))viewWithLayoutId;
 
 @end

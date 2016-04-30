@@ -12,14 +12,13 @@
 #import "UIView+XLayout.h"
 #import "UIColor+XLayout.h"
 
-NSString *const XLAYOUT_ROOT_VIEW_ID       = @"XLAYOUT_ROOT_VIEW_ID";
-NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
+NSString *const XLAYOUT_CONTROLLER_VIEW_ID = @"XLAYOUT_CONTROLLER_VIEW_ID";
 
 @interface XLayoutViewService ()
 
 @property (nonatomic, strong) NSURL *XMLURL;
 @property (nonatomic, readwrite, strong) UIView *contentView;
-@property (nonatomic, strong) NSMutableDictionary *viewMap;
+@property (nonatomic, strong) NSMutableDictionary *privateViewMap;
 @property (nonatomic, readwrite, strong) id eventHandler;
 
 @end
@@ -74,6 +73,10 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
         if (import) {
             XLayoutViewService *service = [XLayoutViewService serviceFromXMLName:import eventHandler:self.eventHandler];
             currentView = service.contentView;
+            [[service viewMap] enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+                [self.privateViewMap setObject:obj forKey:key];
+                [obj viewService:self];
+            }];
         }
     }else {
         currentView = [NSClassFromString(element.tag) viewWithXMLElementObject:element];
@@ -82,10 +85,10 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
     id layoutId = [element valueForAttribute:@"layout_id"];
     
     if (layoutId) {
-        [currentView setLayout_id:layoutId];
-        [self.viewMap setObject:currentView forKey:layoutId];
+        [currentView layout_id:layoutId];
+        [self.privateViewMap setObject:currentView forKey:layoutId];
     }else {
-        [self.viewMap setObject:currentView forKey:@(element.lineNumber)];
+        [self.privateViewMap setObject:currentView forKey:element];
     }
     
     id layout = nil;
@@ -108,10 +111,10 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
         _contentView = currentView;
     }
     
-    [currentView setLayout:layout];
-    [currentView setViewService:self];
+    [currentView layout:layout];
+    [currentView viewService:self];
     [currentView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
+
     [element.attributes enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         NSString *initial = [[key substringToIndex:1] uppercaseString];
         NSString *remanent = [key substringFromIndex:1];
@@ -123,9 +126,6 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
             target = currentView;
         }else if ([layout respondsToSelector:NSSelectorFromString(methodName)]) {
             target = layout;
-        }else if ([currentView respondsToSelector:NSSelectorFromString(key)]){
-            target = currentView;
-            methodName = key;
         }else {
             methodName = [key stringByAppendingString:@":"];
             if ([currentView respondsToSelector:NSSelectorFromString(methodName)]){
@@ -285,6 +285,10 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
 
 #pragma mark - Public
 
+- (NSDictionary *)viewMap {
+    return [NSDictionary dictionaryWithDictionary:self.privateViewMap];
+}
+
 - (id(^)(NSString *layoutId))viewWithLayoutId {
     return ^(NSString *layoutId){
         return [self.viewMap objectForKey:layoutId];
@@ -300,16 +304,11 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
     return _contentView;
 }
 
-- (void)setRootView:(UIView *)rootView {
-    _rootView = rootView;
-    [self.viewMap setObject:rootView forKey:XLAYOUT_ROOT_VIEW_ID];
-}
-
-- (NSMutableDictionary *)viewMap {
-    if (!_viewMap) {
-        _viewMap = [[NSMutableDictionary alloc] init];
+- (NSMutableDictionary *)privateViewMap {
+    if (!_privateViewMap) {
+        _privateViewMap = [[NSMutableDictionary alloc] init];
     }
-    return _viewMap;
+    return _privateViewMap;
 }
 
 

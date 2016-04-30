@@ -25,10 +25,9 @@
 - (void)loadViewFromXML:(id/* NSURL or XML file name */)XML {
     XLayoutViewService *service = [XLayoutViewService serviceFromXMLName:XML eventHandler:self];
     [self.view addSubview:service.contentView];
-    [self.view setLayout_id:XLAYOUT_ROOT_VIEW_ID];
-    [self.view setViewService:service];
+    [self.view layout_id:XLAYOUT_CONTROLLER_VIEW_ID];
+    [self.view viewService:service];
     [self setViewService:service];
-    [service setRootView:self.view];
     [service activateLayout];
 }
 
