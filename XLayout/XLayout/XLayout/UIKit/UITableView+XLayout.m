@@ -14,15 +14,19 @@
 
 + (instancetype)viewWithXMLElementObject:(ONOXMLElement *)element {
     NSAssert(element, @"The element cannot be empty");
-    
-    UITableView *view = nil;
+    id view = nil;
     NSString *style = [element valueForAttribute:@"style"];
     if ([style isEqualToString:@"group"]) {
-        view = [[[view class] alloc] initWithStyle:UITableViewStyleGrouped];
+        view = [[NSClassFromString(element.tag) alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     }else {
-        view = [[[view class] alloc] initWithStyle:UITableViewStylePlain];
+        view = [[NSClassFromString(element.tag) alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     }
     return view;
+}
+
+- (void)setEventHandler:(id)eventHandler {
+    self.dataSource = eventHandler;
+    self.delegate = eventHandler;
 }
 
 @end

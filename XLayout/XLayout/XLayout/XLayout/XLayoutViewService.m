@@ -63,83 +63,83 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
     
     NSAssert(!error, error.description);
     
-    [self createSubViewWithParent:self.contentView children:document.rootElement.children];
-    [self activateLayout];
+    [self createSubViewWithParent:nil XMLElementObject:document.rootElement];
 }
 
-- (void)createSubViewWithParent:(UIView *)parentView children:(NSArray *)children {
-    for (ONOXMLElement *element in children) {
-        
-        id currentView;
-        
-        if ([element.tag isEqualToString:@"import"]) {
-            NSString *import = [element valueForAttribute:@"name"];
-            if (import) {
-                XLayoutViewService *service = [XLayoutViewService serviceFromXMLName:import eventHandler:self.eventHandler];
-                currentView = service.contentView;
-            }
-        }else {
-            currentView = [NSClassFromString(element.tag) viewWithXMLElementObject:element];
+- (void)createSubViewWithParent:(UIView *)parentView XMLElementObject:(ONOXMLElement *)element {
+    id currentView;
+    
+    if ([element.tag isEqualToString:@"import"]) {
+        NSString *import = [element valueForAttribute:@"name"];
+        if (import) {
+            XLayoutViewService *service = [XLayoutViewService serviceFromXMLName:import eventHandler:self.eventHandler];
+            currentView = service.contentView;
         }
+    }else {
+        currentView = [NSClassFromString(element.tag) viewWithXMLElementObject:element];
+    }
+    
+    id layoutId = [element valueForAttribute:@"layout_id"];
+    
+    if (layoutId) {
+        [currentView setLayout_id:layoutId];
+        [self.viewMap setObject:currentView forKey:layoutId];
+    }else {
+        [self.viewMap setObject:currentView forKey:@(element.lineNumber)];
+    }
+    
+    id layout = nil;
+    
+    if ([[element.attributes allKeys] containsObject:@"layout_class"]) {
+        NSString *className = [element.attributes objectForKey:@"layout_class"];
+        NSAssert(className, @"The class name cannot be empty");
         
-        id layoutId = [element valueForAttribute:@"layout_id"];
-        
-        if (layoutId) {
-            [currentView setLayout_id:layoutId];
-            [self.viewMap setObject:currentView forKey:layoutId];
-        }else {
-            [self.viewMap setObject:currentView forKey:@(element.lineNumber)];
-        }
-        
-        id layout = nil;
-        
-        if ([[element.attributes allKeys] containsObject:@"layout_class"]) {
-            NSString *className = [element.attributes objectForKey:@"layout_class"];
-            NSAssert(className, @"The class name cannot be empty");
-            
-            layout = [[NSClassFromString(className) alloc] initWithView:currentView];
-        }else {
-            layout = [[XLayoutBase alloc] initWithView:currentView];
-        }
-        
-        if (self.eventHandler) {
-            [currentView setEventHandler:self.eventHandler];
-        }
-        
+        layout = [[NSClassFromString(className) alloc] initWithView:currentView];
+    }else {
+        layout = [[XLayoutBase alloc] initWithView:currentView];
+    }
+    
+    if (self.eventHandler) {
+        [currentView setEventHandler:self.eventHandler];
+    }
+    if (parentView) {
         [parentView addSubview:currentView];
-        [currentView setLayout:layout];
-        [currentView setViewService:self];
-        [currentView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    }else {
+        _contentView = currentView;
+    }
+    
+    [currentView setLayout:layout];
+    [currentView setViewService:self];
+    [currentView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    [element.attributes enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        NSString *initial = [[key substringToIndex:1] uppercaseString];
+        NSString *remanent = [key substringFromIndex:1];
+        NSString *methodName = [NSString stringWithFormat:@"set%@%@:",initial,remanent];
         
-        [element.attributes enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-            NSString *initial = [[key substringToIndex:1] uppercaseString];
-            NSString *remanent = [key substringFromIndex:1];
-            NSString *methodName = [NSString stringWithFormat:@"set%@%@:",initial,remanent];
-            
-            id target = nil;
-            
-            if ([currentView respondsToSelector:NSSelectorFromString(methodName)]) {
-                target = currentView;
-            }else if ([layout respondsToSelector:NSSelectorFromString(methodName)]) {
-                target = layout;
-            }else if ([currentView respondsToSelector:NSSelectorFromString(key)]){
-                target = currentView;
-                methodName = key;
-            }else {
-                methodName = [key stringByAppendingString:@":"];
-                if ([currentView respondsToSelector:NSSelectorFromString(methodName)]){
-                    target = currentView;
-                }
-            }
-            
-            if (target) {
-                [self invocationWithTarget:target methodName:methodName argumentsObject:obj];
-            }
-        }];
+        id target = nil;
         
-        if (element.children.count > 0) {
-            [self createSubViewWithParent:currentView children:element.children];
+        if ([currentView respondsToSelector:NSSelectorFromString(methodName)]) {
+            target = currentView;
+        }else if ([layout respondsToSelector:NSSelectorFromString(methodName)]) {
+            target = layout;
+        }else if ([currentView respondsToSelector:NSSelectorFromString(key)]){
+            target = currentView;
+            methodName = key;
+        }else {
+            methodName = [key stringByAppendingString:@":"];
+            if ([currentView respondsToSelector:NSSelectorFromString(methodName)]){
+                target = currentView;
+            }
         }
+        
+        if (target) {
+            [self invocationWithTarget:target methodName:methodName argumentsObject:obj];
+        }
+    }];
+
+    for (ONOXMLElement *subElement in element.children) {
+        [self createSubViewWithParent:currentView XMLElementObject:subElement];
     }
 }
 
@@ -285,7 +285,7 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
 
 #pragma mark - Public
 
-- (UIView *(^)(NSString *layoutId))viewWithLayoutId {
+- (id(^)(NSString *layoutId))viewWithLayoutId {
     return ^(NSString *layoutId){
         return [self.viewMap objectForKey:layoutId];
     };
@@ -295,12 +295,6 @@ NSString *const XLAYOUT_CONTENT_VIEW_ID    = @"XLAYOUT_CONTENT_VIEW_ID";
 
 - (UIView *)contentView {
     if (!_contentView) {
-        _contentView = [[UIView alloc] init];
-        _contentView.translatesAutoresizingMaskIntoConstraints = NO;
-        _contentView.layout = [[XLayoutBase alloc] initWithView:_contentView];
-        _contentView.layout_id = XLAYOUT_CONTENT_VIEW_ID;
-        _contentView.viewService = self;
-        
         [self createView];
     }
     return _contentView;

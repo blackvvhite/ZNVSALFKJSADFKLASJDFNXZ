@@ -20,6 +20,7 @@ extern NSString *const XLAYOUT_ROOT_VIEW_ID;
 + (instancetype)serviceFromXMLURL:(NSURL *)URL eventHandler:(id)eventHandler;
 + (instancetype)serviceFromXMLName:(NSString *)name eventHandler:(id)eventHandler;
 
-- (UIView *(^)(NSString *layoutId))viewWithLayoutId;
+- (void)activateLayout;
+- (id(^)(NSString *layoutId))viewWithLayoutId;
 
 @end

@@ -29,8 +29,7 @@
     [self.view setViewService:service];
     [self setViewService:service];
     [service setRootView:self.view];
-    [service.contentView.layout setLayout_equal:@"@id:XLAYOUT_ROOT_VIEW_ID"];
-    [service.contentView.layout activate];
+    [service activateLayout];
 }
 
 @end
