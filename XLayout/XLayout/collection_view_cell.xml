@@ -1,4 +1,4 @@
 <UIView layout_id="container_view" layout_edge="{0,0,0,0}" backgroundColor="@color:E8E8E8">
-    <UIImageView layout_id="image_view" image="@img:img" layout_top_left="{@id:container_view:5,5}" layout_above="@id:label:-5" layout_right="-5" layout_centerX="0" backgroundColor="@color:B8860B" />
+    <UIImageView layout_id="image_view" image="@img:img" layout_top_leading="{@id:container_view:5,5}" layout_above="@id:label:-5" layout_right="-5" layout_centerX="0" backgroundColor="@color:B8860B" />
     <UILabel layout_id="label" layout_below="@id:image_view:5" layout_left="5" layout_right="-5" layout_height="@id:container_view*0.3" layout_bottom="-5" textAlignment="1" numberOfLines="2" text="CollectionCell" backgroundColor="@color:ABABAB"/>
 </UIView>

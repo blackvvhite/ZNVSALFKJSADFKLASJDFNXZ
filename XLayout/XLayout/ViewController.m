@@ -26,8 +26,8 @@
     [self loadViewFromXMLName:@"base"];
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [[self.viewService.viewById(@"layout_aspect_ratio") layout] setLayout_width:@"100"];
-        [[self.viewService.viewById(@"layout_aspect_ratio") layout] activate];
+        [[self.viewService.viewById(@"aspect_ratio_view") layout] setLayout_width:@"100"];
+        [[self.viewService.viewById(@"aspect_ratio_view") layout] activate];
         [UIView animateWithDuration:0.25 animations:^{
             [self.view layoutIfNeeded];
         }];

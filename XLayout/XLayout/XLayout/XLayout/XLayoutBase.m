@@ -19,6 +19,8 @@
 @property (nonatomic, strong) XLayoutConstraint *layout_bottomConstraint;
 @property (nonatomic, strong) XLayoutConstraint *layout_leftConstraint;
 @property (nonatomic, strong) XLayoutConstraint *layout_rightConstraint;
+@property (nonatomic, strong) XLayoutConstraint *layout_leadingConstraint;
+@property (nonatomic, strong) XLayoutConstraint *layout_trailingConstraint;
 
 @property (nonatomic, strong) XLayoutConstraint *layout_widthConstraint;
 @property (nonatomic, strong) XLayoutConstraint *layout_heightConstraint;
@@ -165,8 +167,8 @@
 - (void)setLayout_left:(NSString *)layout_left {
     if (!self.layout_leftConstraint) {
         XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_left];
-        constraint.firstAttribute = NSLayoutAttributeLeading;
-        constraint.secondAttribute = NSLayoutAttributeLeading;
+        constraint.firstAttribute = NSLayoutAttributeLeft;
+        constraint.secondAttribute = NSLayoutAttributeLeft;
         constraint.layoutPosition = @"layout_left";
         self.layout_leftConstraint = constraint;
     }else {
@@ -178,8 +180,8 @@
 - (void)setLayout_right:(NSString *)layout_right {
     if (!self.layout_rightConstraint) {
         XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_right];
-        constraint.firstAttribute = NSLayoutAttributeTrailing;
-        constraint.secondAttribute = NSLayoutAttributeTrailing;
+        constraint.firstAttribute = NSLayoutAttributeRight;
+        constraint.secondAttribute = NSLayoutAttributeRight;
         constraint.layoutPosition = @"layout_right";
         self.layout_rightConstraint = constraint;
     }else {
@@ -188,18 +190,45 @@
     _layout_right = layout_right;
 }
 
-- (void)setLayout_top_left:(NSString *)layout_top_left {
-    NSArray *attribute = [self parserParameterWithLayoutAttribute:layout_top_left];
-    [self setLayout_top:[attribute firstObject]];
-    [self setLayout_left:[attribute lastObject]];
-    _layout_top_left = layout_top_left;
+
+- (void)setLayout_leading:(NSString *)layout_leading {
+    if (!self.layout_leadingConstraint) {
+        XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_leading];
+        constraint.firstAttribute = NSLayoutAttributeLeading;
+        constraint.secondAttribute = NSLayoutAttributeLeading;
+        constraint.layoutPosition = @"layout_leading";
+        self.layout_leadingConstraint = constraint;
+    }else {
+        [self.layout_leadingConstraint updateConstraintWithLayoutAttributes:layout_leading];
+    }
+    _layout_leading = layout_leading;
 }
 
-- (void)setLayout_bottom_right:(NSString *)layout_bottom_right {
-    NSArray *attribute = [self parserParameterWithLayoutAttribute:layout_bottom_right];
+- (void)setLayout_trailing:(NSString *)layout_trailing {
+    if (!self.layout_trailingConstraint) {
+        XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_trailing];
+        constraint.firstAttribute = NSLayoutAttributeTrailing;
+        constraint.secondAttribute = NSLayoutAttributeTrailing;
+        constraint.layoutPosition = @"layout_trailing";
+        self.layout_trailingConstraint = constraint;
+    }else {
+        [self.layout_trailingConstraint updateConstraintWithLayoutAttributes:layout_trailing];
+    }
+    _layout_trailing = layout_trailing;
+}
+
+- (void)setLayout_top_leading:(NSString *)layout_top_leading {
+    NSArray *attribute = [self parserParameterWithLayoutAttribute:layout_top_leading];
+    [self setLayout_top:[attribute firstObject]];
+    [self setLayout_left:[attribute lastObject]];
+    _layout_top_leading = layout_top_leading;
+}
+
+- (void)setLayout_bottom_trailing:(NSString *)layout_bottom_trailing {
+    NSArray *attribute = [self parserParameterWithLayoutAttribute:layout_bottom_trailing];
     [self setLayout_bottom:[attribute firstObject]];
     [self setLayout_right:[attribute lastObject]];
-    _layout_bottom_right = layout_bottom_right;
+    _layout_bottom_trailing = layout_bottom_trailing;
 }
 
 - (void)setLayout_top_bottom:(NSString *)layout_top_bottom {
@@ -209,11 +238,11 @@
     _layout_top_bottom = layout_top_bottom;
 }
 
-- (void)setLayout_left_right:(NSString *)layout_left_right {
-    NSArray *attribute = [self parserParameterWithLayoutAttribute:layout_left_right];
+- (void)setLayout_leading_trailing:(NSString *)layout_leading_trailing {
+    NSArray *attribute = [self parserParameterWithLayoutAttribute:layout_leading_trailing];
     [self setLayout_left:[attribute firstObject]];
     [self setLayout_right:[attribute lastObject]];
-    _layout_left_right = layout_left_right;
+    _layout_leading_trailing = layout_leading_trailing;
 }
 
 - (void)setLayout_width:(NSString *)layout_width {

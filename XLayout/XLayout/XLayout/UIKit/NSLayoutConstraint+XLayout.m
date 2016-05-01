@@ -28,19 +28,75 @@
     return objc_getAssociatedObject(self, _cmd);
 }
 
-- (NSString *)description {
-    if ([self.firstItem layout_id] || self.layoutPosition || self.layoutAttribute) {
-        NSMutableString *description = [[NSMutableString alloc] init];
-        [description appendString:@"\n===>\n"];
-        [description appendFormat:@"    Exception view:%@",[self.firstItem layout_id]];
-        [description appendString:@"    |    "];
-        [description appendFormat:@"layout position:%@",self.layoutPosition];
-        [description appendString:@"    |    "];
-        [description appendFormat:@"attribute:%@",self.layoutAttribute];
-        [description appendString:@"\n===>"];
-        return description;
+#pragma mark -Private
+
++ (NSDictionary *)layoutRelationDescriptionMap {
+    static dispatch_once_t once;
+    static NSDictionary *map;
+    dispatch_once(&once, ^{
+        map = @{@(NSLayoutRelationEqual)                : @"==",
+                @(NSLayoutRelationGreaterThanOrEqual)   : @">=",
+                @(NSLayoutRelationLessThanOrEqual)      : @"<=",
+                };
+    });
+    return map;
+}
+
++ (NSDictionary *)layoutAttributeDescriptionMap {
+    static dispatch_once_t once;
+    static NSDictionary *map;
+    dispatch_once(&once, ^{
+        map = @{@(NSLayoutAttributeTop)      : @"top",
+                @(NSLayoutAttributeLeft)     : @"left",
+                @(NSLayoutAttributeBottom)   : @"bottom",
+                @(NSLayoutAttributeRight)    : @"right",
+                @(NSLayoutAttributeLeading)  : @"leading",
+                @(NSLayoutAttributeTrailing) : @"trailing",
+                @(NSLayoutAttributeWidth)    : @"width",
+                @(NSLayoutAttributeHeight)   : @"height",
+                @(NSLayoutAttributeCenterX)  : @"centerX",
+                @(NSLayoutAttributeCenterY)  : @"centerY",
+                @(NSLayoutAttributeBaseline) : @"baseline",
+                };
+    });
+    return map;
+}
+
++ (NSString *)descriptionForObject:(id)obj {
+    if ([obj respondsToSelector:@selector(layout_id)] && [obj layout_id]) {
+        return [NSString stringWithFormat:@"%@(%p layout_id=\"%@\")", [obj class], obj, [obj layout_id]];
     }
-    return [super description];
+    return [NSString stringWithFormat:@"%@(%p)", [obj class], obj];
+}
+
+- (NSString *)description {
+    NSMutableString *description = [[NSMutableString alloc] init];
+    [description appendString:@"\n<"];
+    [description appendFormat:@"%@", [self.class descriptionForObject:self.firstItem]];
+    if (self.firstAttribute != NSLayoutAttributeNotAnAttribute) {
+        [description appendFormat:@".%@", [[[self class] layoutAttributeDescriptionMap] objectForKey:@(self.firstAttribute)]];
+    }
+    [description appendFormat:@" %@", [[[self class] layoutRelationDescriptionMap] objectForKey:@(self.relation)]];
+    if (self.secondItem) {
+        [description appendFormat:@" %@", [self.class descriptionForObject:self.secondItem]];
+    }
+    if (self.secondAttribute != NSLayoutAttributeNotAnAttribute) {
+        [description appendFormat:@".%@", [[[self class] layoutAttributeDescriptionMap] objectForKey:@(self.secondAttribute)]];
+    }
+    if (self.multiplier != 1.0) {
+        [description appendFormat:@" * %g", self.multiplier];
+    }
+    if (self.secondAttribute == NSLayoutAttributeNotAnAttribute) {
+        [description appendFormat:@" %@", @(self.constant)];
+    } else {
+        [description appendFormat:@" %@ %g", (self.constant < 0 ? @"-" : @"+"), ABS(self.constant)];
+    }
+    [description appendFormat:@" priority:%@", @(self.priority)];
+    [description appendString:@">"];
+    if (self.layoutPosition && self.layoutAttribute) {
+        [description appendFormat:@"\n\n<XLayout attribute ==> %@=\"%@\")>",self.layoutPosition,self.layoutAttribute];
+    }
+    return description;
 }
 
 @end
