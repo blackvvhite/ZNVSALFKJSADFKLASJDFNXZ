@@ -49,5 +49,6 @@
 
 - (void)activate;
 - (void)deactivate;
+- (BOOL)validity;
 
 @end

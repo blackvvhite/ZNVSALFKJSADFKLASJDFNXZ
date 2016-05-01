@@ -84,7 +84,9 @@ NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID = @"XLAYOUT_COLLECTION_REUSA
         [currentView layout_id:layoutId];
         [self.privateViewMap setObject:currentView forKey:layoutId];
     }else {
-        [self.privateViewMap setObject:currentView forKey:element];
+        if (![element.tag isEqualToString:@"import"]) {
+            [self.privateViewMap setObject:currentView forKey:element];
+        }
     }
     
     id layout = nil;
@@ -95,7 +97,9 @@ NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID = @"XLAYOUT_COLLECTION_REUSA
         
         layout = [[NSClassFromString(className) alloc] initWithView:currentView];
     }else {
-        layout = [[XLayoutBase alloc] initWithView:currentView];
+        if (![[currentView layout] validity]) {
+            layout = [[XLayoutBase alloc] initWithView:currentView];
+        }
     }
     
     if (self.eventHandler) {
@@ -106,11 +110,12 @@ NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID = @"XLAYOUT_COLLECTION_REUSA
     }else {
         _contentView = currentView;
     }
-    
-    [currentView layout:layout];
+    if (![[currentView layout] validity]) {
+        [currentView layout:layout];
+    }
     [currentView viewService:self];
     [currentView setTranslatesAutoresizingMaskIntoConstraints:NO];
-
+    
     [element.attributes enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         NSString *initial = [[key substringToIndex:1] uppercaseString];
         NSString *remanent = [key substringFromIndex:1];
@@ -132,7 +137,7 @@ NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID = @"XLAYOUT_COLLECTION_REUSA
             [self invocationWithTarget:target methodName:methodName argumentsObject:obj];
         }
     }];
-
+    
     for (ONOXMLElement *subElement in element.children) {
         [self createSubViewWithParent:currentView XMLElementObject:subElement];
     }
@@ -282,7 +287,7 @@ NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID = @"XLAYOUT_COLLECTION_REUSA
 }
 
 - (void)activateLayout {
-    [self.viewMap enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+    [self.privateViewMap enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         [[obj layout] activate];
     }];
 }

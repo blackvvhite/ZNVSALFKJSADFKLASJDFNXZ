@@ -61,7 +61,7 @@
     NSArray *component = nil;
     if (r.location != NSNotFound && r.length != 0) {
         r.location += 1;
-        r.length -= 1;
+        r.length -= 2;
         component = [[layoutAttribute substringWithRange:r] componentsSeparatedByString:@","];
     }
     NSAssert(([component count] == 2 || [component count] == 4), @"Parameter format error. attribute:%@",layoutAttribute);
@@ -116,6 +116,25 @@
     
     [self.layout_centerXConstraint deactivate];
     [self.layout_centerYConstraint deactivate];
+}
+
+- (BOOL)validity {
+    return (self.layout_topConstraint           ||
+            self.layout_bottomConstraint        ||
+            self.layout_leftConstraint          ||
+            self.layout_rightConstraint         ||
+            self.layout_leadingConstraint       ||
+            self.layout_trailingConstraint      ||
+            self.layout_widthConstraint         ||
+            self.layout_heightConstraint        ||
+            self.layout_aspectRatioConstraint   ||
+            self.layout_aboveConstraint         ||
+            self.layout_belowConstraint         ||
+            self.layout_inLeadingConstraint     ||
+            self.layout_inTrailingConstraint    ||
+            self.layout_baselineConstraint      ||
+            self.layout_centerXConstraint       ||
+            self.layout_centerYConstraint);
 }
 
 #pragma mark - Getter / Setter
