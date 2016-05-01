@@ -8,12 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class XLayoutBase;
-@class XLayoutViewService;
 @interface UIView (XLayout)
 
-@property (nonatomic, copy, readonly) NSString *layout_id;
-@property (nonatomic, strong, readonly) XLayoutBase *layout;
-@property (nonatomic, weak, readonly) XLayoutViewService *viewService;
+
 
 @end

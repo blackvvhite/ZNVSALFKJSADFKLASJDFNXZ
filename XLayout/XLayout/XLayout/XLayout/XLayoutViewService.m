@@ -12,11 +12,28 @@
 #import "UIView+XLayout.h"
 #import "UIView+XLayoutPrivate.h"
 #import "UIColor+XLayoutPrivate.h"
+#import <objc/runtime.h>
 
 NSString *const XLAYOUT_CONTROLLER_VIEW_ID = @"XLAYOUT_CONTROLLER_VIEW_ID";
 NSString *const XLAYOUT_TABLE_VIEW_CELL_ID = @"XLAYOUT_TABLE_VIEW_CELL_ID";
 NSString *const XLAYOUT_COLLECTION_VIEW_CELL_ID = @"XLAYOUT_COLLECTION_VIEW_CELL_ID";
 NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID = @"XLAYOUT_COLLECTION_REUSABLE_VIEW_ID";
+
+@implementation UIView (XLayoutReadOnly)
+
+- (NSString *)layout_id {
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (id)layout {
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (XLayoutViewService *)viewService {
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+@end
 
 @interface XLayoutViewService ()
 
@@ -322,3 +339,4 @@ NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID = @"XLAYOUT_COLLECTION_REUSA
 
 
 @end
+

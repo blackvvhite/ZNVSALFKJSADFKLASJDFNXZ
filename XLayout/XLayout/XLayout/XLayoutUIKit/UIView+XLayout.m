@@ -11,17 +11,7 @@
 
 @implementation UIView (XLayout)
 
-- (NSString *)layout_id {
-    return objc_getAssociatedObject(self, _cmd);
-}
 
-- (id)layout {
-    return objc_getAssociatedObject(self, _cmd);
-}
-
-- (XLayoutViewService *)viewService {
-    return objc_getAssociatedObject(self, _cmd);
-}
 
 @end
 

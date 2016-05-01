@@ -7,13 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIView.h>
 
 extern NSString *const XLAYOUT_CONTROLLER_VIEW_ID;
 extern NSString *const XLAYOUT_TABLE_VIEW_CELL_ID;
 extern NSString *const XLAYOUT_COLLECTION_VIEW_CELL_ID;
 extern NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID;
 
-@class UIView;
+
+@class XLayoutBase;
+@class XLayoutViewService;
+@interface UIView (XLayoutReadonly)
+
+@property (nonatomic, copy, readonly) NSString *layout_id;
+@property (nonatomic, strong, readonly) XLayoutBase *layout;
+@property (nonatomic, weak, readonly) XLayoutViewService *viewService;
+
+@end
+
 @interface XLayoutViewService : NSObject
 
 @property (nonatomic, readonly, strong) UIView *contentView;
@@ -26,3 +37,4 @@ extern NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID;
 - (id(^)(NSString *layoutId))viewById;
 
 @end
+

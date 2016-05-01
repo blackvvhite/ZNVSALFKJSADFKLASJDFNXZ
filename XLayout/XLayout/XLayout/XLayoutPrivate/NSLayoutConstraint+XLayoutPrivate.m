@@ -7,7 +7,7 @@
 //
 
 #import "NSLayoutConstraint+XLayoutPrivate.h"
-#import "UIView+XLayout.h"
+#import "XLayoutViewService.h"
 #import <objc/runtime.h>
 
 @implementation NSLayoutConstraint (XLayoutPrivate)
