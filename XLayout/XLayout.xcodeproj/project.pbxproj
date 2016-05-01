@@ -25,6 +25,7 @@
 		84638E9F1CD5FC77002ECC74 /* UIView+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84638E921CD5FC77002ECC74 /* UIView+XLayout.m */; };
 		84638EA01CD5FC77002ECC74 /* UIViewController+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84638E941CD5FC77002ECC74 /* UIViewController+XLayout.m */; };
 		84638EA41CD5FC93002ECC74 /* UIView+XLayoutPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84638EA31CD5FC93002ECC74 /* UIView+XLayoutPrivate.m */; };
+		84638EDF1CD603B3002ECC74 /* ONOXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 84638EDE1CD603B3002ECC74 /* ONOXMLDocument.m */; };
 		84BBA5E61CD24FA900EE48C4 /* base.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84BBA5E41CD24FA900EE48C4 /* base.xml */; };
 		84BBA5E71CD24FA900EE48C4 /* red_view.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84BBA5E51CD24FA900EE48C4 /* red_view.xml */; };
 		931BA70F1CD1F920006290B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 931BA70E1CD1F920006290B1 /* main.m */; };
@@ -33,7 +34,6 @@
 		931BA7181CD1F920006290B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 931BA7161CD1F920006290B1 /* Main.storyboard */; };
 		931BA71A1CD1F920006290B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 931BA7191CD1F920006290B1 /* Assets.xcassets */; };
 		931BA71D1CD1F920006290B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 931BA71B1CD1F920006290B1 /* LaunchScreen.storyboard */; };
-		931BA73B1CD1F947006290B1 /* ONOXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 931BA72A1CD1F947006290B1 /* ONOXMLDocument.m */; };
 		931BA73F1CD1F947006290B1 /* XLayoutBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 931BA7341CD1F947006290B1 /* XLayoutBase.m */; };
 		931BA7411CD1F947006290B1 /* XLayoutViewService.m in Sources */ = {isa = PBXBuildFile; fileRef = 931BA7381CD1F947006290B1 /* XLayoutViewService.m */; };
 /* End PBXBuildFile section */
@@ -70,6 +70,8 @@
 		84638E941CD5FC77002ECC74 /* UIViewController+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XLayout.m"; sourceTree = "<group>"; };
 		84638EA21CD5FC93002ECC74 /* UIView+XLayoutPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XLayoutPrivate.h"; sourceTree = "<group>"; };
 		84638EA31CD5FC93002ECC74 /* UIView+XLayoutPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XLayoutPrivate.m"; sourceTree = "<group>"; };
+		84638EDD1CD603B3002ECC74 /* ONOXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONOXMLDocument.h; sourceTree = "<group>"; };
+		84638EDE1CD603B3002ECC74 /* ONOXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONOXMLDocument.m; sourceTree = "<group>"; };
 		84BBA5E41CD24FA900EE48C4 /* base.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = base.xml; sourceTree = "<group>"; };
 		84BBA5E51CD24FA900EE48C4 /* red_view.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = red_view.xml; sourceTree = "<group>"; };
 		931BA70A1CD1F920006290B1 /* XLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,8 +84,6 @@
 		931BA7191CD1F920006290B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		931BA71C1CD1F920006290B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		931BA71E1CD1F920006290B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		931BA7291CD1F947006290B1 /* ONOXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONOXMLDocument.h; sourceTree = "<group>"; };
-		931BA72A1CD1F947006290B1 /* ONOXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONOXMLDocument.m; sourceTree = "<group>"; };
 		931BA7331CD1F947006290B1 /* XLayoutBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = XLayoutBase.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		931BA7341CD1F947006290B1 /* XLayoutBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = XLayoutBase.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		931BA7371CD1F947006290B1 /* XLayoutViewService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLayoutViewService.h; sourceTree = "<group>"; };
@@ -105,6 +105,7 @@
 		84638E7F1CD5FC77002ECC74 /* XLayoutPrivate */ = {
 			isa = PBXGroup;
 			children = (
+				84638EDC1CD603B3002ECC74 /* dependency */,
 				84638E821CD5FC77002ECC74 /* UIColor+XLayoutPrivate.h */,
 				84638E831CD5FC77002ECC74 /* UIColor+XLayoutPrivate.m */,
 				84638EA21CD5FC93002ECC74 /* UIView+XLayoutPrivate.h */,
@@ -136,6 +137,15 @@
 				84638E941CD5FC77002ECC74 /* UIViewController+XLayout.m */,
 			);
 			path = XLayoutUIKit;
+			sourceTree = "<group>";
+		};
+		84638EDC1CD603B3002ECC74 /* dependency */ = {
+			isa = PBXGroup;
+			children = (
+				84638EDD1CD603B3002ECC74 /* ONOXMLDocument.h */,
+				84638EDE1CD603B3002ECC74 /* ONOXMLDocument.m */,
+			);
+			path = dependency;
 			sourceTree = "<group>";
 		};
 		931BA7011CD1F920006290B1 = {
@@ -195,20 +205,10 @@
 			children = (
 				84638E7F1CD5FC77002ECC74 /* XLayoutPrivate */,
 				84638E861CD5FC77002ECC74 /* XLayoutUIKit */,
-				931BA7281CD1F947006290B1 /* ONOXML */,
 				931BA7301CD1F947006290B1 /* XLayout */,
 				931BA7391CD1F947006290B1 /* XLayout.h */,
 			);
 			path = XLayout;
-			sourceTree = "<group>";
-		};
-		931BA7281CD1F947006290B1 /* ONOXML */ = {
-			isa = PBXGroup;
-			children = (
-				931BA7291CD1F947006290B1 /* ONOXMLDocument.h */,
-				931BA72A1CD1F947006290B1 /* ONOXMLDocument.m */,
-			);
-			path = ONOXML;
 			sourceTree = "<group>";
 		};
 		931BA7301CD1F947006290B1 /* XLayout */ = {
@@ -307,8 +307,8 @@
 				931BA7151CD1F920006290B1 /* ViewController.m in Sources */,
 				931BA7121CD1F920006290B1 /* AppDelegate.m in Sources */,
 				84638E9E1CD5FC77002ECC74 /* UITableViewCell+XLayout.m in Sources */,
+				84638EDF1CD603B3002ECC74 /* ONOXMLDocument.m in Sources */,
 				84638E9D1CD5FC77002ECC74 /* UITableView+XLayout.m in Sources */,
-				931BA73B1CD1F947006290B1 /* ONOXMLDocument.m in Sources */,
 				931BA7411CD1F947006290B1 /* XLayoutViewService.m in Sources */,
 				84638EA41CD5FC93002ECC74 /* UIView+XLayoutPrivate.m in Sources */,
 				84638EA01CD5FC77002ECC74 /* UIViewController+XLayout.m in Sources */,
