@@ -2,7 +2,7 @@
 //  UITableView+XLayout.m
 //  XLayout
 //
-//  Created by bateng on 16/4/29.
+//  Created by B&W on 16/4/29.
 //  Copyright © 2016年 B&W. All rights reserved.
 //
 

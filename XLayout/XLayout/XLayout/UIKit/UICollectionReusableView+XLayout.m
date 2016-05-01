@@ -2,7 +2,7 @@
 //  UICollectionReusableView+XLayout.m
 //  XLayout
 //
-//  Created by admin on 16/4/30.
+//  Created by B&W on 16/4/30.
 //  Copyright © 2016年 B&W. All rights reserved.
 //
 

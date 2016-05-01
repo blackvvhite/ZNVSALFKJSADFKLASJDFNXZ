@@ -2,7 +2,7 @@
 //  XLayoutBase.m
 //  XLayout
 //
-//  Created by admin on 16/4/25.
+//  Created by B&W on 16/4/25.
 //  Copyright © 2016年 B&W. All rights reserved.
 //
 
