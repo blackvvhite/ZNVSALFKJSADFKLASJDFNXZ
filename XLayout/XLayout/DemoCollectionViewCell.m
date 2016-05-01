@@ -14,13 +14,7 @@
 
 #pragma mark - Init
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self loadViewFromXMLName:@"collection_view_cell"];
-    }
-    return self;
-}
+XLAYOUT_COLLECTION_VIEW_CELL_FROM_XML_NAME(@"collection_view_cell")
 
 #pragma mark - Getter
 

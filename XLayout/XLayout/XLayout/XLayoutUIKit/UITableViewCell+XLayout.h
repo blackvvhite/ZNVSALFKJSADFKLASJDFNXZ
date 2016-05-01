@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#define XLAYOUT_TABLE_VIEW_CELL_FROM_XML_NAME(XML_NAME) \
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier { \
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]; \
+    if (self) { \
+        [self loadViewFromXMLName:XML_NAME]; \
+    } \
+    return self; \
+} \
+
 @class XLayoutViewService;
 @interface UITableViewCell (XLayout)
 

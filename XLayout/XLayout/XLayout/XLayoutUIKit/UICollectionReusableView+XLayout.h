@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#define XLAYOUT_COLLECTION_VIEW_CELL_FROM_XML_NAME(XML_NAME) \
+- (instancetype)initWithFrame:(CGRect)frame { \
+    self = [super initWithFrame:frame]; \
+    if (self) { \
+    [self loadViewFromXMLName:XML_NAME]; \
+    } \
+    return self; \
+} \
+
 @class XLayoutViewService;
 @interface UICollectionReusableView (XLayout)
 

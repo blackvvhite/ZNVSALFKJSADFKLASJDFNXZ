@@ -14,13 +14,7 @@
 
 #pragma mark - Init
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        [self loadViewFromXMLName:@"table_view_cell"];
-    }
-    return self;
-}
+XLAYOUT_TABLE_VIEW_CELL_FROM_XML_NAME(@"table_view_cell")
 
 #pragma mark - Event
 
