@@ -23,6 +23,7 @@
 
 - (void)loadViewFromXMLName:(NSString *)name {
     XLayoutViewService *service = [XLayoutViewService serviceFromXMLName:name eventHandler:self];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:service.contentView];
     [self.view layout_id:XLAYOUT_CONTROLLER_VIEW_ID];
     [self.view viewService:service];
