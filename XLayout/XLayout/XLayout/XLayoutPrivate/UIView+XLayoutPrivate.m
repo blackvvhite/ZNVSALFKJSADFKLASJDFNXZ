@@ -2,7 +2,7 @@
 //  UIView+XLayoutPrivate.m
 //  XLayout
 //
-//  Created by admin on 16/5/1.
+//  Created by B&W on 16/5/1.
 //  Copyright © 2016年 B&W. All rights reserved.
 //
 
