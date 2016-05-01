@@ -7,7 +7,7 @@
 //
 
 #import "XLayoutBase.h"
-#import "XLayoutConstraint.h"
+#import "XLayoutConstraintPrivate.h"
 #import "UIView+XLayout.h"
 #import <UIKit/UIView.h>
 

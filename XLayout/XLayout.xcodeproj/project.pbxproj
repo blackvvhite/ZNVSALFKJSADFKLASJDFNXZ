@@ -10,16 +10,23 @@
 		840ED8971CD47C6D0054FA29 /* table_view.xml in Resources */ = {isa = PBXBuildFile; fileRef = 840ED8961CD47C6D0054FA29 /* table_view.xml */; };
 		840ED89A1CD48D510054FA29 /* DemoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840ED8991CD48D510054FA29 /* DemoTableViewCell.m */; };
 		840ED89C1CD48F290054FA29 /* table_view_cell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 840ED89B1CD48F290054FA29 /* table_view_cell.xml */; };
-		840ED89F1CD4D11F0054FA29 /* UITableViewCell+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 840ED89E1CD4D11F0054FA29 /* UITableViewCell+XLayout.m */; };
 		840ED8A11CD4E1E30054FA29 /* collection_view.xml in Resources */ = {isa = PBXBuildFile; fileRef = 840ED8A01CD4E1E30054FA29 /* collection_view.xml */; };
 		840ED8A41CD4E30B0054FA29 /* DemoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840ED8A31CD4E30B0054FA29 /* DemoCollectionViewCell.m */; };
 		840ED8A61CD4E8C40054FA29 /* collection_view_cell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 840ED8A51CD4E8C40054FA29 /* collection_view_cell.xml */; };
-		840ED8A91CD4E9280054FA29 /* UICollectionReusableView+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 840ED8A81CD4E9280054FA29 /* UICollectionReusableView+XLayout.m */; };
 		840ED8AB1CD515E50054FA29 /* scroll_view.xml in Resources */ = {isa = PBXBuildFile; fileRef = 840ED8AA1CD515E50054FA29 /* scroll_view.xml */; };
+		84638E971CD5FC77002ECC74 /* NSLayoutConstraint+XLayoutPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84638E811CD5FC77002ECC74 /* NSLayoutConstraint+XLayoutPrivate.m */; };
+		84638E981CD5FC77002ECC74 /* UIColor+XLayoutPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84638E831CD5FC77002ECC74 /* UIColor+XLayoutPrivate.m */; };
+		84638E991CD5FC77002ECC74 /* XLayoutConstraintPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84638E851CD5FC77002ECC74 /* XLayoutConstraintPrivate.m */; };
+		84638E9A1CD5FC77002ECC74 /* UIButton+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84638E881CD5FC77002ECC74 /* UIButton+XLayout.m */; };
+		84638E9B1CD5FC77002ECC74 /* UICollectionReusableView+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84638E8A1CD5FC77002ECC74 /* UICollectionReusableView+XLayout.m */; };
+		84638E9C1CD5FC77002ECC74 /* UICollectionView+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84638E8C1CD5FC77002ECC74 /* UICollectionView+XLayout.m */; };
+		84638E9D1CD5FC77002ECC74 /* UITableView+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84638E8E1CD5FC77002ECC74 /* UITableView+XLayout.m */; };
+		84638E9E1CD5FC77002ECC74 /* UITableViewCell+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84638E901CD5FC77002ECC74 /* UITableViewCell+XLayout.m */; };
+		84638E9F1CD5FC77002ECC74 /* UIView+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84638E921CD5FC77002ECC74 /* UIView+XLayout.m */; };
+		84638EA01CD5FC77002ECC74 /* UIViewController+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84638E941CD5FC77002ECC74 /* UIViewController+XLayout.m */; };
+		84638EA41CD5FC93002ECC74 /* UIView+XLayoutPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84638EA31CD5FC93002ECC74 /* UIView+XLayoutPrivate.m */; };
 		84BBA5E61CD24FA900EE48C4 /* base.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84BBA5E41CD24FA900EE48C4 /* base.xml */; };
 		84BBA5E71CD24FA900EE48C4 /* red_view.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84BBA5E51CD24FA900EE48C4 /* red_view.xml */; };
-		84BBA5EA1CD26ADF00EE48C4 /* NSLayoutConstraint+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BBA5E91CD26ADF00EE48C4 /* NSLayoutConstraint+XLayout.m */; };
-		930287481CD206EE005B1CE2 /* UIButton+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 930287471CD206EE005B1CE2 /* UIButton+XLayout.m */; };
 		931BA70F1CD1F920006290B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 931BA70E1CD1F920006290B1 /* main.m */; };
 		931BA7121CD1F920006290B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 931BA7111CD1F920006290B1 /* AppDelegate.m */; };
 		931BA7151CD1F920006290B1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 931BA7141CD1F920006290B1 /* ViewController.m */; };
@@ -27,15 +34,8 @@
 		931BA71A1CD1F920006290B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 931BA7191CD1F920006290B1 /* Assets.xcassets */; };
 		931BA71D1CD1F920006290B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 931BA71B1CD1F920006290B1 /* LaunchScreen.storyboard */; };
 		931BA73B1CD1F947006290B1 /* ONOXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 931BA72A1CD1F947006290B1 /* ONOXMLDocument.m */; };
-		931BA73C1CD1F947006290B1 /* UIView+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 931BA72D1CD1F947006290B1 /* UIView+XLayout.m */; };
-		931BA73D1CD1F947006290B1 /* UIViewController+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 931BA72F1CD1F947006290B1 /* UIViewController+XLayout.m */; };
-		931BA73E1CD1F947006290B1 /* XLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 931BA7321CD1F947006290B1 /* XLayoutConstraint.m */; };
 		931BA73F1CD1F947006290B1 /* XLayoutBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 931BA7341CD1F947006290B1 /* XLayoutBase.m */; };
 		931BA7411CD1F947006290B1 /* XLayoutViewService.m in Sources */ = {isa = PBXBuildFile; fileRef = 931BA7381CD1F947006290B1 /* XLayoutViewService.m */; };
-		9345250A1CD22CDA007433FF /* UIColor+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 934525091CD22CDA007433FF /* UIColor+XLayout.m */; };
-		93E766481CD32A0200385A4A /* XLayoutViewService+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E766471CD32A0200385A4A /* XLayoutViewService+XLayout.m */; };
-		93E766511CD3567900385A4A /* UITableView+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E766501CD3567900385A4A /* UITableView+XLayout.m */; };
-		93E766541CD3572600385A4A /* UICollectionView+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E766531CD3572600385A4A /* UICollectionView+XLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,21 +43,35 @@
 		840ED8981CD48D510054FA29 /* DemoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTableViewCell.h; sourceTree = "<group>"; };
 		840ED8991CD48D510054FA29 /* DemoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoTableViewCell.m; sourceTree = "<group>"; };
 		840ED89B1CD48F290054FA29 /* table_view_cell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = table_view_cell.xml; sourceTree = "<group>"; };
-		840ED89D1CD4D11F0054FA29 /* UITableViewCell+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+XLayout.h"; sourceTree = "<group>"; };
-		840ED89E1CD4D11F0054FA29 /* UITableViewCell+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+XLayout.m"; sourceTree = "<group>"; };
 		840ED8A01CD4E1E30054FA29 /* collection_view.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = collection_view.xml; sourceTree = "<group>"; };
 		840ED8A21CD4E30B0054FA29 /* DemoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoCollectionViewCell.h; sourceTree = "<group>"; };
 		840ED8A31CD4E30B0054FA29 /* DemoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoCollectionViewCell.m; sourceTree = "<group>"; };
 		840ED8A51CD4E8C40054FA29 /* collection_view_cell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = collection_view_cell.xml; sourceTree = "<group>"; };
-		840ED8A71CD4E9280054FA29 /* UICollectionReusableView+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionReusableView+XLayout.h"; sourceTree = "<group>"; };
-		840ED8A81CD4E9280054FA29 /* UICollectionReusableView+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionReusableView+XLayout.m"; sourceTree = "<group>"; };
 		840ED8AA1CD515E50054FA29 /* scroll_view.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = scroll_view.xml; sourceTree = "<group>"; };
+		84638E801CD5FC77002ECC74 /* NSLayoutConstraint+XLayoutPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+XLayoutPrivate.h"; sourceTree = "<group>"; };
+		84638E811CD5FC77002ECC74 /* NSLayoutConstraint+XLayoutPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+XLayoutPrivate.m"; sourceTree = "<group>"; };
+		84638E821CD5FC77002ECC74 /* UIColor+XLayoutPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XLayoutPrivate.h"; sourceTree = "<group>"; };
+		84638E831CD5FC77002ECC74 /* UIColor+XLayoutPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XLayoutPrivate.m"; sourceTree = "<group>"; };
+		84638E841CD5FC77002ECC74 /* XLayoutConstraintPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLayoutConstraintPrivate.h; sourceTree = "<group>"; };
+		84638E851CD5FC77002ECC74 /* XLayoutConstraintPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLayoutConstraintPrivate.m; sourceTree = "<group>"; };
+		84638E871CD5FC77002ECC74 /* UIButton+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+XLayout.h"; sourceTree = "<group>"; };
+		84638E881CD5FC77002ECC74 /* UIButton+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+XLayout.m"; sourceTree = "<group>"; };
+		84638E891CD5FC77002ECC74 /* UICollectionReusableView+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionReusableView+XLayout.h"; sourceTree = "<group>"; };
+		84638E8A1CD5FC77002ECC74 /* UICollectionReusableView+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionReusableView+XLayout.m"; sourceTree = "<group>"; };
+		84638E8B1CD5FC77002ECC74 /* UICollectionView+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+XLayout.h"; sourceTree = "<group>"; };
+		84638E8C1CD5FC77002ECC74 /* UICollectionView+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+XLayout.m"; sourceTree = "<group>"; };
+		84638E8D1CD5FC77002ECC74 /* UITableView+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+XLayout.h"; sourceTree = "<group>"; };
+		84638E8E1CD5FC77002ECC74 /* UITableView+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+XLayout.m"; sourceTree = "<group>"; };
+		84638E8F1CD5FC77002ECC74 /* UITableViewCell+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+XLayout.h"; sourceTree = "<group>"; };
+		84638E901CD5FC77002ECC74 /* UITableViewCell+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+XLayout.m"; sourceTree = "<group>"; };
+		84638E911CD5FC77002ECC74 /* UIView+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XLayout.h"; sourceTree = "<group>"; };
+		84638E921CD5FC77002ECC74 /* UIView+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XLayout.m"; sourceTree = "<group>"; };
+		84638E931CD5FC77002ECC74 /* UIViewController+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XLayout.h"; sourceTree = "<group>"; };
+		84638E941CD5FC77002ECC74 /* UIViewController+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XLayout.m"; sourceTree = "<group>"; };
+		84638EA21CD5FC93002ECC74 /* UIView+XLayoutPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XLayoutPrivate.h"; sourceTree = "<group>"; };
+		84638EA31CD5FC93002ECC74 /* UIView+XLayoutPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XLayoutPrivate.m"; sourceTree = "<group>"; };
 		84BBA5E41CD24FA900EE48C4 /* base.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = base.xml; sourceTree = "<group>"; };
 		84BBA5E51CD24FA900EE48C4 /* red_view.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = red_view.xml; sourceTree = "<group>"; };
-		84BBA5E81CD26ADF00EE48C4 /* NSLayoutConstraint+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+XLayout.h"; sourceTree = "<group>"; };
-		84BBA5E91CD26ADF00EE48C4 /* NSLayoutConstraint+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+XLayout.m"; sourceTree = "<group>"; };
-		930287461CD206EE005B1CE2 /* UIButton+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+XLayout.h"; sourceTree = "<group>"; };
-		930287471CD206EE005B1CE2 /* UIButton+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+XLayout.m"; sourceTree = "<group>"; };
 		931BA70A1CD1F920006290B1 /* XLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		931BA70E1CD1F920006290B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		931BA7101CD1F920006290B1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -70,25 +84,11 @@
 		931BA71E1CD1F920006290B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		931BA7291CD1F947006290B1 /* ONOXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONOXMLDocument.h; sourceTree = "<group>"; };
 		931BA72A1CD1F947006290B1 /* ONOXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONOXMLDocument.m; sourceTree = "<group>"; };
-		931BA72C1CD1F947006290B1 /* UIView+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "UIView+XLayout.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		931BA72D1CD1F947006290B1 /* UIView+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIView+XLayout.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		931BA72E1CD1F947006290B1 /* UIViewController+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "UIViewController+XLayout.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		931BA72F1CD1F947006290B1 /* UIViewController+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIViewController+XLayout.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		931BA7311CD1F947006290B1 /* XLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = XLayoutConstraint.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		931BA7321CD1F947006290B1 /* XLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = XLayoutConstraint.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		931BA7331CD1F947006290B1 /* XLayoutBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = XLayoutBase.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		931BA7341CD1F947006290B1 /* XLayoutBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = XLayoutBase.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		931BA7371CD1F947006290B1 /* XLayoutViewService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLayoutViewService.h; sourceTree = "<group>"; };
 		931BA7381CD1F947006290B1 /* XLayoutViewService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLayoutViewService.m; sourceTree = "<group>"; };
 		931BA7391CD1F947006290B1 /* XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = XLayout.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		934525081CD22CDA007433FF /* UIColor+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XLayout.h"; sourceTree = "<group>"; };
-		934525091CD22CDA007433FF /* UIColor+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XLayout.m"; sourceTree = "<group>"; };
-		93E766461CD32A0200385A4A /* XLayoutViewService+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XLayoutViewService+XLayout.h"; sourceTree = "<group>"; };
-		93E766471CD32A0200385A4A /* XLayoutViewService+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XLayoutViewService+XLayout.m"; sourceTree = "<group>"; };
-		93E7664F1CD3567900385A4A /* UITableView+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+XLayout.h"; sourceTree = "<group>"; };
-		93E766501CD3567900385A4A /* UITableView+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+XLayout.m"; sourceTree = "<group>"; };
-		93E766521CD3572600385A4A /* UICollectionView+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+XLayout.h"; sourceTree = "<group>"; };
-		93E766531CD3572600385A4A /* UICollectionView+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+XLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +102,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84638E7F1CD5FC77002ECC74 /* XLayoutPrivate */ = {
+			isa = PBXGroup;
+			children = (
+				84638E821CD5FC77002ECC74 /* UIColor+XLayoutPrivate.h */,
+				84638E831CD5FC77002ECC74 /* UIColor+XLayoutPrivate.m */,
+				84638EA21CD5FC93002ECC74 /* UIView+XLayoutPrivate.h */,
+				84638EA31CD5FC93002ECC74 /* UIView+XLayoutPrivate.m */,
+				84638E841CD5FC77002ECC74 /* XLayoutConstraintPrivate.h */,
+				84638E851CD5FC77002ECC74 /* XLayoutConstraintPrivate.m */,
+				84638E801CD5FC77002ECC74 /* NSLayoutConstraint+XLayoutPrivate.h */,
+				84638E811CD5FC77002ECC74 /* NSLayoutConstraint+XLayoutPrivate.m */,
+			);
+			path = XLayoutPrivate;
+			sourceTree = "<group>";
+		};
+		84638E861CD5FC77002ECC74 /* XLayoutUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				84638E911CD5FC77002ECC74 /* UIView+XLayout.h */,
+				84638E921CD5FC77002ECC74 /* UIView+XLayout.m */,
+				84638E871CD5FC77002ECC74 /* UIButton+XLayout.h */,
+				84638E881CD5FC77002ECC74 /* UIButton+XLayout.m */,
+				84638E891CD5FC77002ECC74 /* UICollectionReusableView+XLayout.h */,
+				84638E8A1CD5FC77002ECC74 /* UICollectionReusableView+XLayout.m */,
+				84638E8B1CD5FC77002ECC74 /* UICollectionView+XLayout.h */,
+				84638E8C1CD5FC77002ECC74 /* UICollectionView+XLayout.m */,
+				84638E8D1CD5FC77002ECC74 /* UITableView+XLayout.h */,
+				84638E8E1CD5FC77002ECC74 /* UITableView+XLayout.m */,
+				84638E8F1CD5FC77002ECC74 /* UITableViewCell+XLayout.h */,
+				84638E901CD5FC77002ECC74 /* UITableViewCell+XLayout.m */,
+				84638E931CD5FC77002ECC74 /* UIViewController+XLayout.h */,
+				84638E941CD5FC77002ECC74 /* UIViewController+XLayout.m */,
+			);
+			path = XLayoutUIKit;
+			sourceTree = "<group>";
+		};
 		931BA7011CD1F920006290B1 = {
 			isa = PBXGroup;
 			children = (
@@ -157,8 +193,9 @@
 		931BA7241CD1F947006290B1 /* XLayout */ = {
 			isa = PBXGroup;
 			children = (
+				84638E7F1CD5FC77002ECC74 /* XLayoutPrivate */,
+				84638E861CD5FC77002ECC74 /* XLayoutUIKit */,
 				931BA7281CD1F947006290B1 /* ONOXML */,
-				931BA72B1CD1F947006290B1 /* UIKit */,
 				931BA7301CD1F947006290B1 /* XLayout */,
 				931BA7391CD1F947006290B1 /* XLayout.h */,
 			);
@@ -174,40 +211,11 @@
 			path = ONOXML;
 			sourceTree = "<group>";
 		};
-		931BA72B1CD1F947006290B1 /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				934525081CD22CDA007433FF /* UIColor+XLayout.h */,
-				934525091CD22CDA007433FF /* UIColor+XLayout.m */,
-				931BA72C1CD1F947006290B1 /* UIView+XLayout.h */,
-				931BA72D1CD1F947006290B1 /* UIView+XLayout.m */,
-				930287461CD206EE005B1CE2 /* UIButton+XLayout.h */,
-				930287471CD206EE005B1CE2 /* UIButton+XLayout.m */,
-				93E7664F1CD3567900385A4A /* UITableView+XLayout.h */,
-				93E766501CD3567900385A4A /* UITableView+XLayout.m */,
-				840ED89D1CD4D11F0054FA29 /* UITableViewCell+XLayout.h */,
-				840ED89E1CD4D11F0054FA29 /* UITableViewCell+XLayout.m */,
-				93E766521CD3572600385A4A /* UICollectionView+XLayout.h */,
-				93E766531CD3572600385A4A /* UICollectionView+XLayout.m */,
-				840ED8A71CD4E9280054FA29 /* UICollectionReusableView+XLayout.h */,
-				840ED8A81CD4E9280054FA29 /* UICollectionReusableView+XLayout.m */,
-				931BA72E1CD1F947006290B1 /* UIViewController+XLayout.h */,
-				931BA72F1CD1F947006290B1 /* UIViewController+XLayout.m */,
-				84BBA5E81CD26ADF00EE48C4 /* NSLayoutConstraint+XLayout.h */,
-				84BBA5E91CD26ADF00EE48C4 /* NSLayoutConstraint+XLayout.m */,
-				93E766461CD32A0200385A4A /* XLayoutViewService+XLayout.h */,
-				93E766471CD32A0200385A4A /* XLayoutViewService+XLayout.m */,
-			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
 		931BA7301CD1F947006290B1 /* XLayout */ = {
 			isa = PBXGroup;
 			children = (
 				931BA7331CD1F947006290B1 /* XLayoutBase.h */,
 				931BA7341CD1F947006290B1 /* XLayoutBase.m */,
-				931BA7311CD1F947006290B1 /* XLayoutConstraint.h */,
-				931BA7321CD1F947006290B1 /* XLayoutConstraint.m */,
 				931BA7371CD1F947006290B1 /* XLayoutViewService.h */,
 				931BA7381CD1F947006290B1 /* XLayoutViewService.m */,
 			);
@@ -291,25 +299,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				840ED8A91CD4E9280054FA29 /* UICollectionReusableView+XLayout.m in Sources */,
-				930287481CD206EE005B1CE2 /* UIButton+XLayout.m in Sources */,
+				84638E9A1CD5FC77002ECC74 /* UIButton+XLayout.m in Sources */,
+				84638E9F1CD5FC77002ECC74 /* UIView+XLayout.m in Sources */,
+				84638E9C1CD5FC77002ECC74 /* UICollectionView+XLayout.m in Sources */,
+				84638E981CD5FC77002ECC74 /* UIColor+XLayoutPrivate.m in Sources */,
+				84638E991CD5FC77002ECC74 /* XLayoutConstraintPrivate.m in Sources */,
 				931BA7151CD1F920006290B1 /* ViewController.m in Sources */,
 				931BA7121CD1F920006290B1 /* AppDelegate.m in Sources */,
-				93E766481CD32A0200385A4A /* XLayoutViewService+XLayout.m in Sources */,
+				84638E9E1CD5FC77002ECC74 /* UITableViewCell+XLayout.m in Sources */,
+				84638E9D1CD5FC77002ECC74 /* UITableView+XLayout.m in Sources */,
 				931BA73B1CD1F947006290B1 /* ONOXMLDocument.m in Sources */,
 				931BA7411CD1F947006290B1 /* XLayoutViewService.m in Sources */,
+				84638EA41CD5FC93002ECC74 /* UIView+XLayoutPrivate.m in Sources */,
+				84638EA01CD5FC77002ECC74 /* UIViewController+XLayout.m in Sources */,
 				840ED89A1CD48D510054FA29 /* DemoTableViewCell.m in Sources */,
+				84638E9B1CD5FC77002ECC74 /* UICollectionReusableView+XLayout.m in Sources */,
 				931BA73F1CD1F947006290B1 /* XLayoutBase.m in Sources */,
-				9345250A1CD22CDA007433FF /* UIColor+XLayout.m in Sources */,
-				931BA73D1CD1F947006290B1 /* UIViewController+XLayout.m in Sources */,
+				84638E971CD5FC77002ECC74 /* NSLayoutConstraint+XLayoutPrivate.m in Sources */,
 				931BA70F1CD1F920006290B1 /* main.m in Sources */,
-				840ED89F1CD4D11F0054FA29 /* UITableViewCell+XLayout.m in Sources */,
-				93E766511CD3567900385A4A /* UITableView+XLayout.m in Sources */,
-				931BA73C1CD1F947006290B1 /* UIView+XLayout.m in Sources */,
-				84BBA5EA1CD26ADF00EE48C4 /* NSLayoutConstraint+XLayout.m in Sources */,
 				840ED8A41CD4E30B0054FA29 /* DemoCollectionViewCell.m in Sources */,
-				93E766541CD3572600385A4A /* UICollectionView+XLayout.m in Sources */,
-				931BA73E1CD1F947006290B1 /* XLayoutConstraint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

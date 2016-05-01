@@ -11,7 +11,13 @@
 
 #import "XLayoutBase.h"
 #import "XLayoutViewService.h"
+
 #import "UIView+XLayout.h"
+#import "UIButton+XLayout.h"
+#import "UITableView+XLayout.h"
+#import "UITableViewCell+XLayout.h"
+#import "UICollectionView+XLayout.h"
+#import "UICollectionReusableView+XLayout.h"
 #import "UIViewController+XLayout.h"
 
 #endif /* XLayout_h */

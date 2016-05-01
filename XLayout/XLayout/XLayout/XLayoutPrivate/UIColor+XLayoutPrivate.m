@@ -6,7 +6,7 @@
 //  Copyright © 2016年 B&W. All rights reserved.
 //
 
-#import "UIColor+XLayout.h"
+#import "UIColor+XLayoutPrivate.h"
 
 @implementation UIColor (XLayout)
 

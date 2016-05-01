@@ -6,11 +6,11 @@
 //  Copyright © 2016年 B&W. All rights reserved.
 //
 
-#import "NSLayoutConstraint+XLayout.h"
+#import "NSLayoutConstraint+XLayoutPrivate.h"
 #import "UIView+XLayout.h"
 #import <objc/runtime.h>
 
-@implementation NSLayoutConstraint (XLayout)
+@implementation NSLayoutConstraint (XLayoutPrivate)
 
 - (void)setLayoutPosition:(NSString *)layoutPosition {
     objc_setAssociatedObject(self, @selector(layoutPosition), layoutPosition, OBJC_ASSOCIATION_COPY_NONATOMIC);

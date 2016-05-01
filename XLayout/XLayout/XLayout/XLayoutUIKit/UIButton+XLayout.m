@@ -7,8 +7,7 @@
 //
 
 #import "UIButton+XLayout.h"
-#import "UIView+XLayout.h"
-#import "XLayoutViewService.h"
+#import "UIView+XLayoutPrivate.h"
 #import "ONOXMLDocument.h"
 #import <objc/runtime.h>
 

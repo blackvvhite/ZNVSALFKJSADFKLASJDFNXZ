@@ -10,7 +10,8 @@
 #import "ONOXMLDocument.h"
 #import "XLayoutBase.h"
 #import "UIView+XLayout.h"
-#import "UIColor+XLayout.h"
+#import "UIView+XLayoutPrivate.h"
+#import "UIColor+XLayoutPrivate.h"
 
 NSString *const XLAYOUT_CONTROLLER_VIEW_ID = @"XLAYOUT_CONTROLLER_VIEW_ID";
 NSString *const XLAYOUT_TABLE_VIEW_CELL_ID = @"XLAYOUT_TABLE_VIEW_CELL_ID";

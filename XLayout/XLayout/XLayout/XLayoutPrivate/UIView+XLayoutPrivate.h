@@ -1,23 +1,14 @@
 //
-//  UIView+XLayout.h
+//  UIView+XLayoutPrivate.h
 //  XLayout
 //
-//  Created by B&W on 16/4/26.
+//  Created by admin on 16/5/1.
 //  Copyright © 2016年 B&W. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@class XLayoutBase;
 @class XLayoutViewService;
-@interface UIView (XLayout)
-
-@property (nonatomic, copy, readonly) NSString *layout_id;
-@property (nonatomic, strong, readonly) XLayoutBase *layout;
-@property (nonatomic, weak, readonly) XLayoutViewService *viewService;
-
-@end
-
 @interface UIView (XLayoutPrivate)
 
 + (instancetype)viewWithXMLElementObject:(id)element;

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NSLayoutConstraint (XLayout)
+@interface NSLayoutConstraint (XLayoutPrivate)
 
 @property (nonatomic, copy) NSString *layoutPosition;
 @property (nonatomic, copy) NSString *layoutAttribute;

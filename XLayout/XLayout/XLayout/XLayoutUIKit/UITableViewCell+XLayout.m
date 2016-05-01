@@ -1,17 +1,17 @@
 //
-//  UIViewController+XLayoutExtension.m
+//  UITableViewCell+XLayout.m
 //  XLayout
 //
-//  Created by B&W on 16/4/27.
+//  Created by B&W on 16/4/30.
 //  Copyright © 2016年 B&W. All rights reserved.
 //
 
-#import "UIViewController+XLayout.h"
-#import "UIView+XLayout.h"
+#import "UITableViewCell+XLayout.h"
+#import "UIView+XLayoutPrivate.h"
 #import "XLayoutViewService.h"
 #import <objc/runtime.h>
 
-@implementation UIViewController (XLayout)
+@implementation UITableViewCell (XLayout)
 
 - (void)setViewService:(XLayoutViewService *)viewService {
     objc_setAssociatedObject(self, @selector(viewService), viewService, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -23,9 +23,8 @@
 
 - (void)loadViewFromXMLName:(NSString *)name {
     XLayoutViewService *service = [XLayoutViewService serviceFromXMLName:name eventHandler:self];
-    [self.view addSubview:service.contentView];
-    [self.view layout_id:XLAYOUT_CONTROLLER_VIEW_ID];
-    [self.view viewService:service];
+    [self.contentView addSubview:service.contentView];
+    [self.contentView layout_id:XLAYOUT_TABLE_VIEW_CELL_ID];
     [self setViewService:service];
     [service activateLayout];
 }

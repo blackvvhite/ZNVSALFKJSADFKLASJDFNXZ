@@ -6,10 +6,10 @@
 //  Copyright © 2016年 B&W. All rights reserved.
 //
 
-#import "XLayoutConstraint.h"
+#import "XLayoutConstraintPrivate.h"
 #import "UIView+XLayout.h"
 #import "XLayoutViewService.h"
-#import "NSLayoutConstraint+XLayout.h"
+#import "NSLayoutConstraint+XLayoutPrivate.h"
 #import <UIKit/UIView.h>
 
 @interface XLayoutConstraint ()
