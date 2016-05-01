@@ -22,6 +22,7 @@
 
 @property (nonatomic, strong) XLayoutConstraint *layout_widthConstraint;
 @property (nonatomic, strong) XLayoutConstraint *layout_heightConstraint;
+@property (nonatomic, strong) XLayoutConstraint *layout_aspectRatioConstraint;
 
 @property (nonatomic, strong) XLayoutConstraint *layout_aboveConstraint;
 @property (nonatomic, strong) XLayoutConstraint *layout_belowConstraint;
@@ -77,6 +78,7 @@
     
     [self.layout_widthConstraint activate];
     [self.layout_heightConstraint activate];
+    [self.layout_aspectRatioConstraint activate];
     
     [self.layout_aboveConstraint activate];
     [self.layout_belowConstraint activate];
@@ -97,6 +99,7 @@
     
     [self.layout_widthConstraint deactivate];
     [self.layout_heightConstraint deactivate];
+    [self.layout_aspectRatioConstraint deactivate];
     
     [self.layout_aboveConstraint deactivate];
     [self.layout_belowConstraint deactivate];
@@ -185,18 +188,18 @@
     _layout_right = layout_right;
 }
 
-- (void)setLayout_origin:(NSString *)layout_origin {
-    NSArray *attribute = [self parserParameterWithLayoutAttribute:layout_origin];
+- (void)setLayout_top_left:(NSString *)layout_top_left {
+    NSArray *attribute = [self parserParameterWithLayoutAttribute:layout_top_left];
     [self setLayout_top:[attribute firstObject]];
     [self setLayout_left:[attribute lastObject]];
-    _layout_origin = layout_origin;
+    _layout_top_left = layout_top_left;
 }
 
-- (void)setLayout_destination:(NSString *)layout_destination {
-    NSArray *attribute = [self parserParameterWithLayoutAttribute:layout_destination];
+- (void)setLayout_bottom_right:(NSString *)layout_bottom_right {
+    NSArray *attribute = [self parserParameterWithLayoutAttribute:layout_bottom_right];
     [self setLayout_bottom:[attribute firstObject]];
     [self setLayout_right:[attribute lastObject]];
-    _layout_destination = layout_destination;
+    _layout_bottom_right = layout_bottom_right;
 }
 
 - (void)setLayout_top_bottom:(NSString *)layout_top_bottom {
@@ -246,8 +249,17 @@
     _layout_size = layout_size;
 }
 
-- (void)setLayout_width_height_equal:(BOOL)layout_width_height_equal {
-    
+- (void)setLayout_aspect_ratio:(NSString *)layout_aspect_ratio {
+    if (!self.layout_aspectRatioConstraint) {
+        XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_aspect_ratio];
+        constraint.firstAttribute = NSLayoutAttributeHeight;
+        constraint.secondAttribute = NSLayoutAttributeWidth;
+        constraint.layoutPosition = @"layout_aspect_ratio";
+        self.layout_aspectRatioConstraint = constraint;
+    }else {
+        [self.layout_aspectRatioConstraint updateConstraintWithLayoutAttributes:layout_aspect_ratio];
+    }
+    _layout_aspect_ratio = layout_aspect_ratio;
 }
 
 - (void)setLayout_above:(NSString *)layout_above {

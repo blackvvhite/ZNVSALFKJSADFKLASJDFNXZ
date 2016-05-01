@@ -137,7 +137,7 @@
     
     if (layoutId) {
         secondView = self.firstView.viewService.viewById(layoutId);
-        NSAssert(secondView, @"Failed to get associated view");
+        NSAssert1(secondView, @"Failed to get associated view by id (%@)",layoutId);
     }
     
     self.layoutAttribute = attributes;

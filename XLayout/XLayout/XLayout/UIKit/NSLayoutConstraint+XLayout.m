@@ -29,15 +29,18 @@
 }
 
 - (NSString *)description {
-    NSMutableString *description = [[NSMutableString alloc] init];
-    [description appendString:@"\n===>\n"];
-    [description appendFormat:@"    Exception view:%@",[self.firstItem layout_id]];
-    [description appendString:@"    |    "];
-    [description appendFormat:@"layout position:%@",self.layoutPosition];
-    [description appendString:@"    |    "];
-    [description appendFormat:@"attribute:%@",self.layoutAttribute];
-    [description appendString:@"\n===>"];
-    return description;
+    if ([self.firstItem layout_id] || self.layoutPosition || self.layoutAttribute) {
+        NSMutableString *description = [[NSMutableString alloc] init];
+        [description appendString:@"\n===>\n"];
+        [description appendFormat:@"    Exception view:%@",[self.firstItem layout_id]];
+        [description appendString:@"    |    "];
+        [description appendFormat:@"layout position:%@",self.layoutPosition];
+        [description appendString:@"    |    "];
+        [description appendFormat:@"attribute:%@",self.layoutAttribute];
+        [description appendString:@"\n===>"];
+        return description;
+    }
+    return [super description];
 }
 
 @end

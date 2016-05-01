@@ -21,15 +21,15 @@
 @property (nonatomic, copy) NSString *layout_bottom;
 @property (nonatomic, copy) NSString *layout_left;
 @property (nonatomic, copy) NSString *layout_right;
-@property (nonatomic, copy) NSString *layout_origin;
-@property (nonatomic, copy) NSString *layout_destination;
+@property (nonatomic, copy) NSString *layout_top_left;
+@property (nonatomic, copy) NSString *layout_bottom_right;
 @property (nonatomic, copy) NSString *layout_top_bottom;
 @property (nonatomic, copy) NSString *layout_left_right;
 
 @property (nonatomic, copy) NSString *layout_width;
 @property (nonatomic, copy) NSString *layout_height;
 @property (nonatomic, copy) NSString *layout_size;
-//@property (nonatomic, assign) BOOL layout_width_height_equal;
+@property (nonatomic, copy) NSString *layout_aspect_ratio;
 
 @property (nonatomic, copy) NSString *layout_above;
 @property (nonatomic, copy) NSString *layout_below;
