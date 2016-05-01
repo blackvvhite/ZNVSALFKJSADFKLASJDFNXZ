@@ -77,6 +77,8 @@
     [self.layout_bottomConstraint activate];
     [self.layout_leftConstraint activate];
     [self.layout_rightConstraint activate];
+    [self.layout_leadingConstraint activate];
+    [self.layout_trailingConstraint activate];
     
     [self.layout_widthConstraint activate];
     [self.layout_heightConstraint activate];
@@ -98,6 +100,8 @@
     [self.layout_bottomConstraint deactivate];
     [self.layout_leftConstraint deactivate];
     [self.layout_rightConstraint deactivate];
+    [self.layout_leadingConstraint deactivate];
+    [self.layout_trailingConstraint deactivate];
     
     [self.layout_widthConstraint deactivate];
     [self.layout_heightConstraint deactivate];
