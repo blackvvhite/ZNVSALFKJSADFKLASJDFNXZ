@@ -12,7 +12,7 @@
 - (instancetype)initWithFrame:(CGRect)frame { \
     self = [super initWithFrame:frame]; \
     if (self) { \
-    [self loadViewFromXMLName:XML_NAME]; \
+        [self loadViewFromXMLName:XML_NAME]; \
     } \
     return self; \
 } \
