@@ -235,6 +235,9 @@ NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID = @"XLAYOUT_COLLECTION_REUSA
     }else if (strcmp(type, "{UIEdgeInsets=dddd}") == 0) {
         UIEdgeInsets arguments = UIEdgeInsetsFromString(argumentsObject);
         [invocation setArgument:&arguments atIndex:2];
+    }else if (strcmp(type, "{CGRect=dddd}") == 0) {
+        CGRect arguments = CGRectFromString(argumentsObject);
+        [invocation setArgument:&arguments atIndex:2];
     }
     
     [invocation setSelector:selector];
