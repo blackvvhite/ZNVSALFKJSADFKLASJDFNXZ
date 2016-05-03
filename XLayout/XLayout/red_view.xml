@@ -1,5 +1,5 @@
 <UIView backgroundColor="@color:CD8500">
-    <UIView layout_id="quote_view" layout_edge="{20,20,-20,-20}" backgroundColor="@color:FF0000">
+    <UIView layout_id="quote_view" layout_edge="{20,20,-20,-20}" cornerBorder="{5,4,4169E1}" backgroundColor="@color:FF0000">
         
     </UIView>
 </UIView>
