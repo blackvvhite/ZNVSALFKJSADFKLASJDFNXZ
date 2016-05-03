@@ -1,5 +1,5 @@
 //
-//  XLayoutConstraint.m
+//  XLayoutConstraintPrivate.m
 //  XLayout
 //
 //  Created by B&W on 16/4/27.
@@ -10,19 +10,19 @@
 #import "XLayoutViewService.h"
 #import "NSLayoutConstraint+XLayoutPrivate.h"
 
-@interface XLayoutConstraint ()
+@interface XLayoutConstraintPrivate ()
 
 @property (nonatomic, copy) NSString *layoutAttribute;
 @property (nonatomic, strong) NSMutableArray *constraint;
 
 @end
 
-@implementation XLayoutConstraint
+@implementation XLayoutConstraintPrivate
 
 #pragma mark - Init
 
 + (instancetype)constraintWithView:(UIView *)view layoutAttributes:(NSString *)attributes {
-    XLayoutConstraint *constraint = [[XLayoutConstraint alloc] init];
+    XLayoutConstraintPrivate *constraint = [[XLayoutConstraintPrivate alloc] init];
     constraint.firstView = view;
     constraint.layoutAttribute = attributes;
     return constraint;

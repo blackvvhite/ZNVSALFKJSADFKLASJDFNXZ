@@ -1,5 +1,5 @@
 //
-//  XLayoutConstraint.h
+//  XLayoutConstraintPrivate.h
 //  XLayout
 //
 //  Created by B&W on 16/4/27.
@@ -10,7 +10,7 @@
 #import <UIKit/NSLayoutConstraint.h>
 
 @class UIView;
-@interface XLayoutConstraint : NSObject
+@interface XLayoutConstraintPrivate : NSObject
 
 @property (nonatomic, weak  ) UIView *firstView;
 @property (nonatomic, assign) NSLayoutAttribute firstAttribute;

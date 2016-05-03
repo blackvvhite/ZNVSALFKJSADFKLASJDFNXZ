@@ -1,5 +1,5 @@
 //
-//  XMLView.h
+//  XLayoutViewService.h
 //  XLayout
 //
 //  Created by B&W on 16/4/26.

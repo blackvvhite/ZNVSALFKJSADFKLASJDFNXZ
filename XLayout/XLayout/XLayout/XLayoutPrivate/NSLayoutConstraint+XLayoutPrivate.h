@@ -1,5 +1,5 @@
 //
-//  NSLayoutConstraint+XLayout.h
+//  NSLayoutConstraint+XLayoutPrivate.h
 //  XLayout
 //
 //  Created by B&W on 16/4/28.

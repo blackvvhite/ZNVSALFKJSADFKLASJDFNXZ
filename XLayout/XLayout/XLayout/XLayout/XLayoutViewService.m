@@ -1,5 +1,5 @@
 //
-//  XMLView.m
+//  XLayoutViewService.m
 //  XLayout
 //
 //  Created by B&W on 16/4/26.

@@ -1,5 +1,5 @@
 //
-//  UIColor+XLayout.h
+//  UIColor+XLayoutPrivate.h
 //  XLayout
 //
 //  Created by B&W on 16/4/28.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIColor (XLayout)
+@interface UIColor (XLayoutPrivate)
 
 /// HEX
 + (UIColor *)colorWithString:(NSString *)string;

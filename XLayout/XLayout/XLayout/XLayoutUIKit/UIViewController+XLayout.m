@@ -1,5 +1,5 @@
 //
-//  UIViewController+XLayoutExtension.m
+//  UIViewController+XLayout.m
 //  XLayout
 //
 //  Created by B&W on 16/4/27.

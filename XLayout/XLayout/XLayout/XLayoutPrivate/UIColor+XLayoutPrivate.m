@@ -1,5 +1,5 @@
 //
-//  UIColor+XLayout.m
+//  UIColor+XLayoutPrivate.m
 //  XLayout
 //
 //  Created by B&W on 16/4/28.
@@ -8,7 +8,7 @@
 
 #import "UIColor+XLayoutPrivate.h"
 
-@implementation UIColor (XLayout)
+@implementation UIColor (XLayoutPrivate)
 
 + (UIColor *)colorWithHexString:(NSString *)hexString {
     NSCharacterSet *characterSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];

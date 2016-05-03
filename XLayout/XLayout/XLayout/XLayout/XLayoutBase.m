@@ -15,26 +15,26 @@
 
 @property (nonatomic, readwrite, weak) UIView *view;
 
-@property (nonatomic, strong) XLayoutConstraint *layout_topConstraint;
-@property (nonatomic, strong) XLayoutConstraint *layout_bottomConstraint;
-@property (nonatomic, strong) XLayoutConstraint *layout_leftConstraint;
-@property (nonatomic, strong) XLayoutConstraint *layout_rightConstraint;
-@property (nonatomic, strong) XLayoutConstraint *layout_leadingConstraint;
-@property (nonatomic, strong) XLayoutConstraint *layout_trailingConstraint;
+@property (nonatomic, strong) XLayoutConstraintPrivate *layout_topConstraint;
+@property (nonatomic, strong) XLayoutConstraintPrivate *layout_bottomConstraint;
+@property (nonatomic, strong) XLayoutConstraintPrivate *layout_leftConstraint;
+@property (nonatomic, strong) XLayoutConstraintPrivate *layout_rightConstraint;
+@property (nonatomic, strong) XLayoutConstraintPrivate *layout_leadingConstraint;
+@property (nonatomic, strong) XLayoutConstraintPrivate *layout_trailingConstraint;
 
-@property (nonatomic, strong) XLayoutConstraint *layout_widthConstraint;
-@property (nonatomic, strong) XLayoutConstraint *layout_heightConstraint;
-@property (nonatomic, strong) XLayoutConstraint *layout_aspectRatioConstraint;
+@property (nonatomic, strong) XLayoutConstraintPrivate *layout_widthConstraint;
+@property (nonatomic, strong) XLayoutConstraintPrivate *layout_heightConstraint;
+@property (nonatomic, strong) XLayoutConstraintPrivate *layout_aspectRatioConstraint;
 
-@property (nonatomic, strong) XLayoutConstraint *layout_aboveConstraint;
-@property (nonatomic, strong) XLayoutConstraint *layout_belowConstraint;
-@property (nonatomic, strong) XLayoutConstraint *layout_inLeadingConstraint;
-@property (nonatomic, strong) XLayoutConstraint *layout_inTrailingConstraint;
+@property (nonatomic, strong) XLayoutConstraintPrivate *layout_aboveConstraint;
+@property (nonatomic, strong) XLayoutConstraintPrivate *layout_belowConstraint;
+@property (nonatomic, strong) XLayoutConstraintPrivate *layout_inLeadingConstraint;
+@property (nonatomic, strong) XLayoutConstraintPrivate *layout_inTrailingConstraint;
 
-@property (nonatomic, strong) XLayoutConstraint *layout_baselineConstraint;
+@property (nonatomic, strong) XLayoutConstraintPrivate *layout_baselineConstraint;
 
-@property (nonatomic, strong) XLayoutConstraint *layout_centerXConstraint;
-@property (nonatomic, strong) XLayoutConstraint *layout_centerYConstraint;
+@property (nonatomic, strong) XLayoutConstraintPrivate *layout_centerXConstraint;
+@property (nonatomic, strong) XLayoutConstraintPrivate *layout_centerYConstraint;
 
 @end
 
@@ -163,7 +163,7 @@
 
 - (void)setLayout_top:(NSString *)layout_top {
     if (!self.layout_topConstraint) {
-        XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_top];
+        XLayoutConstraintPrivate *constraint = [XLayoutConstraintPrivate constraintWithView:self.view layoutAttributes:layout_top];
         constraint.firstAttribute = NSLayoutAttributeTop;
         constraint.secondAttribute = NSLayoutAttributeTop;
         constraint.layoutPosition = @"layout_top";
@@ -176,7 +176,7 @@
 
 - (void)setLayout_bottom:(NSString *)layout_bottom {
     if (!self.layout_bottomConstraint) {
-        XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_bottom];
+        XLayoutConstraintPrivate *constraint = [XLayoutConstraintPrivate constraintWithView:self.view layoutAttributes:layout_bottom];
         constraint.firstAttribute = NSLayoutAttributeBottom;
         constraint.secondAttribute = NSLayoutAttributeBottom;
         constraint.layoutPosition = @"layout_bottom";
@@ -189,7 +189,7 @@
 
 - (void)setLayout_left:(NSString *)layout_left {
     if (!self.layout_leftConstraint) {
-        XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_left];
+        XLayoutConstraintPrivate *constraint = [XLayoutConstraintPrivate constraintWithView:self.view layoutAttributes:layout_left];
         constraint.firstAttribute = NSLayoutAttributeLeft;
         constraint.secondAttribute = NSLayoutAttributeLeft;
         constraint.layoutPosition = @"layout_left";
@@ -202,7 +202,7 @@
 
 - (void)setLayout_right:(NSString *)layout_right {
     if (!self.layout_rightConstraint) {
-        XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_right];
+        XLayoutConstraintPrivate *constraint = [XLayoutConstraintPrivate constraintWithView:self.view layoutAttributes:layout_right];
         constraint.firstAttribute = NSLayoutAttributeRight;
         constraint.secondAttribute = NSLayoutAttributeRight;
         constraint.layoutPosition = @"layout_right";
@@ -216,7 +216,7 @@
 
 - (void)setLayout_leading:(NSString *)layout_leading {
     if (!self.layout_leadingConstraint) {
-        XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_leading];
+        XLayoutConstraintPrivate *constraint = [XLayoutConstraintPrivate constraintWithView:self.view layoutAttributes:layout_leading];
         constraint.firstAttribute = NSLayoutAttributeLeading;
         constraint.secondAttribute = NSLayoutAttributeLeading;
         constraint.layoutPosition = @"layout_leading";
@@ -229,7 +229,7 @@
 
 - (void)setLayout_trailing:(NSString *)layout_trailing {
     if (!self.layout_trailingConstraint) {
-        XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_trailing];
+        XLayoutConstraintPrivate *constraint = [XLayoutConstraintPrivate constraintWithView:self.view layoutAttributes:layout_trailing];
         constraint.firstAttribute = NSLayoutAttributeTrailing;
         constraint.secondAttribute = NSLayoutAttributeTrailing;
         constraint.layoutPosition = @"layout_trailing";
@@ -270,7 +270,7 @@
 
 - (void)setLayout_width:(NSString *)layout_width {
     if (!self.layout_widthConstraint) {
-        XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_width];
+        XLayoutConstraintPrivate *constraint = [XLayoutConstraintPrivate constraintWithView:self.view layoutAttributes:layout_width];
         constraint.firstAttribute = NSLayoutAttributeWidth;
         constraint.secondAttribute = NSLayoutAttributeNotAnAttribute;
         constraint.layoutPosition = @"layout_width";
@@ -283,7 +283,7 @@
 
 - (void)setLayout_height:(NSString *)layout_height {
     if (!self.layout_heightConstraint) {
-        XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_height];
+        XLayoutConstraintPrivate *constraint = [XLayoutConstraintPrivate constraintWithView:self.view layoutAttributes:layout_height];
         constraint.firstAttribute = NSLayoutAttributeHeight;
         constraint.secondAttribute = NSLayoutAttributeNotAnAttribute;
         constraint.layoutPosition = @"layout_height";
@@ -303,7 +303,7 @@
 
 - (void)setLayout_aspect_ratio:(NSString *)layout_aspect_ratio {
     if (!self.layout_aspectRatioConstraint) {
-        XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_aspect_ratio];
+        XLayoutConstraintPrivate *constraint = [XLayoutConstraintPrivate constraintWithView:self.view layoutAttributes:layout_aspect_ratio];
         constraint.firstAttribute = NSLayoutAttributeHeight;
         constraint.secondAttribute = NSLayoutAttributeWidth;
         constraint.layoutPosition = @"layout_aspect_ratio";
@@ -316,7 +316,7 @@
 
 - (void)setLayout_above:(NSString *)layout_above {
     if (!self.layout_aboveConstraint) {
-        XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_above];
+        XLayoutConstraintPrivate *constraint = [XLayoutConstraintPrivate constraintWithView:self.view layoutAttributes:layout_above];
         constraint.firstAttribute = NSLayoutAttributeBottom;
         constraint.secondAttribute = NSLayoutAttributeTop;
         constraint.layoutPosition = @"layout_above";
@@ -329,7 +329,7 @@
 
 - (void)setLayout_below:(NSString *)layout_below {
     if (!self.layout_belowConstraint) {
-        XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_below];
+        XLayoutConstraintPrivate *constraint = [XLayoutConstraintPrivate constraintWithView:self.view layoutAttributes:layout_below];
         constraint.firstAttribute = NSLayoutAttributeTop;
         constraint.secondAttribute = NSLayoutAttributeBottom;
         constraint.layoutPosition = @"layout_below";
@@ -342,7 +342,7 @@
 
 - (void)setLayout_in_leading:(NSString *)layout_in_leading {
     if (!self.layout_inLeadingConstraint) {
-        XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_in_leading];
+        XLayoutConstraintPrivate *constraint = [XLayoutConstraintPrivate constraintWithView:self.view layoutAttributes:layout_in_leading];
         constraint.firstAttribute = NSLayoutAttributeTrailing;
         constraint.secondAttribute = NSLayoutAttributeLeading;
         constraint.layoutPosition = @"layout_in_leading";
@@ -355,7 +355,7 @@
 
 - (void)setLayout_in_trailing:(NSString *)layout_in_trailing {
     if (!self.layout_inTrailingConstraint) {
-        XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_in_trailing];
+        XLayoutConstraintPrivate *constraint = [XLayoutConstraintPrivate constraintWithView:self.view layoutAttributes:layout_in_trailing];
         constraint.firstAttribute = NSLayoutAttributeLeading;
         constraint.secondAttribute = NSLayoutAttributeTrailing;
         constraint.layoutPosition = @"layout_in_trailing";
@@ -368,7 +368,7 @@
 
 - (void)setLayout_baseline:(NSString *)layout_baseline {
     if (!self.layout_baselineConstraint) {
-        XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_baseline];
+        XLayoutConstraintPrivate *constraint = [XLayoutConstraintPrivate constraintWithView:self.view layoutAttributes:layout_baseline];
         constraint.firstAttribute = NSLayoutAttributeBaseline;
         constraint.secondAttribute = NSLayoutAttributeBaseline;
         constraint.layoutPosition = @"layout_baseline";
@@ -381,7 +381,7 @@
 
 - (void)setLayout_centerX:(NSString *)layout_centerX {
     if (!self.layout_centerXConstraint) {
-        XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_centerX];
+        XLayoutConstraintPrivate *constraint = [XLayoutConstraintPrivate constraintWithView:self.view layoutAttributes:layout_centerX];
         constraint.firstAttribute = NSLayoutAttributeCenterX;
         constraint.secondAttribute = NSLayoutAttributeCenterX;
         constraint.layoutPosition = @"layout_centerX";
@@ -394,7 +394,7 @@
 
 - (void)setLayout_centerY:(NSString *)layout_centerY {
     if (!self.layout_centerYConstraint) {
-        XLayoutConstraint *constraint = [XLayoutConstraint constraintWithView:self.view layoutAttributes:layout_centerY];
+        XLayoutConstraintPrivate *constraint = [XLayoutConstraintPrivate constraintWithView:self.view layoutAttributes:layout_centerY];
         constraint.firstAttribute = NSLayoutAttributeCenterY;
         constraint.secondAttribute = NSLayoutAttributeCenterY;
         constraint.layoutPosition = @"layout_centerY";
