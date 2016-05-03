@@ -33,7 +33,7 @@
     }
 }
 
-- (NSString *)cornerBorder {
+- (NSString *)corner_border {
     return objc_getAssociatedObject(self, _cmd);
 }
 

@@ -311,7 +311,7 @@ NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID = @"XLAYOUT_COLLECTION_REUSA
 
 #pragma mark - Public
 
-- (id(^)(NSString *layoutId))viewById {
+- (id(^)(NSString *layoutId))getViewById {
     return ^(NSString *layoutId){
         return [self.viewMap objectForKey:layoutId];
     };

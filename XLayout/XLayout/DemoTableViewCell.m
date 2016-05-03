@@ -25,7 +25,7 @@ XLAYOUT_TABLE_VIEW_CELL_FROM_XML_NAME(@"table_view_cell")
 #pragma mark - Getter
 
 - (UILabel *)label {
-    return self.viewService.viewById(@"label");
+    return self.viewService.getViewById(@"label");
 }
 
 @end
