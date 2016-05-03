@@ -26,7 +26,8 @@
     1.属性支持.
         XML里设置属性的时候,不仅仅可以设置布局类的属性,还可以设置你这个视图所有的只读属性,
         例如UILabel的text,UIView的backgroundColor等,包括你自己的自定义属性,前提是属性的类型不能是对象类型,
-        这点很重要(对象类型可以通过引用实现,后边会说),NSString类型除外,结构体目前只支持了4种(CGPoint,CGSize,CGRect,UIEdgeInsets).
+        这点很重要(对象类型可以通过引用实现,后边会说),NSString类型除外,结构体目前只支持了4种(CGPoint,CGSize,CGRect,UIEdgeInsets),
+        枚举值直接设置为对应的数值即可.
         
     2.颜色属性支持
         通过@color:xx_color指定一个颜色,xx_color为16进制字符串,例如UIView的背景颜色:backgroundColor="@color:FF4040".
