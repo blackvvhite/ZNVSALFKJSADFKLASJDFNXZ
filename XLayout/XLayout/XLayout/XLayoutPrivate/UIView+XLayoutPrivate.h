@@ -12,9 +12,9 @@
 @interface UIView (XLayoutPrivate)
 
 + (instancetype)viewWithXMLElementObject:(id)element;
-- (void)layout_id:(NSString *)layout_id;
-- (void)layout:(id)layout;
-- (void)viewService:(XLayoutViewService *)viewService;
-@property (nonatomic, weak) id eventHandler;
+- (void)privateSetLayout_id:(NSString *)layout_id;
+- (void)privateSetLayout:(id)layout;
+- (void)privateSetViewService:(XLayoutViewService *)viewService;
+@property (nonatomic, weak) id privateEventHandler;
 
 @end

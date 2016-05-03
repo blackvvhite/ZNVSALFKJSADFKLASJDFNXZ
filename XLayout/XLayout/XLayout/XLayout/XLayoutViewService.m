@@ -88,7 +88,7 @@ NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID = @"XLAYOUT_COLLECTION_REUSA
             currentView = service.contentView;
             [service.viewMap enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
                 [self.viewMap setObject:obj forKey:key];
-                [obj viewService:self];
+                [obj privateSetViewService:self];
             }];
         }
     }else {
@@ -98,7 +98,7 @@ NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID = @"XLAYOUT_COLLECTION_REUSA
     id layoutId = [element valueForAttribute:@"layout_id"];
     
     if (layoutId) {
-        [currentView layout_id:layoutId];
+        [currentView privateSetLayout_id:layoutId];
         [self.viewMap setObject:currentView forKey:layoutId];
     }else {
         if (![element.tag isEqualToString:@"import"]) {
@@ -120,7 +120,7 @@ NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID = @"XLAYOUT_COLLECTION_REUSA
     }
     
     if (self.eventHandler) {
-        [currentView setEventHandler:self.eventHandler];
+        [currentView setPrivateEventHandler:self.eventHandler];
     }
     if (parentView) {
         [parentView addSubview:currentView];
@@ -128,9 +128,9 @@ NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID = @"XLAYOUT_COLLECTION_REUSA
         _contentView = currentView;
     }
     if (![[currentView layout] validity]) {
-        [currentView layout:layout];
+        [currentView privateSetLayout:layout];
     }
-    [currentView viewService:self];
+    [currentView privateSetViewService:self];
     [currentView setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     [element.attributes enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {

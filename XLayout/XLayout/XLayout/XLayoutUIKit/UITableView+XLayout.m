@@ -8,6 +8,8 @@
 
 #import "UITableView+XLayout.h"
 #import "ONOXMLDocument.h"
+#import "UIView+XLayoutPrivate.h"
+#import <objc/runtime.h>
 
 @implementation UITableView (XLayout)
 
@@ -23,9 +25,10 @@
     return view;
 }
 
-- (void)setEventHandler:(id)eventHandler {
-    self.dataSource = eventHandler;
-    self.delegate = eventHandler;
+- (void)setPrivateEventHandler:(id)privateEventHandler {
+    self.dataSource = privateEventHandler;
+    self.delegate = privateEventHandler;
+    objc_setAssociatedObject(self, @selector(privateEventHandler), privateEventHandler, OBJC_ASSOCIATION_ASSIGN);
 }
 
 @end

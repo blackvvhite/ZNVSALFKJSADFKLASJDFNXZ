@@ -25,10 +25,10 @@
     XLayoutViewService *service = [XLayoutViewService serviceFromXMLName:name eventHandler:self];
     if ([self isKindOfClass:[UICollectionViewCell class]]) {
         [((UICollectionViewCell *)self).contentView addSubview:service.contentView];
-        [((UICollectionViewCell *)self).contentView layout_id:XLAYOUT_COLLECTION_VIEW_CELL_ID];
+        [((UICollectionViewCell *)self).contentView privateSetLayout_id:XLAYOUT_COLLECTION_VIEW_CELL_ID];
     }else {
         [self addSubview:service.contentView];
-        [self layout_id:XLAYOUT_COLLECTION_REUSABLE_VIEW_ID];
+        [self privateSetLayout_id:XLAYOUT_COLLECTION_REUSABLE_VIEW_ID];
     }
     
     [self setViewService:service];

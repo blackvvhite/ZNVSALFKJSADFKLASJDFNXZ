@@ -24,7 +24,7 @@
 - (void)loadViewFromXMLName:(NSString *)name {
     XLayoutViewService *service = [XLayoutViewService serviceFromXMLName:name eventHandler:self];
     [self.contentView addSubview:service.contentView];
-    [self.contentView layout_id:XLAYOUT_TABLE_VIEW_CELL_ID];
+    [self.contentView privateSetLayout_id:XLAYOUT_TABLE_VIEW_CELL_ID];
     [self setViewService:service];
     [service activateLayout];
 }

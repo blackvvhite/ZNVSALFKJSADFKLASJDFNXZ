@@ -8,6 +8,7 @@
 
 #import "UICollectionView+XLayout.h"
 #import <objc/runtime.h>
+#import "UIView+XLayoutPrivate.h"
 
 @implementation UICollectionView (XLayout)
 
@@ -15,9 +16,10 @@
     return [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:[[UICollectionViewFlowLayout alloc] init]];
 }
 
-- (void)setEventHandler:(id)eventHandler {
-    self.dataSource = eventHandler;
-    self.delegate = eventHandler;
+- (void)setPrivateEventHandler:(id)privateEventHandler {
+    self.dataSource = privateEventHandler;
+    self.delegate = privateEventHandler;
+    objc_setAssociatedObject(self, @selector(privateEventHandler), privateEventHandler, OBJC_ASSOCIATION_ASSIGN);
 }
 
 - (void)setMinimumLineSpacing:(NSString *)minimumLineSpacing {
