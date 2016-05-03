@@ -9,7 +9,7 @@
                 </UIView>
             </UIView>
         </UIView>
-        <import name="red_view" layout_id="red_view" layout_below="@id:top_view:5" layout_right="@id:top_view:-5" layout_left="@id:top_view:5" layout_above="@id:contentView:-5">
+        <import name="red_view" layout_id="red_view" layout_below="@id:top_view:5" layout_right="@id:top_view:-5" layout_left="@id:top_view:5" layout_above="@id:contentView:-5" tap_event="tapEvent:">
         </import>
         <UIView layout_id="contentView" layout_below="@id:red_view:5" layout_left_right="{@id:top_view,@id:top_view}" layout_height="200" layout_bottom="-20" backgroundColor="@color:ff8942">
             <UIView layout_id="aspect_ratio_view" layout_center="0" layout_height="50" layout_aspect_ratio="@id:aspect_ratio_view:5*2" backgroundColor="@color:4169E1" />

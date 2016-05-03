@@ -37,6 +37,10 @@
 //    [self.viewService.viewById(@"collection_view") registerClass:[DemoCollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
 }
 
+- (void)tapEvent:(UIGestureRecognizer *)gesture {
+    
+}
+
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
