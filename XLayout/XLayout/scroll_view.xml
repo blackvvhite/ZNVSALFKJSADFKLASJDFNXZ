@@ -2,8 +2,8 @@
     <UIView layout_id="top_view" layout_edge="{5,5,-5,-5}" backgroundColor="@color:FFD39B">
         <UIView layout_edge="{10,10,-10,-10}" backgroundColor="@quote:commonColor">
             <UIView layout_edge="{30,30,-30,-30}" backgroundColor="@color:C1FFC1">
-                <UIView layout_top_leading="{10,10}" layout_bottom_trailing="{-10,-10}" backgroundColor="@color:EF2222">
-                    <UIView layout_leading_trailing="{10,-10}" layout_top_bottom="{10,-10}" backgroundColor="@color:B23AEE">
+                <UIView layout_top_left="{10,10}" layout_bottom_right="{-10,-10}" backgroundColor="@color:EF2222">
+                    <UIView layout_left_right="{10,-10}" layout_top_bottom="{10,-10}" backgroundColor="@color:B23AEE">
                         <UILabel layout_edge="{5,5,-5,-5}" layout_size="{200,600}" textAlignment="1" numberOfLines="0" text="UIScrollView在自动布局下的宽高是根据内容计算的，这点需要注意.">
                         </UILabel>
                     </UIView>

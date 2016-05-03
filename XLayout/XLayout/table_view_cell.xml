@@ -1,5 +1,5 @@
 <UIView layout_edge="{0,0,0,0}">
-	<UIImageView layout_id="image_view" image="@img:img" layout_top_leading="{5,5}" layout_size="{75,75}"/>
-	<UILabel layout_id="label" text="我是label" layout_centerY="@id:image_view" layout_in_trailing="@id:image_view:10" />
+	<UIImageView layout_id="image_view" image="@img:img" layout_top_left="{5,5}" layout_size="{75,75}"/>
+	<UILabel layout_id="label" text="我是label" layout_centerY="@id:image_view" layout_right_of="@id:image_view:10" />
 	<UIButton layout_centerY="@id:image_view" layout_right="-20" onClick="onClick" buttonType="UIButtonTypeContactAdd" nt_color="@color:000000" />
 </UIView>

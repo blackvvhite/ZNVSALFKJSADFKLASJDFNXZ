@@ -28,8 +28,8 @@
 
 @property (nonatomic, strong) XLayoutConstraintPrivate *layout_aboveConstraint;
 @property (nonatomic, strong) XLayoutConstraintPrivate *layout_belowConstraint;
-@property (nonatomic, strong) XLayoutConstraintPrivate *layout_inLeadingConstraint;
-@property (nonatomic, strong) XLayoutConstraintPrivate *layout_inTrailingConstraint;
+@property (nonatomic, strong) XLayoutConstraintPrivate *layout_leftOfConstraint;
+@property (nonatomic, strong) XLayoutConstraintPrivate *layout_rightOfConstraint;
 
 @property (nonatomic, strong) XLayoutConstraintPrivate *layout_baselineConstraint;
 
@@ -86,8 +86,8 @@
     
     [self.layout_aboveConstraint activate];
     [self.layout_belowConstraint activate];
-    [self.layout_inLeadingConstraint activate];
-    [self.layout_inTrailingConstraint activate];
+    [self.layout_leftOfConstraint activate];
+    [self.layout_rightOfConstraint activate];
     
     [self.layout_baselineConstraint activate];
     
@@ -109,8 +109,8 @@
     
     [self.layout_aboveConstraint deactivate];
     [self.layout_belowConstraint deactivate];
-    [self.layout_inLeadingConstraint deactivate];
-    [self.layout_inTrailingConstraint deactivate];
+    [self.layout_leftOfConstraint deactivate];
+    [self.layout_rightOfConstraint deactivate];
     
     [self.layout_baselineConstraint deactivate];
     
@@ -130,8 +130,8 @@
             self.layout_aspectRatioConstraint   ||
             self.layout_aboveConstraint         ||
             self.layout_belowConstraint         ||
-            self.layout_inLeadingConstraint     ||
-            self.layout_inTrailingConstraint    ||
+            self.layout_leftOfConstraint        ||
+            self.layout_rightOfConstraint       ||
             self.layout_baselineConstraint      ||
             self.layout_centerXConstraint       ||
             self.layout_centerYConstraint);
@@ -142,23 +142,23 @@
 - (void)setDeleteEexistingWhenUpdating:(BOOL)deleteEexistingWhenUpdating {
     _deleteEexistingWhenUpdating = deleteEexistingWhenUpdating;
     
-    self.layout_topConstraint.deleteEexistingWhenUpdating = deleteEexistingWhenUpdating;
-    self.layout_bottomConstraint.deleteEexistingWhenUpdating = deleteEexistingWhenUpdating;
-    self.layout_leftConstraint.deleteEexistingWhenUpdating = deleteEexistingWhenUpdating;
-    self.layout_rightConstraint.deleteEexistingWhenUpdating = deleteEexistingWhenUpdating;
+    self.layout_topConstraint.deleteEexistingWhenUpdating       = deleteEexistingWhenUpdating;
+    self.layout_bottomConstraint.deleteEexistingWhenUpdating    = deleteEexistingWhenUpdating;
+    self.layout_leftConstraint.deleteEexistingWhenUpdating      = deleteEexistingWhenUpdating;
+    self.layout_rightConstraint.deleteEexistingWhenUpdating     = deleteEexistingWhenUpdating;
     
-    self.layout_widthConstraint.deleteEexistingWhenUpdating = deleteEexistingWhenUpdating;
-    self.layout_heightConstraint.deleteEexistingWhenUpdating = deleteEexistingWhenUpdating;
+    self.layout_widthConstraint.deleteEexistingWhenUpdating     = deleteEexistingWhenUpdating;
+    self.layout_heightConstraint.deleteEexistingWhenUpdating    = deleteEexistingWhenUpdating;
     
-    self.layout_aboveConstraint.deleteEexistingWhenUpdating = deleteEexistingWhenUpdating;
-    self.layout_belowConstraint.deleteEexistingWhenUpdating = deleteEexistingWhenUpdating;
-    self.layout_inLeadingConstraint.deleteEexistingWhenUpdating = deleteEexistingWhenUpdating;
-    self.layout_inTrailingConstraint.deleteEexistingWhenUpdating = deleteEexistingWhenUpdating;
+    self.layout_aboveConstraint.deleteEexistingWhenUpdating     = deleteEexistingWhenUpdating;
+    self.layout_belowConstraint.deleteEexistingWhenUpdating     = deleteEexistingWhenUpdating;
+    self.layout_leftOfConstraint.deleteEexistingWhenUpdating    = deleteEexistingWhenUpdating;
+    self.layout_leftOfConstraint.deleteEexistingWhenUpdating    = deleteEexistingWhenUpdating;
     
-    self.layout_baselineConstraint.deleteEexistingWhenUpdating = deleteEexistingWhenUpdating;
+    self.layout_baselineConstraint.deleteEexistingWhenUpdating  = deleteEexistingWhenUpdating;
     
-    self.layout_centerXConstraint.deleteEexistingWhenUpdating = deleteEexistingWhenUpdating;
-    self.layout_centerYConstraint.deleteEexistingWhenUpdating = deleteEexistingWhenUpdating;
+    self.layout_centerXConstraint.deleteEexistingWhenUpdating   = deleteEexistingWhenUpdating;
+    self.layout_centerYConstraint.deleteEexistingWhenUpdating   = deleteEexistingWhenUpdating;
 }
 
 - (void)setLayout_top:(NSString *)layout_top {
@@ -240,18 +240,18 @@
     _layout_trailing = layout_trailing;
 }
 
-- (void)setLayout_top_leading:(NSString *)layout_top_leading {
-    NSArray *attribute = [self parserParameterWithLayoutAttribute:layout_top_leading];
+- (void)setLayout_top_left:(NSString *)layout_top_left {
+    NSArray *attribute = [self parserParameterWithLayoutAttribute:layout_top_left];
     [self setLayout_top:[attribute firstObject]];
     [self setLayout_left:[attribute lastObject]];
-    _layout_top_leading = layout_top_leading;
+    _layout_top_left = layout_top_left;
 }
 
-- (void)setLayout_bottom_trailing:(NSString *)layout_bottom_trailing {
-    NSArray *attribute = [self parserParameterWithLayoutAttribute:layout_bottom_trailing];
+- (void)setLayout_bottom_right:(NSString *)layout_bottom_right {
+    NSArray *attribute = [self parserParameterWithLayoutAttribute:layout_bottom_right];
     [self setLayout_bottom:[attribute firstObject]];
     [self setLayout_right:[attribute lastObject]];
-    _layout_bottom_trailing = layout_bottom_trailing;
+    _layout_bottom_right = layout_bottom_right;
 }
 
 - (void)setLayout_top_bottom:(NSString *)layout_top_bottom {
@@ -261,11 +261,11 @@
     _layout_top_bottom = layout_top_bottom;
 }
 
-- (void)setLayout_leading_trailing:(NSString *)layout_leading_trailing {
-    NSArray *attribute = [self parserParameterWithLayoutAttribute:layout_leading_trailing];
+- (void)setLayout_left_right:(NSString *)layout_left_right {
+    NSArray *attribute = [self parserParameterWithLayoutAttribute:layout_left_right];
     [self setLayout_left:[attribute firstObject]];
     [self setLayout_right:[attribute lastObject]];
-    _layout_leading_trailing = layout_leading_trailing;
+    _layout_left_right = layout_left_right;
 }
 
 - (void)setLayout_width:(NSString *)layout_width {
@@ -340,30 +340,30 @@
     _layout_below = layout_below;
 }
 
-- (void)setLayout_in_leading:(NSString *)layout_in_leading {
-    if (!self.layout_inLeadingConstraint) {
-        XLayoutConstraintPrivate *constraint = [XLayoutConstraintPrivate constraintWithView:self.view layoutAttributes:layout_in_leading];
-        constraint.firstAttribute = NSLayoutAttributeTrailing;
-        constraint.secondAttribute = NSLayoutAttributeLeading;
-        constraint.layoutPosition = @"layout_in_leading";
-        self.layout_inLeadingConstraint = constraint;
+- (void)setLayout_left_of:(NSString *)layout_left_of {
+    if (!self.layout_leftOfConstraint) {
+        XLayoutConstraintPrivate *constraint = [XLayoutConstraintPrivate constraintWithView:self.view layoutAttributes:layout_left_of];
+        constraint.firstAttribute = NSLayoutAttributeRight;
+        constraint.secondAttribute = NSLayoutAttributeLeft;
+        constraint.layoutPosition = @"layout_left_of";
+        self.layout_leftOfConstraint = constraint;
     }else {
-        [self.layout_inLeadingConstraint updateConstraintWithLayoutAttributes:layout_in_leading];
+        [self.layout_leftOfConstraint updateConstraintWithLayoutAttributes:layout_left_of];
     }
-    _layout_in_leading = layout_in_leading;
+    _layout_left_of = layout_left_of;
 }
 
-- (void)setLayout_in_trailing:(NSString *)layout_in_trailing {
-    if (!self.layout_inTrailingConstraint) {
-        XLayoutConstraintPrivate *constraint = [XLayoutConstraintPrivate constraintWithView:self.view layoutAttributes:layout_in_trailing];
-        constraint.firstAttribute = NSLayoutAttributeLeading;
-        constraint.secondAttribute = NSLayoutAttributeTrailing;
-        constraint.layoutPosition = @"layout_in_trailing";
-        self.layout_inTrailingConstraint = constraint;
+- (void)setLayout_right_of:(NSString *)layout_right_of {
+    if (!self.layout_rightOfConstraint) {
+        XLayoutConstraintPrivate *constraint = [XLayoutConstraintPrivate constraintWithView:self.view layoutAttributes:layout_right_of];
+        constraint.firstAttribute = NSLayoutAttributeLeft;
+        constraint.secondAttribute = NSLayoutAttributeRight;
+        constraint.layoutPosition = @"layout_right_of";
+        self.layout_rightOfConstraint = constraint;
     }else {
-        [self.layout_inTrailingConstraint updateConstraintWithLayoutAttributes:layout_in_trailing];
+        [self.layout_rightOfConstraint updateConstraintWithLayoutAttributes:layout_right_of];
     }
-    _layout_in_trailing = layout_in_trailing;
+    _layout_right_of = layout_right_of;
 }
 
 - (void)setLayout_baseline:(NSString *)layout_baseline {

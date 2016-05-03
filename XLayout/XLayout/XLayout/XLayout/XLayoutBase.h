@@ -22,10 +22,10 @@
 @property (nonatomic, copy) NSString *layout_right;
 @property (nonatomic, copy) NSString *layout_leading;
 @property (nonatomic, copy) NSString *layout_trailing;
-@property (nonatomic, copy) NSString *layout_top_leading;
-@property (nonatomic, copy) NSString *layout_bottom_trailing;
+@property (nonatomic, copy) NSString *layout_top_left;
+@property (nonatomic, copy) NSString *layout_bottom_right;
 @property (nonatomic, copy) NSString *layout_top_bottom;
-@property (nonatomic, copy) NSString *layout_leading_trailing;
+@property (nonatomic, copy) NSString *layout_left_right;
 
 @property (nonatomic, copy) NSString *layout_width;
 @property (nonatomic, copy) NSString *layout_height;
@@ -34,8 +34,8 @@
 
 @property (nonatomic, copy) NSString *layout_above;
 @property (nonatomic, copy) NSString *layout_below;
-@property (nonatomic, copy) NSString *layout_in_leading;
-@property (nonatomic, copy) NSString *layout_in_trailing;
+@property (nonatomic, copy) NSString *layout_left_of;
+@property (nonatomic, copy) NSString *layout_right_of;
 
 @property (nonatomic, copy) NSString *layout_baseline;
 
