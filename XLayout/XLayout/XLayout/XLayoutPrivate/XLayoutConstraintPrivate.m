@@ -158,8 +158,7 @@
 }
 
 - (void)activate {
-    [self updateConstraintWithLayoutAttributes:self.layoutAttribute];
-    [self updateOrNew];
+    [self updateConstraintWithLayoutAttributes:self.layoutAttribute immediately:YES];
 }
 
 - (void)deactivate {
