@@ -11,8 +11,6 @@
 
 @implementation UIView (XLayout)
 
-
-
 @end
 
 

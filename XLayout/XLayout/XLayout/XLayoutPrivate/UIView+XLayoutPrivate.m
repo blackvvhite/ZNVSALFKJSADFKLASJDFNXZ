@@ -8,7 +8,6 @@
 
 #import "UIView+XLayoutPrivate.h"
 #import <objc/runtime.h>
-#import "UIView+XLayout.h"
 
 @implementation UIView (XLayoutPrivate)
 
@@ -17,15 +16,15 @@
 }
 
 - (void)layout_id:(NSString *)layout_id {
-    objc_setAssociatedObject(self, @selector(layout_id), layout_id, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, NSSelectorFromString(@"layout_id"), layout_id, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (void)layout:(id)layout {
-    objc_setAssociatedObject(self, @selector(layout), layout, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, NSSelectorFromString(@"layout"), layout, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (void)viewService:(XLayoutViewService *)viewService {
-    objc_setAssociatedObject(self, @selector(viewService), viewService, OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, NSSelectorFromString(@"viewService"), viewService, OBJC_ASSOCIATION_ASSIGN);
 }
 
 - (void)setEventHandler:(id)eventHandler {

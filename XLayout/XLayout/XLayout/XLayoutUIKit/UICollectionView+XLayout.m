@@ -7,7 +7,6 @@
 //
 
 #import "UICollectionView+XLayout.h"
-#import "UIView+XLayout.h"
 #import <objc/runtime.h>
 
 @implementation UICollectionView (XLayout)

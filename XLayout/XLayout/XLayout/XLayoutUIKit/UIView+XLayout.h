@@ -10,6 +10,4 @@
 
 @interface UIView (XLayout)
 
-
-
 @end

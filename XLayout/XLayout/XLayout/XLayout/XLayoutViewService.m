@@ -19,7 +19,7 @@ NSString *const XLAYOUT_TABLE_VIEW_CELL_ID = @"XLAYOUT_TABLE_VIEW_CELL_ID";
 NSString *const XLAYOUT_COLLECTION_VIEW_CELL_ID = @"XLAYOUT_COLLECTION_VIEW_CELL_ID";
 NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID = @"XLAYOUT_COLLECTION_REUSABLE_VIEW_ID";
 
-@implementation UIView (XLayoutReadOnly)
+@implementation UIView (XLayoutBase)
 
 - (NSString *)layout_id {
     return objc_getAssociatedObject(self, _cmd);
@@ -39,7 +39,7 @@ NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID = @"XLAYOUT_COLLECTION_REUSA
 
 @property (nonatomic, strong) NSURL *XMLURL;
 @property (nonatomic, readwrite, strong) UIView *contentView;
-@property (nonatomic, strong) NSMutableDictionary *privateViewMap;
+@property (nonatomic, strong) NSMutableDictionary *viewMap;
 @property (nonatomic, readwrite, strong) id eventHandler;
 
 @end
@@ -86,8 +86,8 @@ NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID = @"XLAYOUT_COLLECTION_REUSA
         if (import) {
             XLayoutViewService *service = [XLayoutViewService serviceFromXMLName:import eventHandler:self.eventHandler];
             currentView = service.contentView;
-            [[service viewMap] enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-                [self.privateViewMap setObject:obj forKey:key];
+            [service.viewMap enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+                [self.viewMap setObject:obj forKey:key];
                 [obj viewService:self];
             }];
         }
@@ -99,10 +99,10 @@ NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID = @"XLAYOUT_COLLECTION_REUSA
     
     if (layoutId) {
         [currentView layout_id:layoutId];
-        [self.privateViewMap setObject:currentView forKey:layoutId];
+        [self.viewMap setObject:currentView forKey:layoutId];
     }else {
         if (![element.tag isEqualToString:@"import"]) {
-            [self.privateViewMap setObject:currentView forKey:element];
+            [self.viewMap setObject:currentView forKey:element];
         }
     }
     
@@ -304,16 +304,12 @@ NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID = @"XLAYOUT_COLLECTION_REUSA
 }
 
 - (void)activateLayout {
-    [self.privateViewMap enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+    [self.viewMap enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         [[obj layout] activate];
     }];
 }
 
 #pragma mark - Public
-
-- (NSDictionary *)viewMap {
-    return [NSDictionary dictionaryWithDictionary:self.privateViewMap];
-}
 
 - (id(^)(NSString *layoutId))viewById {
     return ^(NSString *layoutId){
@@ -330,11 +326,11 @@ NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID = @"XLAYOUT_COLLECTION_REUSA
     return _contentView;
 }
 
-- (NSMutableDictionary *)privateViewMap {
-    if (!_privateViewMap) {
-        _privateViewMap = [[NSMutableDictionary alloc] init];
+- (NSMutableDictionary *)viewMap {
+    if (!_viewMap) {
+        _viewMap = [[NSMutableDictionary alloc] init];
     }
-    return _privateViewMap;
+    return _viewMap;
 }
 
 

@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIGeometry.h>
 
 @class UIView;
 @interface XLayoutBase : NSObject

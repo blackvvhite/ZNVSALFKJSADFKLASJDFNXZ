@@ -14,10 +14,9 @@ extern NSString *const XLAYOUT_TABLE_VIEW_CELL_ID;
 extern NSString *const XLAYOUT_COLLECTION_VIEW_CELL_ID;
 extern NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID;
 
-
 @class XLayoutBase;
 @class XLayoutViewService;
-@interface UIView (XLayoutReadonly)
+@interface UIView (XLayoutBase)
 
 @property (nonatomic, copy, readonly) NSString *layout_id;
 @property (nonatomic, strong, readonly) XLayoutBase *layout;
@@ -33,8 +32,6 @@ extern NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID;
 + (instancetype)serviceFromXMLName:(NSString *)name eventHandler:(id)eventHandler;
 
 - (void)activateLayout;
-- (NSDictionary *)viewMap;
 - (id(^)(NSString *layoutId))viewById;
 
 @end
-
