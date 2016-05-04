@@ -127,8 +127,8 @@
     }
     
     if (priorityRange.location != NSNotFound  && priorityRange.length != 0) {
-        multiplierRange.location += 1;
-        NSString *priorityString = [attributes substringFromIndex:multiplierRange.location];
+        priorityRange.location += 1;
+        NSString *priorityString = [attributes substringFromIndex:priorityRange.location];
         
         priority = [priorityString doubleValue];
     }
