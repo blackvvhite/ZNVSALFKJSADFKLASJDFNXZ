@@ -35,6 +35,9 @@
         self.secondAttribute = self.firstAttribute;
     }else if (self.secondAttribute != NSLayoutAttributeNotAnAttribute && !self.secondView) {
         self.secondView = self.firstView.superview;
+    }else if (self.secondAttribute == NSLayoutAttributeNotAnAttribute && !self.secondView && self.multiplier != 1.0) {
+        self.secondAttribute = self.firstAttribute;
+        self.secondView = self.firstView.superview;
     }
     
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"firstItem == %@ and firstAttribute == %d and relation == %d and secondItem == %@ and secondAttribute == %d and multiplier == %f",self.firstView,self.firstAttribute,self.relation,self.secondView,self.secondAttribute,self.multiplier];

@@ -1,6 +1,6 @@
 <UIView layout_edge="{5,5,-5,-5}" backgroundColor="@color:FFD39B">
     <UIView layout_edge="{5,5,-5,-5}" layout>
-        <UIView layout_id="top_view"  layout_top_left="{10,10}" layout_right="-5" layout_height="100" backgroundColor="@color:4169E1">
+        <UIView layout_id="top_view"  layout_top_left="{10,10}" layout_right="-5" layout_height="*0.5" backgroundColor="@color:4169E1">
             <UIView layout_edge="{30,30,-30,-30}" backgroundColor="@color:C1FFC1">
                 <UIView layout_top_left="{10,10}" layout_bottom_right="{-10,-10}" backgroundColor="@color:EF2222">
                     <UIView layout_left_right="{10,-10}" layout_top_bottom="{10,-10}" backgroundColor="@color:B23AEE">
