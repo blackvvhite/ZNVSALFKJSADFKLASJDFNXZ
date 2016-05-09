@@ -15,7 +15,6 @@
 		840ED8A61CD4E8C40054FA29 /* collection_view_cell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 840ED8A51CD4E8C40054FA29 /* collection_view_cell.xml */; };
 		840ED8AB1CD515E50054FA29 /* scroll_view.xml in Resources */ = {isa = PBXBuildFile; fileRef = 840ED8AA1CD515E50054FA29 /* scroll_view.xml */; };
 		84638E971CD5FC77002ECC74 /* NSLayoutConstraint+XLayoutPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84638E811CD5FC77002ECC74 /* NSLayoutConstraint+XLayoutPrivate.m */; };
-		84638E981CD5FC77002ECC74 /* UIColor+XLayoutPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84638E831CD5FC77002ECC74 /* UIColor+XLayoutPrivate.m */; };
 		84638E991CD5FC77002ECC74 /* XLayoutConstraintPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84638E851CD5FC77002ECC74 /* XLayoutConstraintPrivate.m */; };
 		84638E9A1CD5FC77002ECC74 /* UIButton+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84638E881CD5FC77002ECC74 /* UIButton+XLayout.m */; };
 		84638E9B1CD5FC77002ECC74 /* UICollectionReusableView+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84638E8A1CD5FC77002ECC74 /* UICollectionReusableView+XLayout.m */; };
@@ -36,6 +35,7 @@
 		931BA71D1CD1F920006290B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 931BA71B1CD1F920006290B1 /* LaunchScreen.storyboard */; };
 		931BA73F1CD1F947006290B1 /* XLayoutBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 931BA7341CD1F947006290B1 /* XLayoutBase.m */; };
 		931BA7411CD1F947006290B1 /* XLayoutViewService.m in Sources */ = {isa = PBXBuildFile; fileRef = 931BA7381CD1F947006290B1 /* XLayoutViewService.m */; };
+		93F1179D1CE04C91005D18B4 /* UIColor+XLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F1179C1CE04C91005D18B4 /* UIColor+XLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,8 +50,6 @@
 		840ED8AA1CD515E50054FA29 /* scroll_view.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = scroll_view.xml; sourceTree = "<group>"; };
 		84638E801CD5FC77002ECC74 /* NSLayoutConstraint+XLayoutPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+XLayoutPrivate.h"; sourceTree = "<group>"; };
 		84638E811CD5FC77002ECC74 /* NSLayoutConstraint+XLayoutPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+XLayoutPrivate.m"; sourceTree = "<group>"; };
-		84638E821CD5FC77002ECC74 /* UIColor+XLayoutPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XLayoutPrivate.h"; sourceTree = "<group>"; };
-		84638E831CD5FC77002ECC74 /* UIColor+XLayoutPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XLayoutPrivate.m"; sourceTree = "<group>"; };
 		84638E841CD5FC77002ECC74 /* XLayoutConstraintPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLayoutConstraintPrivate.h; sourceTree = "<group>"; };
 		84638E851CD5FC77002ECC74 /* XLayoutConstraintPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLayoutConstraintPrivate.m; sourceTree = "<group>"; };
 		84638E871CD5FC77002ECC74 /* UIButton+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+XLayout.h"; sourceTree = "<group>"; };
@@ -89,6 +87,8 @@
 		931BA7371CD1F947006290B1 /* XLayoutViewService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLayoutViewService.h; sourceTree = "<group>"; };
 		931BA7381CD1F947006290B1 /* XLayoutViewService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLayoutViewService.m; sourceTree = "<group>"; };
 		931BA7391CD1F947006290B1 /* XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = XLayout.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		93F1179B1CE04C91005D18B4 /* UIColor+XLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XLayout.h"; sourceTree = "<group>"; };
+		93F1179C1CE04C91005D18B4 /* UIColor+XLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				84638EDC1CD603B3002ECC74 /* dependency */,
-				84638E821CD5FC77002ECC74 /* UIColor+XLayoutPrivate.h */,
-				84638E831CD5FC77002ECC74 /* UIColor+XLayoutPrivate.m */,
 				84638EA21CD5FC93002ECC74 /* UIView+XLayoutPrivate.h */,
 				84638EA31CD5FC93002ECC74 /* UIView+XLayoutPrivate.m */,
 				84638E841CD5FC77002ECC74 /* XLayoutConstraintPrivate.h */,
@@ -121,6 +119,8 @@
 		84638E861CD5FC77002ECC74 /* XLayoutUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				93F1179B1CE04C91005D18B4 /* UIColor+XLayout.h */,
+				93F1179C1CE04C91005D18B4 /* UIColor+XLayout.m */,
 				84638E911CD5FC77002ECC74 /* UIView+XLayout.h */,
 				84638E921CD5FC77002ECC74 /* UIView+XLayout.m */,
 				84638E871CD5FC77002ECC74 /* UIButton+XLayout.h */,
@@ -300,9 +300,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				84638E9A1CD5FC77002ECC74 /* UIButton+XLayout.m in Sources */,
+				93F1179D1CE04C91005D18B4 /* UIColor+XLayout.m in Sources */,
 				84638E9F1CD5FC77002ECC74 /* UIView+XLayout.m in Sources */,
 				84638E9C1CD5FC77002ECC74 /* UICollectionView+XLayout.m in Sources */,
-				84638E981CD5FC77002ECC74 /* UIColor+XLayoutPrivate.m in Sources */,
 				84638E991CD5FC77002ECC74 /* XLayoutConstraintPrivate.m in Sources */,
 				931BA7151CD1F920006290B1 /* ViewController.m in Sources */,
 				931BA7121CD1F920006290B1 /* AppDelegate.m in Sources */,
