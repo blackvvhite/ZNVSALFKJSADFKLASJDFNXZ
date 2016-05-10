@@ -320,7 +320,9 @@ NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID = @"XLAYOUT_COLLECTION_REUSA
 
 - (id(^)(NSString *layoutId))getViewById {
     return ^(NSString *layoutId){
-        return [self.viewMap objectForKey:layoutId];
+        id view = [self.viewMap objectForKey:layoutId];
+        NSAssert1(view, @"Failed to get view by id (%@)",layoutId);
+        return view;
     };
 }
 
