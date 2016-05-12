@@ -38,7 +38,7 @@ extern NSString *const XLAYOUT_COLLECTION_REUSABLE_VIEW_ID;
 @property (nonatomic, readonly, strong) id eventHandler;
 
 /** 指定初始化方法,一个XML名称,一个事件处理者,如果你在XML里边指定了UIButton的onClick类似方法,
-    刚你必须指定一个事件处理者,否则收不到回调,如果你是以UIViewController提供的初始化方法创建的视图,
+    则你必须指定一个事件处理者,否则收不到回调,如果你是以UIViewController提供的初始化方法创建的视图,
     你可以不用设置这个对象,默认为你的UIViewController,如果你是集合类的视图,例如:UITableViewCell,
     如果是以指定初始化方法(XLAYOUT_TABLE_VIEW_CELL_FROM_XML_NAME)创建的,默认为Cell本身. */
 + (instancetype)serviceFromXMLName:(NSString *)name eventHandler:(id)eventHandler;

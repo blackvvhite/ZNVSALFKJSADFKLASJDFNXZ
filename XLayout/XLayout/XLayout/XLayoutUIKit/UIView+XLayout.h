@@ -10,7 +10,7 @@
 
 @interface UIView (XLayout)
 
-/** 参数格式{cornerRadius,borderColor,borderWidth},后两项为空时省略,号,在列表对性能有要
+/** 参数格式{cornerRadius,borderWidth,borderColor},后两项为空时省略,号,在列表对性能有要
     求时建议不要使用这个属性设置圆角及边框 */
 @property (nonatomic, copy) NSString *corner_border;
 
